@@ -113,22 +113,22 @@
                 </form>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons';activeTable=weapons;" class="nav-link active" data-toggle="tab">Weapons</a>
+                        <a ng-click="activeTable=weapons;" class="nav-link active" data-toggle="tab">Weapons</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons';activeTable=armor;" class="nav-link" data-toggle="tab">Armor</a>
+                        <a ng-click="activeTable=armor;" class="nav-link" data-toggle="tab">Armor</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons';activeTable=shields;" class="nav-link" data-toggle="tab">Shields</a>
+                        <a ng-click="activeTable=shields;" class="nav-link" data-toggle="tab">Shields</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons';activeTable=goods;" class="nav-link" data-toggle="tab">Goods</a>
+                        <a ng-click="activeTable=goods;" class="nav-link" data-toggle="tab">Goods</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons';activeTable=magicItems;" class="nav-link" data-toggle="tab">Magic Items</a>
+                        <a ng-click="activeTable=magicItems;" class="nav-link" data-toggle="tab">Magic Items</a>
                     </li>
                 </ul>
-                <table ng-init="shopToShow='weapons';activeTable=weapons;" ng-show="shopToShow=='weapons'" class="table table-striped header-fixed table-bordered table-hover">
+                <table ng-init="activeTable=weapons;" class="table table-striped header-fixed table-bordered table-hover">
                     <thead style="display:table; width:100%; table-layout:fixed;">
                         <tr>
                             <td ng-click="sortType= 'name';sortReverse = !sortReverse;">Name
@@ -145,74 +145,6 @@
                     </thead>
                     <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
                         <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) | orderBy:sortType:sortReverse | filter:searchTerm">
-                            <td>{{item.name}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.weight}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table ng-show="shopToShow=='armor' " class="table table-striped header-fixed table-bordered table-hover ">
-                    <thead style="display:table; width:100%; table-layout:fixed; ">
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Weight</td>
-                        </tr>
-                    </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in armor ">
-                            <td>{{item.name}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.weight}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table ng-show="shopToShow=='shields' " class="table table-striped header-fixed table-bordered table-hover ">
-                    <thead style="display:table; width:100%; table-layout:fixed; ">
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Weight</td>
-                        </tr>
-                    </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in shields ">
-                            <td>{{item.name}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.weight}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table ng-show="shopToShow=='magicItems' " class="table table-striped header-fixed table-bordered table-hover ">
-                    <thead style="display:table; width:100%; table-layout:fixed; ">
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Weight</td>
-                        </tr>
-                    </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in magicItems ">
-                            <td>{{item.name}}</td>
-                            <td>{{item.price}}</td>
-                            <td>{{item.weight}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <table ng-show="shopToShow=='goods' " class="table table-striped header-fixed table-bordered table-hover ">
-                    <thead style="display:table; width:100%; table-layout:fixed; ">
-                        <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Weight</td>
-                        </tr>
-                    </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in goods ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
