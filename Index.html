@@ -3,44 +3,45 @@
 
 
     <head>
-        <!-- Angular -->
-        <script src="assets/angular.min.js"></script>
-        <script src="app.js"></script>
-        
-        <!-- Specific -->
-        <script type="text/javascript" src="character.js"></script>
-        
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!-- Making the app responsive especially to mobile devices -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Pathfinder Character Builder</title>
-        
-    </head>
-    
-    <body>
-        <h1>Pathfinder Character Builder Alpha v 0.1</h1>   
-        <ul class="nav nav-tabs">
-            <li><input type="button" ng-click="characterBaseShow = !characterBaseShow" value="Basics"></li>
-            <li><input type="button" ng-click="abilityScoresShow = !abilityScoresShow" value="Abilityscores"></li>
-            <li><input type="button" ng-click="characterRaceShow = !characterRaceShow" value="Race"></li>
-            <li><input type="button" ng-click="classesShow = !classesShow" value="Classes"></li>
-            <li><input type="button" ng-click="skillChecksShow = !skillChecksShow" value="Skillchecks"></li>
-            <li><input type="button" ng-click="itemStoreShow = !itemStoreShow" value="Item Store"></li>
-            <li><input type="button" ng-disabled="true" ng-click="spellsShow = !spellsShow" value="Spells"></li>
-        </ul>
-        
-        <div ng-show="characterBaseShow" ng-cont    roller="characterBase" ng-include="'pages/basics.html'"></div>
-        <div ng-show="abilityScoresShow" ng-controller="abilityScores" ng-include="'pages/abilityScores.html'"></div>
-        <div ng-show="characterRaceShow" ng-controller="characterRace" ng-include="'pages/race.html'"></div>
-        <div ng-show="classesShow" ng-controller="classController" ng-include="'pages/classes.html'"></div>
-        <div ng-show="skillChecksShow" ng-controller="characterSkillchecks" ng-include="'pages/skillchecks.html'"></div>
-        <div ng-show="!itemStoreShow" ng-controller="itemStoreController" ng-include="'pages/itemstore.html'"></div>
-        <div ng-show="spellsShow" ng-controller="spellController" ng-include="'pages/spells.html'"></div>
-    </body>
-    
-    <!-- Bootstrap dependencys -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Angular -->
+    <script src="assets/angular.min.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Specific -->
+    <script type="text/javascript" src="character.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <!-- Making the app responsive especially to mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pathfinder Character Builder</title>
+
+</head>
+
+<body>
+    <h1>Pathfinder Character Builder Alpha v 0.1</h1>
+    <ul class="nav nav-tabs">
+        <li><input type="button" ng-click="characterBaseShow = !characterBaseShow" value="Basics"></li>
+        <li><input type="button" ng-click="abilityScoresShow = !abilityScoresShow" value="Abilityscores"></li>
+        <li><input type="button" ng-click="characterRaceShow = !characterRaceShow" value="Race"></li>
+        <li><input type="button" ng-click="classesShow = !classesShow" value="Classes"></li>
+        <li><input type="button" ng-click="skillChecksShow = !skillChecksShow" value="Skillchecks"></li>
+        <li><input type="button" ng-click="itemStoreShow = !itemStoreShow" value="Item Store"></li>
+        <li><input type="button" ng-disabled="true" ng-click="spellsShow = !spellsShow" value="Spells"></li>
+    </ul>
+
+    <div ng-show="characterBaseShow" ng-cont roller="characterBase" ng-include="'pages/basics.html'"></div>
+    <div ng-show="abilityScoresShow" ng-controller="abilityScores" ng-include="'pages/abilityScores.html'"></div>
+    <div ng-show="characterRaceShow" ng-controller="characterRace" ng-include="'pages/race.html'"></div>
+    <div ng-show="classesShow" ng-controller="classController" ng-include="'pages/classes.html'"></div>
+    <div ng-show="skillChecksShow" ng-controller="characterSkillchecks" ng-include="'pages/skillchecks.html'"></div>
+    <div ng-show="!itemStoreShow" ng-controller="itemStoreController" ng-include="'pages/itemstore.html'"></div>
+    <div ng-show="spellsShow" ng-controller="spellController" ng-include="'pages/spells.html'"></div>
+</body>
+
+<!-- Bootstrap dependencys -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>

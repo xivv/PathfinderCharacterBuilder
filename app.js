@@ -452,10 +452,25 @@ app.controller("itemStoreController", function ($scope, Character, AbilityScores
     $scope.mediumLoad = 0;
     $scope.heavyLoad = 0;
     $scope.selectedItem;
+
+    $scope.sortReverse = false;
+    $scope.searchTerm = "";
+    $scope.sortType = "name";
+
     $scope.purchaseMode = {
         "value": "creation"
     };
 
+
+
+    $scope.getObjectAsArray = function (object) {
+
+        var array = Object.keys(object).map(function (key) {
+            return object[key];
+        });
+
+        return array;
+    };
 
     $scope.selectItem = function (item) {
 

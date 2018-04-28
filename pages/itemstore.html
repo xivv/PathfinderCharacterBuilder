@@ -104,33 +104,47 @@
             </div>
             <div class="table-responsive row-sm-10">
                 <h1>Store</h1>
+                <form>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search..." ng-model="searchTerm">
+                        </div>
+                    </div>
+                </form>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'weapons'" class="nav-link active" data-toggle="tab">Weapons</a>
+                        <a ng-click="shopToShow = 'weapons';activeTable=weapons;" class="nav-link active" data-toggle="tab">Weapons</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'armor'" class="nav-link" data-toggle="tab">Armor</a>
+                        <a ng-click="shopToShow = 'weapons';activeTable=armor;" class="nav-link" data-toggle="tab">Armor</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'shields'" class="nav-link" data-toggle="tab">Shields</a>
+                        <a ng-click="shopToShow = 'weapons';activeTable=shields;" class="nav-link" data-toggle="tab">Shields</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'goods'" class="nav-link" data-toggle="tab">Goods</a>
+                        <a ng-click="shopToShow = 'weapons';activeTable=goods;" class="nav-link" data-toggle="tab">Goods</a>
                     </li>
                     <li class="nav-item">
-                        <a ng-click="shopToShow = 'magicItems'" class="nav-link" data-toggle="tab">Magic Items</a>
+                        <a ng-click="shopToShow = 'weapons';activeTable=magicItems;" class="nav-link" data-toggle="tab">Magic Items</a>
                     </li>
                 </ul>
-                <table ng-init="shopToShow='weapons'" ng-show="shopToShow=='weapons'" class="table table-striped header-fixed table-bordered table-hover">
+                <table ng-init="shopToShow='weapons';activeTable=weapons;" ng-show="shopToShow=='weapons'" class="table table-striped header-fixed table-bordered table-hover">
                     <thead style="display:table; width:100%; table-layout:fixed;">
                         <tr>
-                            <td>Name</td>
-                            <td>Price</td>
-                            <td>Weight</td>
+                            <td ng-click="sortType= 'name';sortReverse = !sortReverse;">Name
+                                <span ng-show=" sortType=='name' && !sortReverse" class="fa fa-caret-up "></span>
+                                <span ng-show=" sortType=='name' && sortReverse" class="fa fa-caret-down "></span></td>
+                            <td ng-click="sortType='price';sortReverse = !sortReverse; ">Price
+                                <span ng-show=" sortType=='price' && !sortReverse" class="fa fa-caret-up "></span>
+                                <span ng-show=" sortType=='price' && sortReverse" class="fa fa-caret-down "></span>
+                            </td>
+                            <td ng-click="sortType='weight';sortReverse = !sortReverse; ">Weight
+                                <span ng-show=" sortType=='weight' && !sortReverse" class="fa fa-caret-up "></span>
+                                <span ng-show=" sortType=='weight' && sortReverse" class="fa fa-caret-down "></span></td>
                         </tr>
                     </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
-                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in weapons">
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) | orderBy:sortType:sortReverse | filter:searchTerm">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
@@ -138,16 +152,16 @@
                     </tbody>
                 </table>
 
-                <table ng-show="shopToShow=='armor'" class="table table-striped header-fixed table-bordered table-hover">
-                    <thead style="display:table; width:100%; table-layout:fixed;">
+                <table ng-show="shopToShow=='armor' " class="table table-striped header-fixed table-bordered table-hover ">
+                    <thead style="display:table; width:100%; table-layout:fixed; ">
                         <tr>
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
                         </tr>
                     </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
-                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in armor">
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in armor ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
@@ -155,16 +169,16 @@
                     </tbody>
                 </table>
 
-                <table ng-show="shopToShow=='shields'" class="table table-striped header-fixed table-bordered table-hover">
-                    <thead style="display:table; width:100%; table-layout:fixed;">
+                <table ng-show="shopToShow=='shields' " class="table table-striped header-fixed table-bordered table-hover ">
+                    <thead style="display:table; width:100%; table-layout:fixed; ">
                         <tr>
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
                         </tr>
                     </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
-                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in shields">
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in shields ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
@@ -172,16 +186,16 @@
                     </tbody>
                 </table>
 
-                <table ng-show="shopToShow=='magicItems'" class="table table-striped header-fixed table-bordered table-hover">
-                    <thead style="display:table; width:100%; table-layout:fixed;">
+                <table ng-show="shopToShow=='magicItems' " class="table table-striped header-fixed table-bordered table-hover ">
+                    <thead style="display:table; width:100%; table-layout:fixed; ">
                         <tr>
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
                         </tr>
                     </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
-                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in magicItems">
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in magicItems ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
@@ -189,16 +203,16 @@
                     </tbody>
                 </table>
 
-                <table ng-show="shopToShow=='goods'" class="table table-striped header-fixed table-bordered table-hover">
-                    <thead style="display:table; width:100%; table-layout:fixed;">
+                <table ng-show="shopToShow=='goods' " class="table table-striped header-fixed table-bordered table-hover ">
+                    <thead style="display:table; width:100%; table-layout:fixed; ">
                         <tr>
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
                         </tr>
                     </thead>
-                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
-                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in goods">
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in goods ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
@@ -207,50 +221,50 @@
                 </table>
             </div>
         </div>
-        <div class="table-responsive col-sm-6">
-            <div class="table-responsive row-sm-2">
+        <div class="table-responsive col-sm-6 ">
+            <div class="table-responsive row-sm-2 ">
                 <div class="radio-inline">
-                    <label><input type="radio" ng-model="purchaseMode.value" value="creation" name="buyMode">Character Creation</label>
+                    <label><input type="radio" ng-model="purchaseMode.value " value="creation " name="buyMode ">Character Creation</label>
                 </div>
                 <div class="radio-inline">
-                    <label><input type="radio" ng-model="purchaseMode.value" value="buy_sell" name="buyMode">Buy/Sell</label>
+                    <label><input type="radio" ng-model="purchaseMode.value " value="buy_sell " name="buyMode ">Buy/Sell</label>
                 </div>
                 <div class="radio-inline">
-                    <label><input type="radio" ng-model="purchaseMode.value" value="crafting" name="buyMode">Crafting</label>
+                    <label><input type="radio" ng-model="purchaseMode.value " value="crafting " name="buyMode ">Crafting</label>
                 </div>
             </div>
-            <div class="table-responsive row-sm-10">
-                <h1 ng-init="showInventory=true">Inventory</h1>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li ng-click="showInventory = true" class="nav-item">
-                        <a class="nav-link active" data-toggle="tab">Inventory</a>
+            <div class="table-responsive row-sm-10 ">
+                <h1 ng-init="showInventory=true ">Inventory</h1>
+                <ul class="nav nav-tabs " role="tablist ">
+                    <li ng-click="showInventory=true " class="nav-item ">
+                        <a class="nav-link active " data-toggle="tab ">Inventory</a>
                     </li>
-                    <li ng-click="showInventory = false" class="nav-item">
-                        <a class="nav-link" data-toggle="tab">Equipped</a>
+                    <li ng-click="showInventory=false " class="nav-item ">
+                        <a class="nav-link " data-toggle="tab ">Equipped</a>
                     </li>
                 </ul>
-                <div ng-show="showInventory == true">
-                    <table class="table table-condensed table-striped table-bordered table-hover table-fixed">
+                <div ng-show="showInventory==true ">
+                    <table class="table table-condensed table-striped table-bordered table-hover table-fixed ">
                         <tr>
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
                             <td>Action</td>
                         </tr>
-                        <tr ng-click="selectItem(item)" class="clickable-row" ng-repeat="item in inventory track by $index">
+                        <tr ng-click="selectItem(item) " class="clickable-row " ng-repeat="item in inventory track by $index ">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
                             <td>
-                                <input type="button" ng-click="sellItemFromInventory(item,$index)" value="Sell">
-                                <input type="button" ng-show="item.equipable" ng-disabled="hasSlotFromInventory(item)" ng-click="equipItemFromInventory(item,$index)" value="Equip">
+                                <input type="button " ng-click="sellItemFromInventory(item,$index) " value="Sell ">
+                                <input type="button " ng-show="item.equipable " ng-disabled="hasSlotFromInventory(item) " ng-click="equipItemFromInventory(item,$index) " value="Equip ">
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <div ng-show="showInventory == false">
-                <table class="table table-condensed table-striped table-bordered table-hover">
+            <div ng-show="showInventory==false ">
+                <table class="table table-condensed table-striped table-bordered table-hover ">
                     <tr>
                         <td>Slot</td>
                         <td>Name</td>
@@ -259,13 +273,13 @@
                         <td>Weight</td>
                         <td>Action</td>
                     </tr>
-                    <tr ng-repeat="(slot,item) in equipedItems">
+                    <tr ng-repeat="(slot,item) in equipedItems ">
                         <td>{{slot}}</td>
-                        <td ng-click="selectItem(item)">{{item.name}}</td>
+                        <td ng-click="selectItem(item) ">{{item.name}}</td>
                         <td>{{item.type}}</td>
                         <td>{{item.price}}</td>
                         <td>{{item.weight}}</td>
-                        <td><input ng-disabled="!item.name" ng-click="unequipItemFromSlot(slot)" type="button" value="Unequip"></td>
+                        <td><input ng-disabled="!item.name " ng-click="unequipItemFromSlot(slot) " type="button " value="Unequip "></td>
                     </tr>
                 </table>
             </div>
