@@ -1,0 +1,28 @@
+{
+    "name"  : "",
+    "description"   :   "",
+    "shortDescription"  :   "",
+    "equipable" :   false,
+    "consumable"    :   false,
+    "type" : "Magic Items",
+    "weight"    :  0,
+    "price" :   0,
+    "source"    : "PZO1110",
+    "attributes" : {
+        "benefit": {
+            
+        },
+        "slot"  :   "Ring",
+        "aura"  : {
+            "strength"  : "",
+            "school"    : ""
+        },
+        "priceIncrement" : [],
+        "CL" : 0,
+        "constructionRequirements" : {
+            "abilities" : [],
+            "spells"    : [],
+            "other"     : []
+        }        
+    }
+}

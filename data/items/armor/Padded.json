@@ -1,0 +1,25 @@
+{
+    "name"  : "Padded",
+    "description"   :   "Little more than heavy, quilted cloth, this armor provides only the most basic protection.",
+    "shortDescription"  :   "Little more than heavy, quilted cloth, this armor provides only the most basic protection.",
+    "equipable" :   true,
+    "consumable"    :   false,
+    "type" : "Armor",
+    "weight"    :  10,
+    "price" :   5,
+    "source"    : "PZO1110",
+    "attributes" : {
+
+        "slot" : "Armor",
+        "proficiency" : "Light Armor", 
+        "armorBonus" : 1,
+        "maximumDexBonus" : 8,
+        "armorCheckPenalty" : 0,
+        "arcaneSpellFailure" : 5,
+        "speed" : {
+            "30" : 30,
+            "20" : 20
+        }
+        
+    }
+}

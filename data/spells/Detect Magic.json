@@ -1,0 +1,36 @@
+{
+    "name" : "Detect Magic",
+    "school" : "Divination",
+    "subdomains": {
+ 
+    },
+    "elementalSchools": {
+    },
+    "shortDescription" : "Detects all spells and magic items within 60 ft.",
+    "description" : "You detect magical auras. The amount of information revealed depends on how long you study a particular area or subject.",
+    "level" : {
+        "bard" : 0,
+        "cleric" : 0,
+        "oracle" : 0,
+        "druid" : 0,
+        "inquisitor" : 0,
+        "magus" : 0,
+        "psychic" : 0,
+        "shaman" : 0,
+        "sorcerer" : 0,
+        "wizard" : 0,
+        "summoner" : 0,
+        "unchained_summoner" : 0,
+        "witch" : 0
+    },
+    "castingTime" : "1 standard action",
+    "components" : ["V","S"],
+    "range" : "60ft",
+    "area" : "Cone-shaped emanation",
+    "target" : "Creature Touched",
+    "effect" : "",
+    "duration" : "Concentration, up to 1 min./level (D)",
+    "savingThrow" : "None",
+    "spellResistance" : "No",
+    "source" : "http://www.d20pfsrd.com/magic/all-spells/d/detect-magic"
+}

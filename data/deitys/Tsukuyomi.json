@@ -1,0 +1,12 @@
+{
+    "deityName" : "Tsukuyomi",
+    "shortDescription" : "Tsukuyomi is the god of the moon.",
+    "alignment" : "Lawful Good",
+    "portfolio" : ["Valor","Rulership","Justice","Honor"],
+    "worshipers": ["Clerics","Knights","Paladins"],
+    "alignments": ["Lawful Good","Neutral Good","Lawful Neutral"],
+    "domains"   : ["Life","Good","Law","Moon","Protection"],
+    "subdomains": ["Medicin","Restoration","Resurection","Honor","Light",],
+    "favouredWeapon" : "Towershield",
+    "source"    : "Homebrew"
+}

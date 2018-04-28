@@ -1,0 +1,28 @@
+{
+    "name" : "",
+    "school" : "",
+    "domain" : "",
+    "bloodline" : "",
+    "patron" : "",
+    "subdomains": {
+ 
+    },
+    "elementalSchools": {
+
+    },
+    "shortDescription" : "",
+    "description" : "",
+    "level" : {
+
+    },
+    "castingTime" : "",
+    "components" : [],
+    "range" : "",
+    "area" : "",
+    "target" : "",
+    "effect" : "",
+    "duration" : "",
+    "savingThrow" : "",
+    "spellResistance" : "",
+    "source" : ""
+}

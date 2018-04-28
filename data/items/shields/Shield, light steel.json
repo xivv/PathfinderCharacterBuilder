@@ -1,0 +1,20 @@
+{
+    "name": "Shield, light steel",
+    "description": "No description",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Shield",
+    "weight": 6,
+    "price": 9,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Shield",
+        "proficiency": "Shield",
+        "shieldBonus": 1,
+        "maximumDexBonus": 0,
+        "armorCheckPenalty": -1,
+        "arcaneSpellFailure": 5
+    }
+}

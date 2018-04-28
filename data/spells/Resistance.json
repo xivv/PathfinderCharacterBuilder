@@ -1,0 +1,36 @@
+{
+    "name" : "Resistance",
+    "school" : "Abjuration",
+    "subdomains": {
+ 
+    },
+    "elementalSchools": {
+    },
+    "shortDescription" : "Subject gains +1 on saving throws.",
+    "description" : "You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.",
+    "level" : {
+        "bard" : 0,
+        "cleric" : 0,
+        "oracle" : 0,
+        "druid" : 0,
+        "inquisitor" : 0,
+        "paladin" : 1,
+        "psychic" : 0,
+        "shaman" : 0,
+        "sorcerer" : 0,
+        "wizard" : 0,
+        "summoner" : 0,
+        "unchained_summoner" : 0,
+        "witch" : 0
+    },
+    "castingTime" : "1 standard action",
+    "components" : ["V","S","M/DF (a miniature cloak)"],
+    "range" : "Touch",
+    "area" : "",
+    "target" : "Creature Touched",
+    "effect" : "",
+    "duration" : "1 Minute",
+    "savingThrow" : "Will (harmless)",
+    "spellResistance" : "Yes (harmless)",
+    "source" : "http://www.d20pfsrd.com/magic/all-spells/r/resistance"
+}

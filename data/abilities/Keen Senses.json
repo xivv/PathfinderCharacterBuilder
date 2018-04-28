@@ -1,0 +1,14 @@
+{
+    "abilityName" : "Keen Senses",
+    "shortDescription" : "Elves receive a +2 racial bonus on Perception checks.",
+    "bonus" : {
+        "skillCheck" : {
+            "1" : {           
+                "check" : "Perception",
+                "bonus" : 2
+            }
+        }
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/elf/"
+    
+}

@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Greed",
+    "shortDescription" : "Dwarves gain a +2 racial bonus on Appraise checks made to determine the price of non-magical goods that contain precious metals or gemstones.",
+    "bonus" : {
+           
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

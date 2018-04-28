@@ -1,0 +1,33 @@
+{
+    "name" : "Acid Splash",
+    "school" : "Conjuration",
+    "subdomains": {
+ 
+    },
+    "elementalSchools": {
+      "earth" : 0  
+    },
+    "shortDescription" : "Orb deals 1d3 acid damage.",
+    "description" : "You fire a small orb of acid at the target. You must succeed on a ranged touch attack to hit your target. The orb deals 1d3 points of acid damage. This acid disappears after 1 round.",
+    "level" : {
+        "cleric" : 0,
+        "oracle" : 0,
+        "inquisitor" : 0,
+        "magus" : 0,
+        "sorcerer" : 0,
+        "wizard" : 0,
+        "summoner" : 0,
+        "unchained_summoner" : 0,
+        "witch" : 0
+    },
+    "castingTime" : "1 standard action",
+    "components" : ["V","S"],
+    "range" : "Close (25 ft. + 5 ft./2 levels)",
+    "area" : "",
+    "target" : "",
+    "effect" : "One missile of acid",
+    "duration" : "Instantaneous",
+    "savingThrow" : "None",
+    "spellResistance" : "No",
+    "source" : "http://www.d20pfsrd.com/magic/all-spells/a/acid-splash"
+}

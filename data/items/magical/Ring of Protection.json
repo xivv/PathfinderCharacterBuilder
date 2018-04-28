@@ -1,0 +1,31 @@
+{
+    "name": "Ring of Protection",
+    "description": "This ring offers continual magical protection in the form of a deflection bonus of +1 to +5 to AC.",
+    "shortDescription": "This ring offers continual magical protection in the form of a deflection bonus of +1 to +5 to AC.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Magic Item",
+    "weight": 0,
+    "price": 2000,
+    "source": "PZO1110",
+    "attributes": {
+        "benefit": {
+            "AC": {
+                "type": "deflection",
+                "bonus": "1"
+            }
+        },
+        "slot": "Ring",
+        "aura": {
+            "strength": "faint",
+            "school": "abjuration"
+        },
+        "priceIncrement": [2000, 8000, 18000, 32000, 50000],
+        "CL": 5,
+        "constructionRequirements": {
+            "abilities": ["Forge Ring"],
+            "spells": ["shield of faith"],
+            "other": ["caster must be of a level at least three times the bonus of the ring"]
+        }
+    }
+}

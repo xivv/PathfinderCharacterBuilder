@@ -1,0 +1,28 @@
+{
+        "racename": "Elves",
+        "size" : "Medium",
+        "type" : "Humanoids",
+        "subtype" : "elf",
+        "baseSpeed": "30",
+        "languages": {
+            "startingLanguages" : ["Common","Elven"],
+            "bonusLanguages" : ["Celestial", "Draconic", "Gnoll", "Gnome", "Goblin", "Orc", "Sylvan"]
+        },
+        "abilityModifier": {
+            "Strength": 0,
+            "Dexterity": 2,
+            "Constitution": -2,
+            "Intelligence": 2,
+            "Wisdom": 0,
+            "Charisma": 0
+        },
+        "ageModifier": {
+            "Young":55,
+            "Adult":110,
+            "Middle-Aged":175,
+            "Old":263,
+            "Venerable":350
+        },
+        "standardRaceTraits":["Elven Immunities","Weapon Familiarity","Elven Magic","Keen Senses","Low-Light Vision"],
+        "alternativeRaceTraits" :[]
+}

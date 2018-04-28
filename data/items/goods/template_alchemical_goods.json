@@ -1,0 +1,15 @@
+{
+    "name"  : "",
+    "description"   :   "",
+    "shortDescription"  :   "",
+    "equipable" :   false,
+    "consumable"    :   false,
+    "type" : "Alchemical Creations",
+    "weight"    :  0,
+    "price" :   0,
+    "source"    : "PZO1110",
+    "attributes" : {
+        
+        "Craft DC" : 0        
+    }
+}

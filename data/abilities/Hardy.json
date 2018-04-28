@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Hardy",
+    "shortDescription" : "Dwarves gain a +2 racial bonus on saving throws against poison, spells, and spell-like abilities",
+    "bonus" : {
+
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

@@ -1,0 +1,15 @@
+{
+    "name"  : "Antitoxin",
+    "description"   :   "If you drink a vial of antitoxin, you get a +5 alchemical bonus on Fortitude saving throws against poison for 1 hour.",
+    "shortDescription"  :   "",
+    "equipable" :   false,
+    "consumable"    :   true,
+    "type" : "Alchemical Creations",
+    "weight"    :  0,
+    "price" :   50,
+    "source"    : "PZO1110",
+    "attributes" : {
+        
+        "Craft DC" : 25        
+    }
+}

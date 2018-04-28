@@ -1,0 +1,86 @@
+<html>
+
+<div ng-init="deity_filter.checked=false">
+        <h3>Character Basics</h3>
+        <table>
+            <tr>
+                <td>Name:</td> 
+                <td><input ng-model="character.name" type="text"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td> 
+                <td>
+                    <select ng-model="character.gender">
+                        <option>Other</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Alignment:</td> 
+                <td>
+                    <select ng-model="character.alignment" ng-change="filterDeityListCharacterAlignment()">
+                        <option>None</option>
+                        <option ng-repeat="alignment in alignments">{{alignment}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr ng-show="!deity_filter.checked">
+                <td>Deity:</td> 
+                <td><select ng-model="character.deity">
+                    <option>None</option>
+                    <option  ng-repeat="deity in deitys">{{deity.deityName}}</option></select></td>
+            </tr>
+            <tr ng-show="deity_filter.checked">
+                <td>FDeity</td> 
+                <td><select ng-model="character.deity" ng-change="filterDeityListCharacterAlignment(character.alignment)"  ng-model="character.deity">
+                    <option>None</option>
+                    <option  ng-repeat="deityx in filterdListOfDeity">{{deityx.deityName}}</option></select></td>
+            </tr>
+            <tr>
+                <td>Filter alignment:</td>
+                <td><input type="checkbox" ng-checked="deity_filter.checked" ng-model="deity_filter.checked" ng-change="filterDeityListCharacterAlignment(character.alignment)"></td>
+            </tr>
+        </table>
+        <br>
+        <table ng-show="character.deity != 'None'">
+            <tr>
+                <td>Description: </td>
+                <td>{{deitys[character.deity].shortDescription}}</td>
+            </tr>
+            <tr>
+                <td>Alignment: </td>
+                <td>{{deitys[character.deity].alignment}}</td>
+            </tr>
+            <tr>
+                <td>Cleric Alignments: </td>
+                <td><span ng-repeat="p in deitys[character.deity].alignments">{{p}}, </span></td>
+            </tr>
+            <tr>
+                <td>Portfolio: </td>
+                <td><span ng-repeat="p in deitys[character.deity].portfolio">{{p}}, </span></td>
+            </tr>
+            <tr>
+                <td>Worshipers: </td>
+                <td><span ng-repeat="p in deitys[character.deity].worshipers">{{p}}, </span></td></tr>
+            <tr>
+                <td>Domains: </td>
+                <td><span ng-repeat="p in deitys[character.deity].domains">{{p}}, </span></td>
+            </tr>
+            <tr>
+                <td>Subdomains: </td>
+                <td><span ng-repeat="p in deitys[character.deity].subdomains">{{p}}, </span></td>
+            </tr>
+            <tr>
+                <td>Weapon: </td>
+                <td>{{deitys[character_deity].favouredWeapon}}</td>
+            </tr>
+            <tr>
+                <td>Source: </td>
+                <td><a ng-href="{{deitys[character_deity].source}}">{{deitys[character.deity].source}}</a></td>
+            </tr>
+        </table>    
+       
+    </div> 
+</html>

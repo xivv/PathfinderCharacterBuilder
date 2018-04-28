@@ -1,0 +1,40 @@
+<html >
+        <table>
+            <tr>
+                <td>Skillcheck</td>
+                <td>Total</td>
+                <td>-----------Ranks---------</td>
+                <td>Ability</td>
+                <td>Mod</td>
+                <td>Racial</td>
+                <td>Misc</td>
+                <td>CS?</td>
+                <td>ACP?</td>
+                <td>Untrained?</td>
+              
+            </tr>
+            <tr ng-repeat="skill in skillchecks">
+                <td>{{skill.name}}:</td>
+                <td>{{skill.totalBonus}}</td>
+                <td><input ng-change="updateSkillcheck(skill.name,'{{skill.ranks}}')" ng-model="skill.ranks" type="number"></td>
+                <td>{{skill.keyAbility}}</td>
+                <td>{{abilityScores[skill.keyAbility]["abilityMod"]}}</td>
+                <td>{{skill.racialBonus}}</td>
+                <td>0</td>
+                <td><input type="checkbox" ng-disabled="true" ng-checked="skill.classSkill"></td>    
+                <td><input type="checkbox" ng-disabled="true" ng-checked="skill.armorCheckPenalty"></td>
+                <td><input type="checkbox" ng-disabled="true" ng-checked="skill.untrained"></td>
+            </tr>
+            <tr>
+                <td>Points available</td>
+                <td>{{character_skillpoints_total}}</td>
+            </tr>     
+             <tr>
+                <td>Points left</td>
+                <td>{{character_skillpoints_left}}</td>
+            </tr>    
+            <tr>
+                <td><input type="button" value="Reset" ng-click="resetSkillchecks()"></td>
+            </tr>
+        </table>
+</html>

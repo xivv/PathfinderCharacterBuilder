@@ -1,0 +1,25 @@
+{
+    "name"  : "Chain shirt",
+    "description"   :   "Covering the torso, this shirt is made up of thousands of interlocking metal rings.",
+    "shortDescription"  :   "Covering the torso, this shirt is made up of thousands of interlocking metal rings.",
+    "equipable" :   true,
+    "consumable"    :   false,
+    "type" : "Armor",
+    "weight"    :  25,
+    "price" :   100,
+    "source"    : "PZO1110",
+    "attributes" : {
+
+        "slot" : "Armor",
+        "proficiency" : "Light Armor", 
+        "armorBonus" : 4,
+        "maximumDexBonus" : 4,
+        "armorCheckPenalty" : -2,
+        "arcaneSpellFailure" : 20,
+        "speed" : {
+            "30" : 30,
+            "20" : 20
+        }
+        
+    }
+}

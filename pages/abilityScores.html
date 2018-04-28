@@ -1,0 +1,30 @@
+<div ng-init="initCharacterAbilityScores()">
+        <h3>Character Abilityscores</h3>
+        <table>
+        <tr>
+                <td>------------------</td>
+                <td>Score</td>
+                <td>Mod</td>
+                <td>---------Pointbuy---------</td>
+                <td>Race</td>
+                <td>Misc</td>
+            
+        </tr>
+        <tr ng-repeat="ability in abilityScores">
+         
+                <td>{{ability.name}}</td> 
+                <td>{{ability.finalScore}}</td> 
+                <td>{{ability.abilityMod}}</td> 
+                <td><input ng-change="updateAbilityScore(ability.name);updatePointBuyScores()" 
+                           type="number" 
+                           ng-model="ability.pointBuy"></td> 
+                <td>{{ability.raceMod}}</td> 
+                <td>{{ability.miscMod}}</td>
+            
+        </tr>
+        <tr>
+            <td>Total Points:</td>
+            <td>{{totalPoints}}</td>    
+        </tr>
+        </table>
+    </div>

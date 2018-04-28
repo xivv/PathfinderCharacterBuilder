@@ -1,0 +1,276 @@
+<html>
+
+<div class="container-fluid">
+    <br>
+
+    <div ng-show="selectedItem" class="table-responsive col-sm-12">
+        <br>
+        <table class="table table-condensed table-striped table-bordered table-hover table-fixed">
+            <tr>
+                <td>Name</td>
+                <td>Type</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield' || selectedItem.type == 'Weapon'">Proficiency</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Subtype</td>
+                <td ng-show="selectedItem.type == 'Magic Item'">Slot</td>
+                <td>Weight</td>
+                <td>Price</td>
+                <td ng-show="selectedItem.type == 'Alchemical Creations'">Craft DC</td>
+                <td ng-show="selectedItem.type == 'Armor'">Armor Bonus</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">Maximum Dex Bonus</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">Armor Check Penalty</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">Arcana Spell Failure</td>
+                <td ng-show="selectedItem.type == 'Armor'">30ft.</td>
+                <td ng-show="selectedItem.type == 'Armor'">20ft.</td>
+
+                <td ng-show="selectedItem.type == 'Weapon'">Dmg(S)</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Dmg(M)</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Critical</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Range</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Types</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Special</td>
+
+                <td ng-show="selectedItem.type == 'Shield'">Shield Bonus</td>
+
+                <td>Source</td>
+            </tr>
+            <tr>
+                <td>{{selectedItem.name}}</td>
+                <td>{{selectedItem.type}}</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield' || selectedItem.type == 'Weapon'">{{selectedItem.attributes["proficiency"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.subtype}}</td>
+                <td ng-show="selectedItem.type == 'Magic Item'">{{selectedItem.attributes.slot}}</td>
+                <td>{{selectedItem.weight}}</td>
+                <td>{{selectedItem.price}}</td>
+                <td ng-show="selectedItem.type == 'Alchemical Creations'">{{selectedItem.attributes["Craft DC"]}}</td>
+                <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.armorBonus}}</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">{{selectedItem.attributes.maximumDexBonus}}</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">{{selectedItem.attributes.armorCheckPenalty}}</td>
+                <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">{{selectedItem.attributes.arcaneSpellFailure}}</td>
+                <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["30"]}}</td>
+                <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["20"]}}</td>
+
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["small"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["medium"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">x{{selectedItem.attributes.criticalMultiplier}}/{{20-selectedItem.attributes.criticalRange}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.range}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Types</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Special</td>
+
+                <td ng-show="selectedItem.type == 'Shield'">{{selectedItem.attributes.shieldBonus}}</td>
+
+                <td>{{selectedItem.source}}</td>
+            </tr>
+        </table>
+
+        {{selectedItem.description}}
+        <input ng-disabled="selectedItem.price > character.funds" type="button" value="Buy" ng-click="buySelectedItem()">
+        <br><br>
+    </div>
+
+    <div class="row">
+        <div class="table-responsive col-sm-6">
+            <div class="table-responsive row-sm-2">
+                <div ng-show="true">
+                    <table style="display: inline-block;">
+                        <tr>
+                            <td>Funds:</td>
+                            <td><input ng-model="character.funds" type="number"></td>
+                            <tr>
+                                <tr>
+                                    <td>Value:</td>
+                                    <td><input ng-model="character.value" type="text" ng-disabled="true"></td>
+                                </tr>
+                                <tr>
+                                    <td>Weight:</td>
+                                    <td><input ng-model="character.weight" type="text" ng-disabled="true"></td>
+                                </tr>
+                    </table>
+
+                    <table style="display: inline-block;">
+                        <tr>
+                            <td>Light Load:</td>
+                            <td><input ng-model-options="{ getterSetter: true }" ng-model="lightLoad" type="text" ng-disabled="true"></td>
+                        </tr>
+                        <tr>
+                            <td>Medium Load:</td>
+                            <td><input ng-model-options="{ getterSetter: true }" ng-model="mediumLoad" type="text" ng-disabled="true"></td>
+                        </tr>
+                        <tr>
+                            <td>Heavy Load:</td>
+                            <td><input ng-model-options="{ getterSetter: true }" ng-model="heavyLoad" type="text" ng-disabled="true"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="table-responsive row-sm-10">
+                <h1>Store</h1>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a ng-click="shopToShow = 'weapons'" class="nav-link active" data-toggle="tab">Weapons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a ng-click="shopToShow = 'armor'" class="nav-link" data-toggle="tab">Armor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a ng-click="shopToShow = 'shields'" class="nav-link" data-toggle="tab">Shields</a>
+                    </li>
+                    <li class="nav-item">
+                        <a ng-click="shopToShow = 'goods'" class="nav-link" data-toggle="tab">Goods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a ng-click="shopToShow = 'magicItems'" class="nav-link" data-toggle="tab">Magic Items</a>
+                    </li>
+                </ul>
+                <table ng-init="shopToShow='weapons'" ng-show="shopToShow=='weapons'" class="table table-striped header-fixed table-bordered table-hover">
+                    <thead style="display:table; width:100%; table-layout:fixed;">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                        </tr>
+                    </thead>
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
+                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in weapons">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table ng-show="shopToShow=='armor'" class="table table-striped header-fixed table-bordered table-hover">
+                    <thead style="display:table; width:100%; table-layout:fixed;">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                        </tr>
+                    </thead>
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
+                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in armor">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table ng-show="shopToShow=='shields'" class="table table-striped header-fixed table-bordered table-hover">
+                    <thead style="display:table; width:100%; table-layout:fixed;">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                        </tr>
+                    </thead>
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
+                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in shields">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table ng-show="shopToShow=='magicItems'" class="table table-striped header-fixed table-bordered table-hover">
+                    <thead style="display:table; width:100%; table-layout:fixed;">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                        </tr>
+                    </thead>
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
+                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in magicItems">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table ng-show="shopToShow=='goods'" class="table table-striped header-fixed table-bordered table-hover">
+                    <thead style="display:table; width:100%; table-layout:fixed;">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                        </tr>
+                    </thead>
+                    <tbody style="display:block; max-height:500px; overflow-y:scroll;">
+                        <tr style="display:table; width:100%; table-layout:fixed;" class="clickable-row" ng-click="selectItem(item)" ng-repeat="item in goods">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="table-responsive col-sm-6">
+            <div class="table-responsive row-sm-2">
+                <div class="radio-inline">
+                    <label><input type="radio" ng-model="purchaseMode.value" value="creation" name="buyMode">Character Creation</label>
+                </div>
+                <div class="radio-inline">
+                    <label><input type="radio" ng-model="purchaseMode.value" value="buy_sell" name="buyMode">Buy/Sell</label>
+                </div>
+                <div class="radio-inline">
+                    <label><input type="radio" ng-model="purchaseMode.value" value="crafting" name="buyMode">Crafting</label>
+                </div>
+            </div>
+            <div class="table-responsive row-sm-10">
+                <h1 ng-init="showInventory=true">Inventory</h1>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li ng-click="showInventory = true" class="nav-item">
+                        <a class="nav-link active" data-toggle="tab">Inventory</a>
+                    </li>
+                    <li ng-click="showInventory = false" class="nav-item">
+                        <a class="nav-link" data-toggle="tab">Equipped</a>
+                    </li>
+                </ul>
+                <div ng-show="showInventory == true">
+                    <table class="table table-condensed table-striped table-bordered table-hover table-fixed">
+                        <tr>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Weight</td>
+                            <td>Action</td>
+                        </tr>
+                        <tr ng-click="selectItem(item)" class="clickable-row" ng-repeat="item in inventory track by $index">
+                            <td>{{item.name}}</td>
+                            <td>{{item.price}}</td>
+                            <td>{{item.weight}}</td>
+                            <td>
+                                <input type="button" ng-click="sellItemFromInventory(item,$index)" value="Sell">
+                                <input type="button" ng-show="item.equipable" ng-disabled="hasSlotFromInventory(item)" ng-click="equipItemFromInventory(item,$index)" value="Equip">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div ng-show="showInventory == false">
+                <table class="table table-condensed table-striped table-bordered table-hover">
+                    <tr>
+                        <td>Slot</td>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Price</td>
+                        <td>Weight</td>
+                        <td>Action</td>
+                    </tr>
+                    <tr ng-repeat="(slot,item) in equipedItems">
+                        <td>{{slot}}</td>
+                        <td ng-click="selectItem(item)">{{item.name}}</td>
+                        <td>{{item.type}}</td>
+                        <td>{{item.price}}</td>
+                        <td>{{item.weight}}</td>
+                        <td><input ng-disabled="!item.name" ng-click="unequipItemFromSlot(slot)" type="button" value="Unequip"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Stability",
+    "shortDescription" : "Dwarves gain a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.",
+    "bonus" : {
+           
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

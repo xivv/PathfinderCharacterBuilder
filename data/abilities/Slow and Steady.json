@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Slow and Steady",
+    "shortDescription" : "Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.",
+    "bonus" : {
+
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

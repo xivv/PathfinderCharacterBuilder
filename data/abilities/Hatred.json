@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Hatred",
+    "shortDescription" : "Dwarves gain a +1 racial bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes because of their special training against these hated foes.",
+    "bonus" : {
+           
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

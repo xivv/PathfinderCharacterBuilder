@@ -1,0 +1,25 @@
+{
+    "name"  : "",
+    "description"   :   "",
+    "shortDescription"  :   "",
+    "equipable" :   true,
+    "consumable"    :   false,
+    "type" : "Armor",
+    "weight"    :  0,
+    "price" :   0,
+    "source"    : "PZO1110",
+    "attributes" : {
+
+        "slot" : "Armor",
+        "proficiency" : "", 
+        "armorBonus" : 0,
+        "maximumDexBonus" : 0,
+        "armorCheckPenalty" : 0,
+        "arcaneSpellFailure" : 0,
+        "speed" : {
+            "30" : 30,
+            "20" : 20
+        }
+        
+    }
+}

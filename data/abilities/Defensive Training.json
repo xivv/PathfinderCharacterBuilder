@@ -1,0 +1,9 @@
+{
+    "abilityName" : "Defensive Training",
+    "shortDescription" : "Dwarves gain a +4 dodge bonus to AC against monsters of the giant subtype.",
+    "bonus" : {
+
+    },
+    "source" : "https://www.d20pfsrd.com/races/core-races/dwarf/"
+    
+}

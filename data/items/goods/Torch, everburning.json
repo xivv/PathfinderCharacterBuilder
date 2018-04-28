@@ -1,0 +1,15 @@
+{
+    "name"  : "Torch, everburning",
+    "description"   :   "This otherwise normal torch has a continual flame spell cast on it. This causes it to shed light like an ordinary torch, but it does not emit heat or deal fire damage if used as a weapon.",
+    "shortDescription"  :   "",
+    "equipable" :   false,
+    "consumable"    :   false,
+    "type" : "Alchemical Creations",
+    "weight"    :  1,
+    "price" :   110,
+    "source"    : "PZO1110",
+    "attributes" : {
+        
+        "Craft DC" : 0        
+    }
+}

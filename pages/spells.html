@@ -1,0 +1,191 @@
+<html>
+
+    <body>
+
+        <table >    
+            <tr>
+                <td>Rogue</td>
+                <td>Level</td>
+            </tr>
+        </table>
+        <table>
+            <tr >
+                <th>Spellevel</th>
+                <td style="border: 1px solid black" ng-repeat="i in characterSpellsAvailableMeta track by $index">{{$index}}</td>
+            </tr>
+            <tr> 
+                <th>Available</th>
+                <td style="border: 1px solid black" ng-repeat="i in characterSpellsAvailableMeta track by $index">{{i}}</td>
+            </tr>
+             <tr> 
+                <th>Left</th>
+                <td style="border: 1px solid black" ng-repeat="i in characterSpellsAvailableMeta track by $index">{{characterSpellsAvailable[$index]}}</td>
+            </tr>
+              <tr> 
+                <th>Per Day</th>
+                <td style="border: 1px solid black" ng-repeat="i in characterSpellsPerDayMeta track by $index">{{characterSpellsPerDayMeta[$index]}}</td>
+            </tr>
+             <tr> 
+                <th>Per Day Left</th>
+                <td style="border: 1px solid black" ng-repeat="i in characterSpellsPerDay track by $index">{{characterSpellsPerDay[$index]}}</td>
+            </tr>
+            <tr>
+                <th>DC</th>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+            </tr>
+        </table>
+        
+        <div ng-show="selectedSpell">
+        <h3>{{selectedSpell.name}}</h3>
+        {{selectedSpell.description}}
+        <br><br>
+        <table >
+            <tr>
+                <td><b>School</b></td> 
+                <td>{{selectedSpell.school}};</td>
+                <td><b>Level</b></td>
+                <td ng-repeat="(class,value) in selectedSpell.level">{{class}} {{value}}</td>
+            </tr>
+        </table>
+        <table >
+            <tr ng-show="selectedSpell.subdomains">
+                <td><b>Subdomain</b></td> 
+                <td ng-repeat="(domain,value) in selectedSpell.subdomains">{{domain}} {{value}}</td>
+            </tr>
+            <tr ng-show="selectedSpell.elementalSchools.length > 0">
+                <td><b>Elemental School</b></td> 
+                <td ng-repeat="(school,value) in selectedSpell.elementalSchools">{{school}} {{value}}</td>
+            </tr>
+        </table>
+       <h5>CASTING</h5>
+        <table>
+            <tr>
+                <td><b>Casting Time</b></td> 
+                <td>{{selectedSpell.castingTime}}</td>
+            </tr>
+        </table>
+        <table>
+             <tr>
+                <td><b>Components</b></td> 
+                <td ng-repeat="component in selectedSpell.components">{{component}};</td>
+            </tr>
+        </table>
+        <h5>EFFECT</h5>
+        <table>
+             <tr>
+                <td><b>Range</b></td> 
+                <td>{{selectedSpell.range}}</td>
+            </tr>
+            <tr ng-show="selectedSpell.area">
+                <td><b>Area</b></td> 
+                <td>{{selectedSpell.area}}</td>
+            </tr>
+            <tr ng-show="selectedSpell.target">
+                <td><b>Target</b></td> 
+                <td>{{selectedSpell.target}}</td>
+            </tr>
+            <tr ng-show="selectedSpell.effect">
+                <td><b>Effect</b></td> 
+                <td>{{selectedSpell.effect}}</td>
+            </tr>
+             <tr>
+                <td><b>Duration</b></td> 
+                <td>{{selectedSpell.duration}}</td>
+            </tr>
+             <tr>
+                <td><b>Saving Throw</b></td> 
+                <td>{{selectedSpell.savingThrow}}</td>               
+            </tr>
+            <tr>
+                <td><b>Spell Resistance</b></td> 
+                <td>{{selectedSpell.spellResistance}}</td>
+            </tr>
+             <tr>
+                <td><b>Source</b></td> 
+                <td><a ng-href="{{selectedSpell.source}}">{{selectedSpell.source}}</a></td>
+            </tr>
+        </table>
+        <input type="button" ng-click="addSelectedSpellToBook()" value="Learn Spell">
+        
+        </div>
+        
+        
+        <h4>Spelllist</h4>
+
+        <table style="width: 100%">
+            <tr>
+                <td>Level</td>
+                <td><select style="width: 100%" ng-init="selected_spellLevel='0'" ng-model="selected_spellLevel">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <select style="width: 100%" multiple>
+                        <option ng-click="selectSpell(spell)" ng-repeat="spell in getSpelllist(selected_spellLevel)">{{spell.name}}: {{spell.shortDescription}}</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        
+        <h4>Search Spells</h4>
+        <input style="width: 100%" ng-change="getSpellsByFilter(searchFilter)" ng-model="searchFilter" type="text">
+        <table>
+            <tr ng-click="selectSpell(spell)" ng-repeat="spell in filteredSpells track by $index">
+                <td><b>{{spell.name}}</b></td>
+                <td>{{spell.shortDescription}}</td>
+            </tr>
+            
+        </table>
+             
+        <h3>Spellbook</h3>
+        <div ng-repeat="i in characterSpellsAvailableMeta track by $index" ng-show="getSpellsFromSpellBookByCharacterLevelAndFilter($index) != ''">
+            <h4>Level {{$index}}</h4>    
+            <table style="width: 100%">
+                <tr ng-click="selectSpell(spell)" ng-repeat="spell in getSpellsFromSpellBookByCharacterLevelAndFilter($index)">
+                    <td><b>{{spell.name}}</b></td>
+                    <td>{{spell.shortDescription}}</td>
+                    <td><input ng-click="removeSpellFromBook(spell)"type="button" value="Unlearn"></td>
+                    <td><input ng-disabled="true" ng-click="prepareSpell(spell)" type="button" value="Prepare"></td>
+                </tr>
+            </table>
+        </div>
+        <input ng-click="resetSpellBook()" ng-show="spellBook.length >= 1"type="button" value="Reset All">
+             
+        <h3 ng-show="getSpellsFromPreparedSpellListByCharacterLevelAndFilter($index) != ''">Prepared Spells</h3>
+        <div ng-repeat="i in characterSpellsAvailableMeta track by $index" ng-show="getSpellsFromPreparedSpellListByCharacterLevelAndFilter($index) != ''">
+            <h4>Level {{$index}}</h4>    
+            <table style="width: 100%">
+                <tr ng-click="selectSpell(spell)" ng-repeat="spell in getSpellsFromPreparedSpellListByCharacterLevelAndFilter($index)">
+                    <td><b>{{spell.name}}</b></td>
+                    <td>{{spell.shortDescription}}</td>
+                    <td><input ng-click="removeSpellFromPreparedList(spell)" type="button" value="Remove"></td>
+                </tr>
+            </table>
+            <input ng-click="resetPreparedSpells()" ng-show="spellBook.length >= 1"type="button" value="Reset All">
+        </div>
+        <br>
+            
+    </body>
+
+</html>
