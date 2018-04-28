@@ -410,6 +410,8 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
             };
             $scope.applyClassSkills(element);
         }
+
+        $scope.character.level = $scope.getTotal("level");
     }
 
     $scope.getTotal = function (stat) {
@@ -809,6 +811,7 @@ app.factory('Character', function () {
             classes: {
 
             },
+            level: 0,
 
             // Store
             funds: 100000,

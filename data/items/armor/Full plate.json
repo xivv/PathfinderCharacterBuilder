@@ -1,0 +1,25 @@
+{
+    "name": "Full plate",
+    "description": "This metal suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor. Each suit of full plate must be individually fitted to its owner by a master armorsmith, although a captured suit can be resized to fit a new owner at a cost of 200 to 800 (2d4 × 100) gold pieces.",
+    "shortDescription": "This metal suit includes gauntlets, heavy leather boots, a visored helmet, and a thick layer of padding that is worn underneath the armor.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 50,
+    "price": 1500,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Heavy Armor",
+        "armorBonus": 9,
+        "maximumDexBonus": 1,
+        "armorCheckPenalty": -6,
+        "arcaneSpellFailure": 35,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

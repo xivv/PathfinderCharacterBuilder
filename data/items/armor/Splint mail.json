@@ -1,0 +1,25 @@
+{
+    "name": "Splint mail",
+    "description": "Splint mail is made up of metal strips, like banded mail. The suit includes gauntlets.",
+    "shortDescription": "Splint mail is made up of metal strips, like banded mail. The suit includes gauntlets.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 45,
+    "price": 200,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Heavy Armor",
+        "armorBonus": 7,
+        "maximumDexBonus": 0,
+        "armorCheckPenalty": -7,
+        "arcaneSpellFailure": 40,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

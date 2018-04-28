@@ -1,0 +1,25 @@
+{
+    "name": "Banded mail",
+    "description": "No description",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 35,
+    "price": 250,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Heavy Armor",
+        "armorBonus": 7,
+        "maximumDexBonus": 1,
+        "armorCheckPenalty": -6,
+        "arcaneSpellFailure": 35,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

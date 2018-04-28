@@ -1,0 +1,25 @@
+{
+    "name": "Chainmail",
+    "description": "Unlike a chain shirt, chainmail covers the legs and arms of the wearer. The suit includes gauntlets.",
+    "shortDescription": "Unlike a chain shirt, chainmail covers the legs and arms of the wearer. The suit includes gauntlets.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 40,
+    "price": 150,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Medium Armor",
+        "armorBonus": 6,
+        "maximumDexBonus": 2,
+        "armorCheckPenalty": -5,
+        "arcaneSpellFailure": 30,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

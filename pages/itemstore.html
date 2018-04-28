@@ -167,15 +167,15 @@
             </div>
             <div class="table-responsive row-sm-10 ">
                 <h1 ng-init="showInventory=true ">Inventory</h1>
-                <ul class="nav nav-tabs " role="tablist ">
-                    <li ng-click="showInventory=true " class="nav-item ">
-                        <a class="nav-link active " data-toggle="tab ">Inventory</a>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li ng-click="showInventory=true" class="nav-item">
+                        <a class="nav-link active" data-toggle="tab">Inventory</a>
                     </li>
-                    <li ng-click="showInventory=false " class="nav-item ">
-                        <a class="nav-link " data-toggle="tab ">Equipped</a>
+                    <li ng-click="showInventory=false" class="nav-item">
+                        <a class="nav-link" data-toggle="tab">Equipped</a>
                     </li>
                 </ul>
-                <div ng-show="showInventory==true ">
+                <div ng-show="showInventory==true">
                     <table class="table table-condensed table-striped table-bordered table-hover table-fixed ">
                         <tr>
                             <td>Name</td>
@@ -183,20 +183,20 @@
                             <td>Weight</td>
                             <td>Action</td>
                         </tr>
-                        <tr ng-click="selectItem(item) " class="clickable-row " ng-repeat="item in inventory track by $index ">
+                        <tr ng-click="selectItem(item)" class="clickable-row" ng-repeat="item in inventory track by $index">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
                             <td>
-                                <input type="button " ng-click="sellItemFromInventory(item,$index) " value="Sell ">
-                                <input type="button " ng-show="item.equipable " ng-disabled="hasSlotFromInventory(item) " ng-click="equipItemFromInventory(item,$index) " value="Equip ">
+                                <input type="button" ng-click="sellItemFromInventory(item,$index)" value="Sell">
+                                <input type="button" ng-show="item.equipable" ng-disabled="hasSlotFromInventory(item)" ng-click="equipItemFromInventory(item,$index)" value="Equip">
                             </td>
                         </tr>
                     </table>
                 </div>
             </div>
-            <div ng-show="showInventory==false ">
-                <table class="table table-condensed table-striped table-bordered table-hover ">
+            <div ng-show="showInventory==false">
+                <table class="table table-condensed table-striped table-bordered table-hover">
                     <tr>
                         <td>Slot</td>
                         <td>Name</td>
@@ -211,7 +211,7 @@
                         <td>{{item.type}}</td>
                         <td>{{item.price}}</td>
                         <td>{{item.weight}}</td>
-                        <td><input ng-disabled="!item.name " ng-click="unequipItemFromSlot(slot) " type="button " value="Unequip "></td>
+                        <td><input ng-disabled="!item.name " ng-click="unequipItemFromSlot(slot) " type="button" value="Unequip "></td>
                     </tr>
                 </table>
             </div>

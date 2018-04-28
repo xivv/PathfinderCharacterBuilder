@@ -1,0 +1,25 @@
+{
+    "name": "Half-plate",
+    "description": "Combining elements of full plate and chainmail, half-plate includes gauntlets and a helm.",
+    "shortDescription": "Combining elements of full plate and chainmail, half-plate includes gauntlets and a helm.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 50,
+    "price": 600,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Heavy Armor",
+        "armorBonus": 8,
+        "maximumDexBonus": 0,
+        "armorCheckPenalty": -7,
+        "arcaneSpellFailure": 40,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

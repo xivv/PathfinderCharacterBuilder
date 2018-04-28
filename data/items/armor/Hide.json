@@ -1,0 +1,25 @@
+{
+    "name": "Hide",
+    "description": "No description",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 25,
+    "price": 15,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Medium Armor",
+        "armorBonus": 4,
+        "maximumDexBonus": 4,
+        "armorCheckPenalty": -3,
+        "arcaneSpellFailure": 20,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

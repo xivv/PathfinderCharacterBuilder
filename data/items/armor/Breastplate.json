@@ -1,0 +1,25 @@
+{
+    "name": "Breastplate",
+    "description": "Covering only the torso, a breastplate is made up of a single piece of sculpted metal.",
+    "shortDescription": "Covering only the torso, a breastplate is made up of a single piece of sculpted metal.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 30,
+    "price": 200,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Medium Armor",
+        "armorBonus": 6,
+        "maximumDexBonus": 3,
+        "armorCheckPenalty": -4,
+        "arcaneSpellFailure": 25,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}

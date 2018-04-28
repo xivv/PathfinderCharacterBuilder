@@ -1,0 +1,25 @@
+{
+    "name": "Scale mail",
+    "description": "Scale mail is made up of dozens of small overlapping metal plates. The suit includes gauntlets.",
+    "shortDescription": "Scale mail is made up of dozens of small overlapping metal plates. The suit includes gauntlets.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 30,
+    "price": 50,
+    "source": "PZO1110",
+    "attributes": {
+
+        "slot": "Armor",
+        "proficiency": "Medium Armor",
+        "armorBonus": 5,
+        "maximumDexBonus": 3,
+        "armorCheckPenalty": -4,
+        "arcaneSpellFailure": 25,
+        "speed": {
+            "30": 20,
+            "20": 15
+        }
+
+    }
+}
