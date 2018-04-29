@@ -1,0 +1,14 @@
+{
+    "name": "Unholy Water",
+    "description": "Unholy water damages good outsiders almost as if it were acid. A flask of unholy water can be thrown as a splash weapon. Treat this attack as a ranged touch attack with a range increment of 10 feet. A flask breaks if thrown against the body of a corporeal creature, but to use it against an incorporeal creature, you must open the flask and pour the unholy water out onto the target. Thus, you can douse an incorporeal creature with unholy water only if you are adjacent to it. Doing so is a ranged touch attack that does not provoke attacks of opportunity. A direct hit by a flask of unholy water deals 2d4 points of damage to a good outsider. Each such creature within 5 feet of the point where the flask hits takes 1 point of damage from the splash. Temples to evil deities sell unholy water at cost (making no profit). Unholy water is made using the curse water spell.",
+    "shortDescription": "",
+    "equipable": false,
+    "consumable": true,
+    "type": "Religious Items",
+    "weight": 1,
+    "price": 25,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

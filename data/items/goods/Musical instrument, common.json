@@ -1,0 +1,14 @@
+{
+    "name": "Musical instrument, common",
+    "description": "No description",
+    "shortDescription": "",
+    "equipable": false,
+    "consumable": false,
+    "type": "Musical Instruments",
+    "weight": 3,
+    "price": 5,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "name": "Half Orc",
+    "size": "Medium",
+    "type": "humanoid",
+    "subtypes": ["human", "orc"],
+    "baseSpeed": "30",
+    "languages": {
+        "startingLanguages": ["Common", "Orc"],
+        "bonusLanguages": ["Abyssal", "Draconic", "Giant", "Gnoll", "Goblin"]
+    },
+    "abilityModifier": {
+        "Strength": 0,
+        "Dexterity": 0,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 0
+    },
+    "ageModifier": {
+        "Young": 7,
+        "Adult": 14,
+        "Middle-Aged": 30,
+        "Old": 45,
+        "Venerable": 60
+    },
+    "standardRaceTraits": ["Intimidating", "Orc Ferocity", "Weapon Familiarity", "Darkvision", "Orc Blood", "Racial Ability Increment"],
+    "alternativeRaceTraits": []
+}

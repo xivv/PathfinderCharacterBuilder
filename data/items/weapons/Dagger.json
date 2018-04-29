@@ -1,26 +1,26 @@
 {
-    "name"  : "Dagger",
-    "description"   :   "A dagger has a blade that is about 1 foot in length.",
-    "shortDescription"  :   "A dagger has a blade that is about 1 foot in length.",
-    "equipable" :   true,
-    "consumable"    :   false,
-    "type" : "Weapon",
-    "weight"    :  1,
-    "price" :   2,
-    "source"    : "PZO1110",
-    "attributes" : {
-        "slot" : "Weapon",
+    "name": "Dagger",
+    "description": "A dagger has a blade that is about 1 foot in length.",
+    "shortDescription": "A dagger has a blade that is about 1 foot in length.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Weapon",
+    "weight": 1,
+    "price": 2,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Weapon",
         "damage": {
-            "small" : "1d3",
-            "medium" : "1d4"
-         },     
-        "criticalMultiplier" : 2,
-        "criticalRange" : 2,      
-        "range" : 10,
-        "types" : ["P","S"],
-        "special" : [],
-        "proficiency" : "Simple Weapons",
-        "subtype" : "Light Melee Weapon",
-        "benefit" : "You get a +2 bonus on Sleight of Hand skill checks made to conceal a dagger on your body."
+            "small": "1d3",
+            "medium": "1d4"
+        },
+        "criticalMultiplier": 2,
+        "criticalRange": 2,
+        "range": 10,
+        "types": ["P", "S"],
+        "special": [],
+        "proficiency": "Simple Weapons",
+        "subtype": "Light Melee Weapons",
+        "benefit": "You get a +2 bonus on Sleight of Hand skill checks made to conceal a dagger on your body."
     }
 }

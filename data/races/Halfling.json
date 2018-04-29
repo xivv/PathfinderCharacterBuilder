@@ -1,0 +1,28 @@
+{
+    "name": "Halfling",
+    "size": "Small",
+    "type": "humanoid",
+    "subtypes": ["halfling"],
+    "baseSpeed": "20",
+    "languages": {
+        "startingLanguages": ["Common", "Halfling"],
+        "bonusLanguages": ["Dwarven", "Elven", "Gnome", "Goblin"]
+    },
+    "abilityModifier": {
+        "Strength": -2,
+        "Dexterity": 2,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 2
+    },
+    "ageModifier": {
+        "Young": 10,
+        "Adult": 20,
+        "Middle-Aged": 50,
+        "Old": 75,
+        "Venerable": 100
+    },
+    "standardRaceTraits": ["Fearless", "Halfling Luck", "Sure-Footed", "Weapon Familiarity", "Keen Senses"],
+    "alternativeRaceTraits": []
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Shortbow",
+    "description": "You need two hands to use a bow, regardless of its size. You can use a shortbow while mounted. If you have a penalty for low Strength, apply it to damage rolls when you use a shortbow.",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Weapon",
+    "weight": 2,
+    "price": 30,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Weapon",
+        "damage": {
+            "small": "1d4",
+            "medium": "1d6"
+        },
+        "criticalMultiplier": 3,
+        "criticalRange": 0,
+        "range": 60,
+        "types": ["P"],
+        "special": [],
+        "proficiency": "Martial",
+        "subtype": "Ranged Weapons",
+        "benefit": ""
+    }
+}

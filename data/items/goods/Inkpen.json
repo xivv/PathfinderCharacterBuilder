@@ -1,0 +1,14 @@
+{
+    "name": "Inkpen",
+    "description": "This is a wooden stylus with a metal tip that retains a small amount of ink after you dip it in a vial of ink.",
+    "shortDescription": "This is a wooden stylus with a metal tip that retains a small amount of ink after you dip it in a vial of ink.",
+    "equipable": false,
+    "consumable": false,
+    "type": "Inks and Writing Utensils",
+    "weight": 0,
+    "price": 0.1,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

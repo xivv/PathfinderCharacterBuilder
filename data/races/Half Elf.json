@@ -1,0 +1,28 @@
+{
+    "name": "Half Elf",
+    "size": "Medium",
+    "type": "humanoid",
+    "subtypes": ["human", "elf"],
+    "baseSpeed": "30",
+    "languages": {
+        "startingLanguages": ["Common", "Elven"],
+        "bonusLanguages": ["Any"]
+    },
+    "abilityModifier": {
+        "Strength": 0,
+        "Dexterity": 0,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 0
+    },
+    "ageModifier": {
+        "Young": 10,
+        "Adult": 20,
+        "Middle-Aged": 62,
+        "Old": 93,
+        "Venerable": 125
+    },
+    "standardRaceTraits": ["Elven Immunities", "Adaptability", "Keen Senses", "Low-Light Vision", "Elf Blood", "Multitalented", "Racial Ability Increment"],
+    "alternativeRaceTraits": []
+}

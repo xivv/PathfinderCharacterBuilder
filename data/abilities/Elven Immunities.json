@@ -1,9 +1,9 @@
 {
-    "abilityName" : "Elven Immunities",
-    "shortDescription" : "Elves are immune to magic sleep effects and gain a +2 racial saving throw bonus against enchantment spells and effects.",
-    "bonus" : {
-            "immunities" : ["Magic Sleep"]
+    "abilityName": "Elven Immunities",
+    "shortDescription": "Elves are immune to magic sleep effects and gain a +2 racial saving throw bonus against enchantment spells and effects.",
+    "bonus": {
+        "immunities": ["Magic Sleep"]
     },
-    "source" : "https://www.d20pfsrd.com/races/core-races/elf/"
-    
+    "source": "PZO1110"
+
 }

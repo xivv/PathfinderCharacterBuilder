@@ -1,0 +1,14 @@
+{
+    "name": "Musical instrument, masterwork",
+    "description": "A masterwork instrument grants a +2 circumstance bonus on Perform checks involving its use.",
+    "shortDescription": "A masterwork instrument grants a +2 circumstance bonus on Perform checks involving its use.",
+    "equipable": false,
+    "consumable": false,
+    "type": "Musical Instruments",
+    "weight": 3,
+    "price": 100,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

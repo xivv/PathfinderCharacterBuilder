@@ -132,15 +132,20 @@
                     <thead style="display:table; width:100%; table-layout:fixed;">
                         <tr>
                             <td ng-click="sortType= 'name';sortReverse = !sortReverse;">Name
-                                <span ng-show=" sortType=='name' && !sortReverse" class="fa fa-caret-up "></span>
-                                <span ng-show=" sortType=='name' && sortReverse" class="fa fa-caret-down "></span></td>
+                                <span ng-show=" sortType=='name' && !sortReverse" class="fa fa-caret-up"></span>
+                                <span ng-show=" sortType=='name' && sortReverse" class="fa fa-caret-down"></span></td>
                             <td ng-click="sortType='price';sortReverse = !sortReverse; ">Price
-                                <span ng-show=" sortType=='price' && !sortReverse" class="fa fa-caret-up "></span>
-                                <span ng-show=" sortType=='price' && sortReverse" class="fa fa-caret-down "></span>
+                                <span ng-show=" sortType=='price' && !sortReverse" class="fa fa-caret-up"></span>
+                                <span ng-show=" sortType=='price' && sortReverse" class="fa fa-caret-down"></span>
                             </td>
                             <td ng-click="sortType='weight';sortReverse = !sortReverse; ">Weight
-                                <span ng-show=" sortType=='weight' && !sortReverse" class="fa fa-caret-up "></span>
-                                <span ng-show=" sortType=='weight' && sortReverse" class="fa fa-caret-down "></span></td>
+                                <span ng-show=" sortType=='weight' && !sortReverse" class="fa fa-caret-up"></span>
+                                <span ng-show=" sortType=='weight' && sortReverse" class="fa fa-caret-down"></span>
+                            </td>
+                            <td ng-click="sortType='type';sortReverse = !sortReverse; ">Type
+                                <span ng-show=" sortType=='type' && !sortReverse" class="fa fa-caret-up"></span>
+                                <span ng-show=" sortType=='type' && sortReverse" class="fa fa-caret-down"></span>
+                            </td>
                         </tr>
                     </thead>
                     <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
@@ -148,6 +153,7 @@
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
+                            <td>{{item.type}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -181,12 +187,14 @@
                             <td>Name</td>
                             <td>Price</td>
                             <td>Weight</td>
+                            <td>Type</td>
                             <td>Action</td>
                         </tr>
                         <tr ng-click="selectItem(item)" class="clickable-row" ng-repeat="item in inventory track by $index">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
+                            <td>{{item.type}}</td>
                             <td>
                                 <input type="button" ng-click="sellItemFromInventory(item,$index)" value="Sell">
                                 <input type="button" ng-show="item.equipable" ng-disabled="hasSlotFromInventory(item)" ng-click="equipItemFromInventory(item,$index)" value="Equip">

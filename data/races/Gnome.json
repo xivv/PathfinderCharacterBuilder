@@ -1,0 +1,28 @@
+{
+    "name": "Gnome",
+    "size": "Small",
+    "type": "humanoid",
+    "subtypes": ["gnome"],
+    "baseSpeed": "20",
+    "languages": {
+        "startingLanguages": ["Common", "Gnome", "Sylvan"],
+        "bonusLanguages": ["Draconic", "Dwarven", "Elven", "Giant", "Goblin", "Orc"]
+    },
+    "abilityModifier": {
+        "Strength": -2,
+        "Dexterity": 0,
+        "Constitution": 2,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 2
+    },
+    "ageModifier": {
+        "Young": 20,
+        "Adult": 40,
+        "Middle-Aged": 100,
+        "Old": 150,
+        "Venerable": 200
+    },
+    "standardRaceTraits": ["Defensive Training", "Illusion Resistance", "Keen Senses", "Obsessive", "Gnome Magic", "Hatred", "Weapon Familiarity", "Low-Light Vision"],
+    "alternativeRaceTraits": []
+}

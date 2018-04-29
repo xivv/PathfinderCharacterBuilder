@@ -1,9 +1,9 @@
 {
-    "abilityName" : "Elven Magic",
-    "shortDescription" : "Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.",
-    "bonus" : {
-           "Spellcraft": 2
+    "abilityName": "Elven Magic",
+    "shortDescription": "Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.",
+    "bonus": {
+        "Spellcraft": 2
     },
-    "source" : "https://www.d20pfsrd.com/races/core-races/elf/"
-    
+    "source": "PZO1110"
+
 }

@@ -1,0 +1,28 @@
+{
+    "name": "Dwarf",
+    "size": "Medium",
+    "type": "humanoid",
+    "subtypes": ["dwarf"],
+    "baseSpeed": "20",
+    "languages": {
+        "startingLanguages": ["Common", "Dwarven"],
+        "bonusLanguages": ["Giant", "Gnome", "Goblin", "Orc", "Terran", "Undercommon"]
+    },
+    "abilityModifier": {
+        "Strength": 0,
+        "Dexterity": 0,
+        "Constitution": 2,
+        "Intelligence": 0,
+        "Wisdom": 2,
+        "Charisma": -2
+    },
+    "ageModifier": {
+        "Young": 20,
+        "Adult": 40,
+        "Middle-Aged": 125,
+        "Old": 188,
+        "Venerable": 250
+    },
+    "standardRaceTraits": ["Slow and Steady", "Defensive Training", "Hardy", "Stability", "Weapon Familiarity", "Hatred", "Greed", "Stonecunning", "Darkvision"],
+    "alternativeRaceTraits": []
+}

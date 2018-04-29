@@ -883,7 +883,7 @@ app.factory('Races', function ($http) {
 
 
                 var racesData = response_.data;
-                obj[racesData.racename] = racesData;
+                obj[racesData.name] = racesData;
             });
         }
 

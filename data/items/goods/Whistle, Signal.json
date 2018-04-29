@@ -1,0 +1,14 @@
+{
+    "name": "Whistle, Signal",
+    "description": "A simple whistle used to send short, shrill audible signals.",
+    "shortDescription": "A simple whistle used to send short, shrill audible signals.",
+    "equipable": false,
+    "consumable": false,
+    "type": "Musical Instruments",
+    "weight": 0,
+    "price": 0.8,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

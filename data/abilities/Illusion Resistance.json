@@ -1,0 +1,9 @@
+{
+    "abilityName": "Illusion Resistance",
+    "shortDescription": "Gnomes gain a +2 racial saving throw bonus against illusion spells and effects.",
+    "bonus": {
+
+    },
+    "source": "http://www.d20pfsrd.com/magic/all-spells/d/darkvision/"
+
+}

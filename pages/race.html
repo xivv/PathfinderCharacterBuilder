@@ -1,12 +1,12 @@
 <div>
-        <h3>Race Selector</h3>
-    
-        <table>
-            <tr>
-                <td>Race:</td> 
-                <td>
-                    <select ng-model="character.race">   
-                        <option ng-repeat="race in races">{{race.racename}}</option><
+    <h3>Race Selector</h3>
+
+    <table>
+        <tr>
+            <td>Race:</td>
+            <td>
+                <select ng-model="character.race">   
+                        <option ng-repeat="race in races">{{race.name}}</option><
                     /select>
                 </td>
             </tr>
@@ -14,16 +14,16 @@
                 <td>Age:</td> 
                 <td><input ng-model="character.age" type="text"></td>
                 <td><select ng-change="updateCharacterAgeFromLevel()" ng-model="character.agelevel"><option ng-repeat="(key,value) in agelevel">{{key}}</option></select></td>
-            </tr>
-        </table>
-        
-        <table>         
-                <tr>
-                    <td>Abilities:</td>
-                </tr>
-                <tr ng-repeat="ability in raceAbilites">
-                    <td>{{ability.abilityName}}</td>
-                    <td>{{ability.shortDescription}}</td>
-                </tr>
-        </table>
-    </div>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td>Abilities:</td>
+        </tr>
+        <tr ng-repeat="ability in raceAbilites">
+            <td>{{ability.abilityName}}</td>
+            <td>{{ability.shortDescription}}</td>
+        </tr>
+    </table>
+</div>

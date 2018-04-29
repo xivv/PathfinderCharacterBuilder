@@ -1,0 +1,14 @@
+{
+    "name": "Spellbook",
+    "description": "A spellbook has 100 pages of parchment, and each spell takes up one page per spell level (one page each for 0-level spells).",
+    "shortDescription": "A spellbook has 100 pages of parchment, and each spell takes up one page per spell level (one page each for 0-level spells).",
+    "equipable": false,
+    "consumable": false,
+    "type": "Books",
+    "weight": 3,
+    "price": 15,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

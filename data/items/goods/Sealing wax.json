@@ -1,0 +1,14 @@
+{
+    "name": "Sealing wax",
+    "description": "Solid wax used for sealing scroll tubes or scrolls together.",
+    "shortDescription": "Solid wax used for sealing scroll tubes or scrolls together.",
+    "equipable": false,
+    "consumable": true,
+    "type": "Other Writing Supplies and Tools",
+    "weight": 1,
+    "price": 1,
+    "source": "PZO1110",
+    "attributes": {
+
+    }
+}

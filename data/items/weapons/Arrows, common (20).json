@@ -1,0 +1,26 @@
+{
+    "name": "Arrows, common (20)",
+    "description": "No description",
+    "shortDescription": "",
+    "equipable": false,
+    "consumable": true,
+    "type": "Weapon",
+    "weight": 3,
+    "price": 1,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Weapon",
+        "damage": {
+            "small": "",
+            "medium": ""
+        },
+        "criticalMultiplier": 0,
+        "criticalRange": 0,
+        "range": 10,
+        "types": ["P"],
+        "special": [],
+        "proficiency": "Martial",
+        "subtype": "Ammunition",
+        "benefit": ""
+    }
+}
