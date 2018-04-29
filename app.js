@@ -1070,7 +1070,7 @@ app.factory('Deitys', function ($http) {
             $http.get(dataString).then(function (response_) {
 
                 var deityData = response_.data;
-                obj[deityData.deityName] = deityData;
+                obj[deityData.name] = deityData;
             });
         }
 

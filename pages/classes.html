@@ -1,56 +1,57 @@
 <html>
-    
-    <table>
-        <tr>
-            <td>Class</td>
-            <td>Level</td>
-            <td>MaxHP</td>
-            <td>Base Attack Bonus</td>
-            <td>Fortitude Save</td>
-            <td>Reflex Save</td>
-            <td>Will Save</td>
-        </tr>
-        <tr ng-repeat="class in character.classes">
-            <td>{{class.name}}</td>
-            <td>{{class.level}}</td>
-            <td>{{class.maxHP}}</td>
-            <td>{{class.bab}}</td>
-            <td>{{class.fortitudeSave}}</td>
-            <td>{{class.reflexSave}}</td>
-            <td>{{class.willSave}}</td>
-            <td> <input type="button" ng-click="removeLevel(class.name)" value="-"></td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>{{getTotal("level")}}</td>
-            <td>{{getTotal("maxHP")}}</td>
-            <td>{{getTotal("bab")}}</td>
-            <td>{{getTotal("fortitudeSave")}}</td>
-            <td>{{getTotal("reflexSave")}}</td>
-            <td>{{getTotal("willSave")}}</td>
-        </tr>
-    </table>
-    <select ng-model="selectedClass_" ng-change="selectClass(selectedClass_)">
+
+<table class="table-striped table-bordered">
+    <tr>
+        <td>Class</td>
+        <td>Level</td>
+        <td>MaxHP</td>
+        <td>Base Attack Bonus</td>
+        <td>Fortitude Save</td>
+        <td>Reflex Save</td>
+        <td>Will Save</td>
+        <td>Action</td>
+    </tr>
+    <tr ng-repeat="class in character.classes">
+        <td>{{class.name}}</td>
+        <td>{{class.level}}</td>
+        <td>{{class.maxHP}}</td>
+        <td>{{class.bab}}</td>
+        <td>{{class.fortitudeSave}}</td>
+        <td>{{class.reflexSave}}</td>
+        <td>{{class.willSave}}</td>
+        <td><input type="button" ng-click="removeLevel(class.name)" value="-"></td>
+    </tr>
+    <tr>
+        <td>Total</td>
+        <td>{{getTotal("level")}}</td>
+        <td>{{getTotal("maxHP")}}</td>
+        <td>{{getTotal("bab")}}</td>
+        <td>{{getTotal("fortitudeSave")}}</td>
+        <td>{{getTotal("reflexSave")}}</td>
+        <td>{{getTotal("willSave")}}</td>
+    </tr>
+</table>
+<select ng-model="selectedClass_" ng-change="selectClass(selectedClass_)">
         <option ng-repeat="class in classes">{{class.name}}</option>
     </select>
-    <input type="button" ng-click="addLevel(selectedClass_)" value="+">
-  
-    <table ng-show="selectedClass_ != null">
-        <tr>
-            <td>{{selectedClass.name}}</td>
-        </tr>
-        <tr>
-            <td>Description</td>
-            <td>{{selectedClass.description}}</td>
-        </tr>
-        <tr>
-            <td>Role</td>
-            <td>{{selectedClass.role}}</td>
-        </tr>
-        <tr>
-            <td>HitDie</td>
-            <td>{{selectedClass.hitDie}}</td>
-        </tr>
-    </table>
-    
+<input type="button" ng-click="addLevel(selectedClass_)" value="+">
+
+<table ng-show="selectedClass_ != null">
+    <tr>
+        <td>{{selectedClass.name}}</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>{{selectedClass.description}}</td>
+    </tr>
+    <tr>
+        <td>Role</td>
+        <td>{{selectedClass.role}}</td>
+    </tr>
+    <tr>
+        <td>HitDie</td>
+        <td>{{selectedClass.hitDie}}</td>
+    </tr>
+</table>
+
 </html>

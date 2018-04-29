@@ -1,12 +1,12 @@
 {
-    "deityName" : "Asmodeus",
-    "shortDescription" : "Asmodeus is the most powerful of the nine archdevils that inhabit Hell, and the only one of Hell's rulers to claim full divinity. It was he who is credited with the penning the contract of creation, within which his followers believe is hidden the means for their patron's eventual rise to supremacy.",
-    "alignment" : "Lawful Evil",
-    "portfolio" : ["Tyranny","Slavery","Pride","Contracts"],
-    "worshipers": ["Slavers","Tyrants","Bureaucrats"],
-    "alignments": ["Lawful Neutral","Lawful Evil","Neutral Evil"],
-    "domains"   : ["Evil","Fire","Law","Magic","Trickery"],
-    "subdomains": ["Arcan","Ash","Deception","Devil","Divine","Legislation","Smoke"],
-    "favouredWeapon" : "Mace",
-    "source"    : "https://pathfinderwiki.com/wiki/Asmodeus"
+    "name": "Asmodeus",
+    "shortDescription": "Asmodeus is the most powerful of the nine archdevils that inhabit Hell, and the only one of Hell's rulers to claim full divinity. It was he who is credited with the penning the contract of creation, within which his followers believe is hidden the means for their patron's eventual rise to supremacy.",
+    "alignment": "Lawful Evil",
+    "portfolio": ["Tyranny", "Slavery", "Pride", "Contracts"],
+    "worshipers": ["Slavers", "Tyrants", "Bureaucrats"],
+    "alignments": ["Lawful Neutral", "Lawful Evil", "Neutral Evil"],
+    "domains": ["Evil", "Fire", "Law", "Magic", "Trickery"],
+    "subdomains": ["Arcan", "Ash", "Deception", "Devil", "Divine", "Legislation", "Smoke"],
+    "favouredWeapon": "Mace",
+    "source": "https://pathfinderwiki.com/wiki/Asmodeus"
 }

@@ -6,18 +6,18 @@
             <td>Race:</td>
             <td>
                 <select ng-model="character.race">   
-                        <option ng-repeat="race in races">{{race.name}}</option><
-                    /select>
-                </td>
-            </tr>
-            <tr>
-                <td>Age:</td> 
-                <td><input ng-model="character.age" type="text"></td>
-                <td><select ng-change="updateCharacterAgeFromLevel()" ng-model="character.agelevel"><option ng-repeat="(key,value) in agelevel">{{key}}</option></select></td>
+                        <option ng-repeat="race in races">{{race.name}}</option>
+                   </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td><input ng-model="character.age" type="text"></td>
+            <td><select ng-change="updateCharacterAgeFromLevel()" ng-model="character.agelevel"><option ng-repeat="(key,value) in agelevel">{{key}}</option></select></td>
         </tr>
     </table>
 
-    <table>
+    <table ng-show="character.race">
         <tr>
             <td>Abilities:</td>
         </tr>
