@@ -488,13 +488,19 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         if (!item) {
             return false;
         }
-        return (item.attributes.condition.isMagical == false || item.attributes.condition.enhancementBonus < enhancementBonus) && (item.type == "Weapon" || item.type == "Shield" ||
-            item.type == "Armor");
+        return (item.attributes.condition.enhancementBonus < enhancementBonus || item.attributes.condition.enhancementBonus == 0) && (item.type == "Weapon" || item.type == "Shield" || item.type == "Armor");
+
     }
+
 
     $scope.craftMagical = function (item, enhancementBonus) {
 
         var newItemName = "+" + enhancementBonus + " " + item.name;
+
+        if (item.attributes.condition.isMasterwork) {
+
+            newItemName = newItemName.replace("Masterwork", "");
+        }
         var newItemPrice = $scope.getMagicalCosts(item, enhancementBonus);
         var newItem = JSON.parse(JSON.stringify(item));
 
@@ -505,8 +511,20 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         newItem.attributes.condition.enhancementBonus = enhancementBonus;
         newItem.attributes.range;
 
-        if (!$scope.weapons[newItemName]) {
-            $scope.weapons[newItemName] = newItem;
+        if (item.type == "Weapon") {
+
+            if (!$scope.weapons[newItemName]) {
+                $scope.weapons[newItemName] = newItem;
+            }
+
+        } else if (item.type == "Shield") {
+            if (!$scope.shields[newItemName]) {
+                $scope.shields[newItemName] = newItem;
+            }
+        } else if (item.type == "Armor") {
+            if (!$scope.armor[newItemName]) {
+                $scope.armor[newItemName] = newItem;
+            }
         }
 
     }
@@ -562,13 +580,15 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
         if ($scope.selectedItem) {
 
+            if (item.attributes.condition.isMasterwork) {
+                price -= 300;
+            }
+
             if (item.type == "Weapon") {
 
-                if (item.attributes.condition.isMasterwork) {
-                    price -= 300;
-                }
-
                 price += $scope.getMasterworkCosts(item) + $scope.enhancementCosts[enhancementBonus];
+            } else if (item.type == "Shield" || item.type == "Armor") {
+                price += $scope.getMasterworkCosts(item) + ($scope.enhancementCosts[enhancementBonus] / 2);
             }
         }
 

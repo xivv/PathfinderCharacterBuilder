@@ -15,6 +15,13 @@
         "shieldBonus": 4,
         "maximumDexBonus": 2,
         "armorCheckPenalty": -10,
-        "arcaneSpellFailure": 50
+        "arcaneSpellFailure": 50,
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
+        }
     }
 }

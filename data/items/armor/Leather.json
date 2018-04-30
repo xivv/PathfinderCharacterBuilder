@@ -1,25 +1,32 @@
 {
-    "name"  : "Leather",
-    "description"   :   "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
-    "shortDescription"  :   "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
-    "equipable" :   true,
-    "consumable"    :   false,
-    "type" : "Armor",
-    "weight"    :  15,
-    "price" :   10,
-    "source"    : "PZO1110",
-    "attributes" : {
+    "name": "Leather",
+    "description": "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
+    "shortDescription": "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 15,
+    "price": 10,
+    "source": "PZO1110",
+    "attributes": {
 
-        "slot" : "Armor",
-        "proficiency" : "Light Armor", 
-        "armorBonus" : 2,
-        "maximumDexBonus" : 6,
-        "armorCheckPenalty" : 0,
-        "arcaneSpellFailure" : 10,
-        "speed" : {
-            "30" : 30,
-            "20" : 20
+        "slot": "Armor",
+        "proficiency": "Light Armor",
+        "armorBonus": 2,
+        "maximumDexBonus": 6,
+        "armorCheckPenalty": 0,
+        "arcaneSpellFailure": 10,
+        "speed": {
+            "30": 30,
+            "20": 20
+        },
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
         }
-        
+
     }
 }

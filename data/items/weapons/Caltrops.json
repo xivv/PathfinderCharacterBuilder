@@ -11,8 +11,14 @@
     "attributes": {
         "slot": "Weapon",
         "damage": {
-            "small": "",
-            "medium": ""
+            "small": {
+                "die": 0,
+                "eyes": 0
+            },
+            "medium": {
+                "die": 0,
+                "eyes": 0
+            }
         },
         "criticalMultiplier": 0,
         "criticalRange": 0,

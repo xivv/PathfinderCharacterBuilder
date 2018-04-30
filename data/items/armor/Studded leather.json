@@ -1,25 +1,32 @@
 {
-    "name"  : "Studded leather",
-    "description"   :   "Similar to leather armor, this suit is reinforced with smal metal studs.",
-    "shortDescription"  :   "Similar to leather armor, this suit is reinforced with smal metal studs.",
-    "equipable" :   true,
-    "consumable"    :   false,
-    "type" : "Armor",
-    "weight"    :  25,
-    "price" :   25,
-    "source"    : "PZO1110",
-    "attributes" : {
+    "name": "Studded leather",
+    "description": "Similar to leather armor, this suit is reinforced with smal metal studs.",
+    "shortDescription": "Similar to leather armor, this suit is reinforced with smal metal studs.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Armor",
+    "weight": 25,
+    "price": 25,
+    "source": "PZO1110",
+    "attributes": {
 
-        "slot" : "Armor",
-        "proficiency" : "Light Armor", 
-        "armorBonus" : 3,
-        "maximumDexBonus" : 5,
-        "armorCheckPenalty" : -1,
-        "arcaneSpellFailure" : 15,
-        "speed" : {
-            "30" : 30,
-            "20" : 20
+        "slot": "Armor",
+        "proficiency": "Light Armor",
+        "armorBonus": 3,
+        "maximumDexBonus": 5,
+        "armorCheckPenalty": -1,
+        "arcaneSpellFailure": 15,
+        "speed": {
+            "30": 30,
+            "20": 20
+        },
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
         }
-        
+
     }
 }

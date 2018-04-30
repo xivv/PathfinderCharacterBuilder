@@ -11,8 +11,14 @@
     "attributes": {
         "slot": "Unarmed",
         "damage": {
-            "small": "1d2",
-            "medium": "1d3"
+            "small": {
+                "die": 1,
+                "eyes": 2
+            },
+            "medium": {
+                "die": 1,
+                "eyes": 3
+            }
         },
         "criticalMultiplier": 2,
         "criticalRange": 0,

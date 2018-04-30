@@ -19,6 +19,13 @@
         "speed": {
             "30": 20,
             "20": 15
+        },
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
         }
 
     }

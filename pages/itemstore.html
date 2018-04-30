@@ -51,7 +51,7 @@
 
                     <div ng-show="customizeAction == 'Make Magical'">
                         <tr>Enhancement Bonus</tr>
-                        <select ng-model="enhancementBonus" ng-init="enhancementBonus='1'">
+                        <select ng-init="enhancementBonus='1'" ng-model="enhancementBonus">
                             <option ng-repeat="enhancement in [1,2,3,4,5]">{{enhancement}}</option>
                         </select>
                         <br>
@@ -118,8 +118,8 @@
                 <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["30"]}}</td>
                 <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["20"]}}</td>
 
-                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["small"]}}</td>
-                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["medium"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["small"]["die"]}}d{{selectedItem.attributes.damage["small"]["eyes"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["medium"]["die"]}}d{{selectedItem.attributes.damage["medium"]["eyes"]}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">x{{selectedItem.attributes.criticalMultiplier}}/{{20-selectedItem.attributes.criticalRange}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.range}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Types</td>

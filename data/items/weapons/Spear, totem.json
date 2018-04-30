@@ -12,8 +12,14 @@
     "attributes": {
         "slot": "Weapon",
         "damage": {
-            "small": "1d8",
-            "medium": "1d10"
+            "small": {
+                "die": 1,
+                "eyes": 8
+            },
+            "medium": {
+                "die": 1,
+                "eyes": 10
+            }
         },
         "criticalMultiplier": 3,
         "criticalRange": 0,
