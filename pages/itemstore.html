@@ -1,6 +1,75 @@
 <html>
 
 <div class="container-fluid">
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Customize Item</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <select ng-model="customizeAction" ng-init="customizeAction='Change Material'">
+                                <option>Change Material</option>
+                                <option>Make Masterwork</option>
+                                <option>Make Magical</option>
+                                <option>Make Composite</option>
+                                <option>Add Abilities</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div ng-show="customizeAction == 'Change Material'">
+                        <select>
+                            <option ng-repeat="material in materials">{{material.name}}</option>
+                        </select>
+                    </div>
+
+                    <div ng-show="customizeAction == 'Make Masterwork'">
+
+                        <tr>New Item Cost:</tr>
+                        <tr>{{getMasterworkCosts(selectedItem)}}</tr>
+
+                    </div>
+
+                    <div ng-show="customizeAction == 'Make Composite'">
+                        <tr>Strength Rating</tr>
+                        <select ng-model="strengthRating" ng-init="strengthRating='0'">
+                            <option ng-repeat="strength in [0,1,2,3,4,5]">{{strength}}</option>
+                        </select>
+                        <br>
+                        <tr>New Item Cost:</tr>
+                        <tr>{{getCompositeCosts(selectedItem,strengthRating)}}</tr>
+
+                    </div>
+
+                    <div ng-show="customizeAction == 'Make Magical'">
+                        <tr>Enhancement Bonus</tr>
+                        <select ng-model="enhancementBonus" ng-init="enhancementBonus='1'">
+                            <option ng-repeat="enhancement in [1,2,3,4,5]">{{enhancement}}</option>
+                        </select>
+                        <br>
+                        <tr>New Item Cost:</tr>
+                        <tr>{{getMagicalCosts(selectedItem,enhancementBonus)}}</tr>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="craftMasterwork(selectedItem)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
+                    <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="craftComposite(selectedItem,strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
+                    <button ng-show="customizeAction == 'Make Magical' && qualifiesForMagical(selectedItem)" ng-click="craftMagical(selectedItem,enhancementBonus)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Magical</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
 
     <div ng-show="selectedItem" class="table-responsive col-sm-12">
@@ -65,7 +134,7 @@
         {{selectedItem.description}}
         <br><br>
         <input ng-disabled="selectedItem.price > character.funds" type="button" value="Buy" ng-click="buySelectedItem()">
-        <input type="button" value="Customize" ng-click="">
+        <input type="button" data-toggle="modal" data-target="#exampleModal" value="Customize" ng-click="">
         <br><br>
     </div>
 
@@ -151,7 +220,7 @@
                         </tr>
                     </thead>
                     <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) | orderBy:sortType:sortReverse | filter:searchTerm">
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) track by item.name| orderBy:sortType:sortReverse | filter:searchTerm">
                             <td>{{item.name}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>

@@ -1,0 +1,13 @@
+{
+    "name": "Mithral",
+    "description": "Weapons or armors fashioned from mithral are always masterwork items as well. An item made from mithral weighs half as much as the same item made from other metals. In the case of weapons, this lighter weight does not change a weapon’s size category or the ease with which it can be wielded (whether it is light, one-handed, or two-handed).",
+    "hpInch": 30,
+    "hardness": 15,
+    "cost": {
+        "Light Armor": 1000,
+        "Medium Armor": 4000,
+        "Heavy Armor": 9000,
+        "Shield": 1000
+    },
+    "source": "PZO1110"
+}

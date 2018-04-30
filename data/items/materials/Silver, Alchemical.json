@@ -1,0 +1,14 @@
+{
+    "name": "Silver, Alchemical",
+    "description": "A complex process involving metallurgy and alchemy can bond silver to a weapon made of steel so that it bypasses the damage reduction of creatures such as lycanthropes. On a successful attack with a silvered slashing or piercing weapon, the wielder takes a –1 penalty on the damage roll (with a minimum of 1 point of damage). The alchemical silvering process can’t be applied to nonmetal items, and it doesn’t work on rare metals such as adamantine, cold iron, and mithral.",
+    "hpInch": 10,
+    "hardness": 8,
+    "cost": {
+        "Ammunition": 2,
+        "Light Melee Weapons": 20,
+        "One-Handed Melee Weapons": 90,
+        "Two-Handed Melee Weapons": 180,
+        "Ranged Weapons": 180
+    },
+    "source": "PZO1110"
+}

@@ -21,6 +21,13 @@
         "special": [],
         "proficiency": "Simple Weapons",
         "subtype": "Light Melee Weapons",
-        "benefit": "You get a +2 bonus on Sleight of Hand skill checks made to conceal a dagger on your body."
+        "benefit": "You get a +2 bonus on Sleight of Hand skill checks made to conceal a dagger on your body.",
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
+        }
     }
 }

@@ -1,26 +1,33 @@
 {
-    "name"  : "Unarmed Strike",
-    "description"   :   "An umarmed strike is always considered a light weapon.",
-    "shortDescription"  :   "An umarmed strike is always considered a light weapon.",
-    "equipable" :   true,
-    "consumable"    :   false,
-    "type" : "Weapon",
-    "weight"    :  0,
-    "price" :   0,
-    "source"    : "PZO1110",
-    "attributes" : {
-        "slot" : "Unarmed",
+    "name": "Unarmed Strike",
+    "description": "An umarmed strike is always considered a light weapon.",
+    "shortDescription": "An umarmed strike is always considered a light weapon.",
+    "equipable": true,
+    "consumable": false,
+    "type": "Weapon",
+    "weight": 0,
+    "price": 0,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Unarmed",
         "damage": {
-            "small" : "1d2",
-            "medium" : "1d3"
-         },     
-        "criticalMultiplier" : 2,
-        "criticalRange" : 0,
-        "range" : 0,
-        "types" : ["B"],
-        "special" : ["Nonlethal"],
-        "proficiency" : "Simple Weapons",
-        "subtype" : "Unarmed Attack",
-        "benefit" : ""
+            "small": "1d2",
+            "medium": "1d3"
+        },
+        "criticalMultiplier": 2,
+        "criticalRange": 0,
+        "range": 0,
+        "types": ["B"],
+        "special": ["Nonlethal"],
+        "proficiency": "Simple Weapons",
+        "subtype": "Unarmed Attack",
+        "benefit": "",
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
+        }
     }
 }

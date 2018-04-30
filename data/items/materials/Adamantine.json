@@ -1,0 +1,15 @@
+{
+    "name": "Adamantine",
+    "description": "Adamantine is extremely strong and favored by weapon and armor smiths alike for its ability to cut through solid barriers with ease and endure heavy blows. Weapons fashioned from adamantine have a natural ability to bypass hardness when sundering weapons or attacking objects, ignoring hardness less than 20. Armor made from adamantine grants its wearer damage reduction of 1/— if it’s light armor, 2/— if it’s medium armor, and 3/— if it’s heavy armor. Adamantine is so costly that weapons and armor made from it are always of masterwork quality; the masterwork cost is included in the prices given. Thus, adamantine weapons and ammunition have a +1 enhancement bonus on attack rolls, and the armor check penalty of adamantine armor is lessened by 1 compared to ordinary armor of its type. Items without metal parts cannot be made from adamantine. An arrow could be made of adamantine, but a quarterstaff could not.",
+    "hpInch": 40,
+    "hardness": 20,
+    "cost": {
+        "Light Armor": 5000,
+        "Medium Armor": 10000,
+        "Heavy Armor": 15000,
+        "Weapon": 3000,
+        "Shield": 1500,
+        "Ammunition": 60
+    },
+    "source": "PZO1110"
+}

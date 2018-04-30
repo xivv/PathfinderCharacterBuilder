@@ -1,0 +1,11 @@
+{
+    "name": "Darkwood",
+    "description": "This rare magic wood is as hard as normal wood but very light. Any wooden or mostly wooden item(such as a bow or spear) made from darkwood is considered a masterwork item and weighs only half as much as a normal wooden item of that type.Items not normally made of wood or only partially of wood(such as a battleaxe or a mace) either cannot be made from darkwood or do not gain any special benefit from being made of darkwood.The armor check penalty of a darkwood shield is lessened by 2 compared to an ordinary shield of its type.",
+    "hpInch": 10,
+    "hardness": 5,
+    "cost": {
+        "Type": "weight",
+        "increase": 10
+    },
+    "source": "PZO1110"
+}

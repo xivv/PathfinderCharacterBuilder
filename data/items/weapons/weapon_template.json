@@ -1,26 +1,33 @@
 {
-    "name"  : "",
-    "description"   :   "",
-    "shortDescription"  :   "",
-    "equipable" :   true,
-    "consumable"    :   false,
-    "type" : "Weapon",
-    "weight"    :  0,
-    "price" :   0,
-    "source"    : "PZO1110",
-    "attributes" : {
-        "slot" : "Weapon",
+    "name": "",
+    "description": "",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Weapon",
+    "weight": 0,
+    "price": 0,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Weapon",
         "damage": {
-            "small" : "",
-            "medium" : ""
-         },     
-        "criticalMultiplier" : 2,
-        "criticalRange" : 0,
-        "range" : 0,
-        "types" : [],
-        "special" : [],
-        "proficiency" : "",
-        "subtype" : "",
-        "benefit" : ""
+            "small": "",
+            "medium": ""
+        },
+        "criticalMultiplier": 2,
+        "criticalRange": 0,
+        "range": 0,
+        "types": [],
+        "special": [],
+        "proficiency": "",
+        "subtype": "",
+        "benefit": "",
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false
+        }
     }
 }
