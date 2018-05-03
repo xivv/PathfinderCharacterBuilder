@@ -499,6 +499,13 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         if (material.cost.type == "weight") {
 
             price += item.weight * material.cost.increase;
+
+        } else if (material.cost[item.type]) {
+
+            price += material.cost[item.type];
+        } else if (material.cost[item.attributes.proficiency]) {
+
+            price += material.cost[item.attributes.proficiency];
         }
 
         if (material.cost.makesMasterwork && !item.attributes.condition.isMasterwork) {
