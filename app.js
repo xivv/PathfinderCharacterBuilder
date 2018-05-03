@@ -466,6 +466,49 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
     };
 
 
+
+    $scope.getNewItemPrice = function (item, change, modifier) {
+
+        var price = 0;
+
+        if (!item || !change) {
+            return;
+        }
+        if (change == "Change Material" && modifier) {
+
+            price += $scope.getMaterialChangeCosts(item, modifier);
+        } else if (change == "Magical" && modifier) {
+            price += $scope.getMasterworkChangeCosts(item);
+            price += $scope.getMagicalChangeCosts(item, modifier);
+        } else if (change == "Masterwork") {
+
+            price += $scope.getMasterworkChangeCosts(item);
+        } else if (change == "Composite" && modifier) {
+            price += $scope.getCompositeChangeCosts(item, modifier);
+        }
+
+        return price + item.price;
+    }
+
+    $scope.getMaterialChangeCosts = function (item, modifier) {
+
+        var price = 0;
+
+        var material = $scope.materials[modifier];
+
+        if (material.cost.type == "weight") {
+
+            price += item.weight * material.cost.increase;
+        }
+
+        if (material.cost.makesMasterwork && !item.attributes.isMasterwork) {
+
+            price += $scope.getMasterworkChangeCosts(item);
+        }
+
+        return price;
+    }
+
     $scope.qualifiesForComposite = function (item) {
 
         if (!item) {
@@ -493,6 +536,62 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
     }
 
 
+    $scope.changeMaterialOfItem = function (item, materialName) {
+
+        var newItem = JSON.parse(JSON.stringify(item));
+        var newItemPrice = $scope.getNewItemPrice(item, "Change Material", materialName);
+
+        var material = $scope.materials[materialName];
+        var newItemName = material.name + " " + item.name;
+
+        if (material.cost.makesMasterwork && !item.attributes.isMagical) {
+            newItem = $scope.craftMasterwork(newItem);
+        }
+
+
+
+        // If it changes attributes of the item
+        if (material.cost[newItem.type]) {
+
+            Object.keys(material.cost[newItem.type]).forEach(function (element) {
+
+                newItem.attributes[element] += material.cost[newItem.type][element];
+            });
+        }
+
+        newItem.name = newItemName;
+        newItem.price = newItemPrice;
+
+        return newItem;
+    }
+
+    $scope.removeCorruptedFields = function (item) {
+
+
+        if (item.type == "Shield" || item.type == "Armor") {
+
+            var valuesNotLessZero = ["shieldBonus", "maximumDexBonus", "arcaneSpellFailure"];
+
+            for (var i = 0; i < valuesNotLessZero.length; i++) {
+
+                if (item.attributes[valuesNotLessZero[i]] && item.attributes[valuesNotLessZero[i]] < 0) {
+                    item.attributes[valuesNotLessZero[i]] = 0;
+                }
+            }
+
+            var valuesNotGreaterZero = ["armorCheckPenalty"];
+
+            for (var a = 0; a < valuesNotGreaterZero.length; a++) {
+
+                if (item.attributes[valuesNotGreaterZero[a]] && item.attributes[valuesNotGreaterZero[a]] > 0) {
+                    item.attributes[valuesNotGreaterZero[a]] = 0;
+                }
+            }
+        }
+
+        return item;
+    }
+
     $scope.craftMagical = function (item, enhancementBonus) {
 
         var newItemName = "+" + enhancementBonus + " " + item.name;
@@ -501,80 +600,89 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
             newItemName = newItemName.replace("Masterwork", "");
         }
-        var newItemPrice = $scope.getMagicalCosts(item, enhancementBonus);
+        var newItemPrice = $scope.getNewItemPrice(item, "Magical", enhancementBonus);
         var newItem = JSON.parse(JSON.stringify(item));
 
         newItem.name = newItemName;
         newItem.price = newItemPrice;
         newItem.attributes.condition.isMagical = true;
-        newItem.attributes.condition.isMasterwork = true;
         newItem.attributes.condition.enhancementBonus = enhancementBonus;
-        newItem.attributes.range;
 
-        if (item.type == "Weapon") {
-
-            if (!$scope.weapons[newItemName]) {
-                $scope.weapons[newItemName] = newItem;
-            }
-
-        } else if (item.type == "Shield") {
-            if (!$scope.shields[newItemName]) {
-                $scope.shields[newItemName] = newItem;
-            }
-        } else if (item.type == "Armor") {
-            if (!$scope.armor[newItemName]) {
-                $scope.armor[newItemName] = newItem;
-            }
-        }
-
+        return newItem;
     }
 
     $scope.craftComposite = function (item, strengthRating) {
 
         var newItemName = item.name + ", composite(+" + strengthRating + ")";
-        var newItemPrice = $scope.getMasterworkCosts(item);
+        var newItemPrice = $scope.getNewItemPrice(item, "Composite", strengthRating);
         var newItem = JSON.parse(JSON.stringify(item));
 
         newItem.name = newItemName;
         newItem.price = newItemPrice;
         newItem.attributes.condition.isComposite = true;
         newItem.attributes.condition.strengthRating = strengthRating;
-        newItem.attributes.range = newItem.attributes.range + 10;
 
-        if (!$scope.weapons[newItemName]) {
-            $scope.weapons[newItemName] = newItem;
+        return newItem;
+    }
+
+    $scope.createCustomItem = function (item, change, modifier) {
+
+        var customItem;
+
+        if (change == "Masterwork") {
+            customItem = $scope.craftMasterwork(item);
+        } else if (change == "Magical") {
+            customItem = $scope.craftMasterwork(item);
+            customItem = $scope.craftMagical(customItem, modifier);
+        } else if (change == "Composite") {
+            customItem = $scope.craftComposite(item, modifier);
+        } else if (change == "Change Material") {
+            customItem = $scope.changeMaterialOfItem(item, modifier);
+        }
+
+        customItem = $scope.removeCorruptedFields(customItem);
+
+        if (item.type == "Weapon") {
+
+            if (!$scope.weapons[customItem.name]) {
+                $scope.weapons[customItem.name] = customItem;
+            }
+
+        } else if (item.type == "Shield") {
+            if (!$scope.shields[customItem.name]) {
+                $scope.shields[customItem.name] = customItem;
+            }
+        } else if (item.type == "Armor") {
+            if (!$scope.armor[customItem.name]) {
+                $scope.armor[customItem.name] = customItem;
+            }
         }
 
     }
 
     $scope.craftMasterwork = function (item) {
 
+        if (item.attributes.condition.isMasterwork) {
+            return item;
+        }
+
         var newItemName = item.name + " Masterwork";
-        var newItemPrice = $scope.getMasterworkCosts(item);
+        var newItemPrice = $scope.getNewItemPrice(item, "Masterwork");
         var newItem = JSON.parse(JSON.stringify(item));
+
+
+        if (item.type == "Shield" || item.type == "Armor") {
+            newItem.attributes.armorCheckPenalty += 1;
+        }
 
         newItem.name = newItemName;
         newItem.price = newItemPrice;
         newItem.attributes.condition.isMasterwork = true;
 
-        if (item.type == "Weapon") {
-
-            if (!$scope.weapons[newItemName]) {
-                $scope.weapons[newItemName] = newItem;
-            }
-
-        } else if (item.type == "Shield") {
-            if (!$scope.shields[newItemName]) {
-                $scope.shields[newItemName] = newItem;
-            }
-        } else if (item.type == "Armor") {
-            if (!$scope.armor[newItemName]) {
-                $scope.armor[newItemName] = newItem;
-            }
-        }
+        return newItem;
     }
 
-    $scope.getMagicalCosts = function (item, enhancementBonus) {
+    $scope.getMagicalChangeCosts = function (item, enhancementBonus) {
 
         var price = 0;
 
@@ -586,47 +694,47 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
             if (item.type == "Weapon") {
 
-                price += $scope.getMasterworkCosts(item) + $scope.enhancementCosts[enhancementBonus];
+                price += $scope.enhancementCosts[enhancementBonus];
             } else if (item.type == "Shield" || item.type == "Armor") {
-                price += $scope.getMasterworkCosts(item) + ($scope.enhancementCosts[enhancementBonus] / 2);
+                price += ($scope.enhancementCosts[enhancementBonus] / 2);
             }
         }
 
         return price;
     };
 
-    $scope.getCompositeCosts = function (item, strength) {
+    $scope.getCompositeChangeCosts = function (item, strength) {
 
         if ($scope.selectedItem) {
 
             if (item.name.includes("Longbow")) {
-                return strength * 100 + 25 + item.price;
+                return strength * 100 + 25;
             } else if (item.name.includes("Shortbow")) {
-                return strength * 75 + 45 + item.price;
+                return strength * 75 + 45;
             } else {
                 return 0;
             }
         }
     };
 
-    $scope.getMasterworkCosts = function (item) {
+    $scope.getMasterworkChangeCosts = function (item) {
 
         if ($scope.selectedItem) {
             if (item.type == "Weapon") {
 
                 if (item.attributes.special["double"]) {
-                    return item.price + 600;
+                    return 600;
                 } else if (item.attributes.subtype == "Ammunition") {
-                    return item.price + 6;
+                    return 6;
                 } else {
-                    return item.price + 300;
+                    return 300;
                 }
 
             }
 
             if (item.type == "Armor" || item.type == "Shield") {
 
-                return item.price + 150;
+                return 150;
             }
         }
 

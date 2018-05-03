@@ -25,7 +25,8 @@
             "enhancementBonus": 0,
             "isComposite": false,
             "strengthRating": 0,
-            "isMasterwork": false
+            "isMasterwork": false,
+            "material": null
         }
 
 

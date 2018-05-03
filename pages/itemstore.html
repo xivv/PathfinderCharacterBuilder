@@ -26,15 +26,18 @@
                     </div>
 
                     <div ng-show="customizeAction == 'Change Material'">
-                        <select>
+                        <select ng-model="selectedMaterial" ng-init="selectedMaterial='Darkwood'">
                             <option ng-repeat="material in materials">{{material.name}}</option>
                         </select>
+                        <tr>New Item Cost:</tr>
+                        <tr>{{getNewItemPrice(selectedItem,"Change Material",selectedMaterial)}}</tr>
+                        {{selectedMaterial}}
                     </div>
 
                     <div ng-show="customizeAction == 'Make Masterwork'">
 
                         <tr>New Item Cost:</tr>
-                        <tr>{{getMasterworkCosts(selectedItem)}}</tr>
+                        <tr>{{getNewItemPrice(selectedItem,"Masterwork")}}</tr>
 
                     </div>
 
@@ -45,7 +48,7 @@
                         </select>
                         <br>
                         <tr>New Item Cost:</tr>
-                        <tr>{{getCompositeCosts(selectedItem,strengthRating)}}</tr>
+                        <tr>{{getNewItemPrice(selectedItem,"Composite",strengthRating)}}</tr>
 
                     </div>
 
@@ -56,15 +59,16 @@
                         </select>
                         <br>
                         <tr>New Item Cost:</tr>
-                        <tr>{{getMagicalCosts(selectedItem,enhancementBonus)}}</tr>
+                        <tr>{{getNewItemPrice(selectedItem,"Magical",enhancementBonus)}}</tr>
 
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="craftMasterwork(selectedItem)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
-                    <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="craftComposite(selectedItem,strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
-                    <button ng-show="customizeAction == 'Make Magical' && qualifiesForMagical(selectedItem)" ng-click="craftMagical(selectedItem,enhancementBonus)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Magical</button>
+                    <button ng-show="customizeAction == 'Change Material'" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
+                    <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="createCustomItem(selectedItem,'Masterwork')" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
+                    <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="createCustomItem(selectedItem,'Composite',strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
+                    <button ng-show="customizeAction == 'Make Magical' && qualifiesForMagical(selectedItem)" ng-click="createCustomItem(selectedItem,'Magical',enhancementBonus)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Magical</button>
                 </div>
             </div>
         </div>

@@ -4,8 +4,12 @@
     "hpInch": 10,
     "hardness": 5,
     "cost": {
-        "Type": "weight",
-        "increase": 10
+        "type": "weight",
+        "increase": 10,
+        "makesMasterwork": true,
+        "Shield": {
+            "armorCheckPenalty": 1
+        }
     },
     "source": "PZO1110"
 }
