@@ -501,7 +501,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
             price += item.weight * material.cost.increase;
         }
 
-        if (material.cost.makesMasterwork && !item.attributes.isMasterwork) {
+        if (material.cost.makesMasterwork && !item.attributes.condition.isMasterwork) {
 
             price += $scope.getMasterworkChangeCosts(item);
         }
@@ -544,7 +544,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         var material = $scope.materials[materialName];
         var newItemName = material.name + " " + item.name;
 
-        if (material.cost.makesMasterwork && !item.attributes.isMagical) {
+        if (material.cost.makesMasterwork && !item.attributes.condition.isMagical && !item.attributes.condition.isMasterwork) {
             newItem = $scope.craftMasterwork(newItem);
         }
 
@@ -561,6 +561,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
         newItem.name = newItemName;
         newItem.price = newItemPrice;
+        newItem.attributes.condition.material = material;
 
         return newItem;
     }
