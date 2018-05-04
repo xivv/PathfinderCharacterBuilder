@@ -508,7 +508,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
             price += material.cost[item.attributes.proficiency];
         }
 
-        if (material.cost.makesMasterwork && !item.attributes.condition.isMasterwork) {
+        if (material.changes.makesMasterwork && !item.attributes.condition.isMasterwork) {
 
             price += $scope.getMasterworkChangeCosts(item);
         }
@@ -551,19 +551,28 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         var material = $scope.materials[materialName];
         var newItemName = material.name + " " + item.name;
 
-        if (material.cost.makesMasterwork && !item.attributes.condition.isMagical && !item.attributes.condition.isMasterwork) {
+        if (material.changes.makesMasterwork && !item.attributes.condition.isMagical && !item.attributes.condition.isMasterwork) {
             newItem = $scope.craftMasterwork(newItem);
         }
 
 
 
         // If it changes attributes of the item
-        if (material.cost[newItem.type]) {
+        if (material.changes[newItem.type]) {
 
-            Object.keys(material.cost[newItem.type]).forEach(function (element) {
+            Object.keys(material.changes[newItem.type]).forEach(function (element) {
 
-                newItem.attributes[element] += material.cost[newItem.type][element];
+                newItem.attributes[element] += material.changes[newItem.type][element];
             });
+        }
+
+        if (material.changes.Armor.speedLimitationChange) {
+            newItem.attributes.speed["30"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][30];
+            newItem.attributes.speed["20"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][20];
+        }
+
+        if (material.changes.weight) {
+            newItem.weight = newItem.weight * material.changes.weight;
         }
 
         newItem.name = newItemName;

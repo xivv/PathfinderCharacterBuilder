@@ -4,10 +4,37 @@
     "hpInch": 30,
     "hardness": 15,
     "cost": {
-        "Light Armor": 1000,
-        "Medium Armor": 4000,
-        "Heavy Armor": 9000,
-        "Shield": 1000
+        "Light Armor": 850,
+        "Medium Armor": 3850,
+        "Heavy Armor": 8850,
+        "Shield": 850
+    },
+    "changes": {
+        "makesMasterwork": true,
+        "weight": 0.5,
+        "Shield": {
+            "arcaneSpellFailure": -10,
+            "armorCheckPenalty": 3
+        },
+        "Armor": {
+            "arcaneSpellFailure": -10,
+            "maximumDexBonus": 2,
+            "armorCheckPenalty": 3,
+            "speedLimitationChange": {
+                "Heavy Armor": {
+                    "30": 0,
+                    "20": 0
+                },
+                "Medium Armor": {
+                    "30": 10,
+                    "20": 5
+                },
+                "Light Armor": {
+                    "30": 0,
+                    "20": 0
+                }
+            }
+        }
     },
     "source": "PZO1110"
 }

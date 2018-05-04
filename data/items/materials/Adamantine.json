@@ -4,12 +4,15 @@
     "hpInch": 40,
     "hardness": 20,
     "cost": {
-        "Light Armor": 5000,
-        "Medium Armor": 10000,
-        "Heavy Armor": 15000,
-        "Weapon": 3000,
-        "Shield": 1500,
-        "Ammunition": 60
+        "Light Armor": 4850,
+        "Medium Armor": 9850,
+        "Heavy Armor": 14850,
+        "Weapon": 2700,
+        "Shield": 1350,
+        "Ammunition": 54
+    },
+    "changes": {
+        "makesMasterwork": true
     },
     "source": "PZO1110"
 }

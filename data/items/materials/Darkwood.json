@@ -5,7 +5,9 @@
     "hardness": 5,
     "cost": {
         "type": "weight",
-        "increase": 10,
+        "increase": 10
+    },
+    "changes": {
         "makesMasterwork": true,
         "Shield": {
             "armorCheckPenalty": 1
