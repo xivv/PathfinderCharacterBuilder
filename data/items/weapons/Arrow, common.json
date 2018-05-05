@@ -11,6 +11,7 @@
     "source": "PZO1110",
     "attributes": {
         "slot": "Weapon",
+        "size": "Medium",
         "damage": {
             "small": "",
             "medium": ""

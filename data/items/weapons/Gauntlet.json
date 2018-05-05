@@ -11,6 +11,7 @@
     "source": "PZO1110",
     "attributes": {
         "slot": "Unarmed",
+        "size": "Medium",
         "damage": {
             "small": {
                 "die": 1,

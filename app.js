@@ -504,7 +504,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         if (item.attributes.condition) {
 
             if (item.attributes.condition.isComposite) {
-                isComposite = ", composite (" + item.attributes.condition.strengthRating + ")";
+                isComposite = ", composite (+" + item.attributes.condition.strengthRating + ")";
             } else if (item.attributes.condition.isMasterwork && !item.attributes.condition.isMagical) {
                 isMasterwork = " Masterwork";
             } else if (item.attributes.condition.isMagical) {
@@ -647,6 +647,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         newItem.price = newItemPrice;
         newItem.weight = newItemWeight;
         newItem.attributes.size = size;
+        newItem.displayName = $scope.createNewItemName(newItem);
 
         return newItem;
     }
