@@ -1,5 +1,6 @@
 {
     "name": "Leather",
+    "displayName": "Leather",
     "description": "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
     "shortDescription": "Leather armor is made up of pieces of hard boiled leather carefully sewn together.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Light Armor",
         "armorBonus": 2,
         "maximumDexBonus": 6,

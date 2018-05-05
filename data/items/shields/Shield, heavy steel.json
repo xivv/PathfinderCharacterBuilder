@@ -1,5 +1,6 @@
 {
     "name": "Shield, heavy steel",
+    "displayName": "Shield, heavy steel",
     "description": "No description",
     "shortDescription": "",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Shield",
+        "size": "Medium",
         "proficiency": "Shield",
         "shieldBonus": 2,
         "maximumDexBonus": 0,

@@ -1,5 +1,6 @@
 {
     "name": "Banded mail",
+    "displayName": "Banded mail",
     "description": "No description",
     "shortDescription": "",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Heavy Armor",
         "armorBonus": 7,
         "maximumDexBonus": 1,

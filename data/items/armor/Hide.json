@@ -1,5 +1,6 @@
 {
     "name": "Hide",
+    "displayName": "Hide",
     "description": "No description",
     "shortDescription": "",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Medium Armor",
         "armorBonus": 4,
         "maximumDexBonus": 4,

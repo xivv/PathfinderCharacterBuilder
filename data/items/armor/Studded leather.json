@@ -1,5 +1,6 @@
 {
     "name": "Studded leather",
+    "displayName": "Studded leather",
     "description": "Similar to leather armor, this suit is reinforced with smal metal studs.",
     "shortDescription": "Similar to leather armor, this suit is reinforced with smal metal studs.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Light Armor",
         "armorBonus": 3,
         "maximumDexBonus": 5,

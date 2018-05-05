@@ -1,5 +1,6 @@
 {
     "name": "Longbow",
+    "displayName": "Longbow",
     "description": "You need two hands to use a bow, regardless of its size. A longbow is too unwieldy to use while you are mounted. If you have a penalty for low Strength, apply it to damage rolls when you use a longbow.",
     "shortDescription": "",
     "equipable": true,

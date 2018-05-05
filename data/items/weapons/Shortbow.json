@@ -1,5 +1,6 @@
 {
     "name": "Shortbow",
+    "displayName": "Shortbow",
     "description": "You need two hands to use a bow, regardless of its size. You can use a shortbow while mounted. If you have a penalty for low Strength, apply it to damage rolls when you use a shortbow.",
     "shortDescription": "",
     "equipable": true,

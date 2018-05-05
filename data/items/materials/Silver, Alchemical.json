@@ -11,9 +11,7 @@
         "Ranged Weapons": 180
     },
     "changes": {
-        "Weapon": {
-            "damage": -1
-        }
+
     },
     "source": "PZO1110"
 }

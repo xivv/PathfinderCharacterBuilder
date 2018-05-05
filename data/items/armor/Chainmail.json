@@ -1,5 +1,6 @@
 {
     "name": "Chainmail",
+    "displayName": "Chainmail",
     "description": "Unlike a chain shirt, chainmail covers the legs and arms of the wearer. The suit includes gauntlets.",
     "shortDescription": "Unlike a chain shirt, chainmail covers the legs and arms of the wearer. The suit includes gauntlets.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Medium Armor",
         "armorBonus": 6,
         "maximumDexBonus": 2,

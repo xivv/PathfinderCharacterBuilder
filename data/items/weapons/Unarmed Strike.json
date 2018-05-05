@@ -1,5 +1,6 @@
 {
     "name": "Unarmed Strike",
+    "displayName": "Unarmed Strike",
     "description": "An umarmed strike is always considered a light weapon.",
     "shortDescription": "An umarmed strike is always considered a light weapon.",
     "equipable": true,

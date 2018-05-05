@@ -1,5 +1,6 @@
 {
     "name": "Gauntlet",
+    "displayName": "Gauntlet",
     "description": "This metal glove lets you deal letha damage with unarmed strikes.",
     "shortDescription": "This metal glove lets you deal letha damage with unarmed strikes.",
     "equipable": true,

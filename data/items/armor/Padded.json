@@ -1,5 +1,6 @@
 {
     "name": "Padded",
+    "displayName": "Padded",
     "description": "Little more than heavy, quilted cloth, this armor provides only the most basic protection.",
     "shortDescription": "Little more than heavy, quilted cloth, this armor provides only the most basic protection.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Light Armor",
         "armorBonus": 1,
         "maximumDexBonus": 8,

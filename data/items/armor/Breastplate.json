@@ -1,5 +1,6 @@
 {
     "name": "Breastplate",
+    "displayName": "Breastplate",
     "description": "Covering only the torso, a breastplate is made up of a single piece of sculpted metal.",
     "shortDescription": "Covering only the torso, a breastplate is made up of a single piece of sculpted metal.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Medium Armor",
         "armorBonus": 6,
         "maximumDexBonus": 3,

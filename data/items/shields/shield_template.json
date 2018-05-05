@@ -11,6 +11,7 @@
     "attributes": {
 
         "slot": "Shield",
+        "size": "Medium",
         "proficiency": "Shield",
         "shieldBonus": 0,
         "maximumDexBonus": 0,

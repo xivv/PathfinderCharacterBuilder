@@ -16,13 +16,31 @@
                     <div class="row">
                         <div class="col-md-12">
                             <select ng-model="customizeAction" ng-init="customizeAction='Change Material'">
+                                <option>Change Size</option>
                                 <option>Change Material</option>
                                 <option>Make Masterwork</option>
                                 <option>Make Magical</option>
                                 <option>Make Composite</option>
+                                
                                 <option>Add Abilities</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div ng-show="customizeAction == 'Change Size'">
+                        <select ng-model="selectedSize" ng-init="selectedSize='Medium'">
+                            <option>Tiny</option>
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            <option>Huge</option>
+                            <option>Gargantuan</option>
+                            <option>Colossal</option>
+                        </select>
+                        <tr>New Item Cost:</tr>
+                        <tr>{{getNewItemPrice(selectedItem,"Change Size",selectedSize)}}</tr>
+                        <tr>New Item Weight:</tr>
+                        <tr>{{getSizeChangeWeight(selectedItem,selectedSize)}}</tr>
                     </div>
 
                     <div ng-show="customizeAction == 'Change Material'">
@@ -31,7 +49,6 @@
                         </select>
                         <tr>New Item Cost:</tr>
                         <tr>{{getNewItemPrice(selectedItem,"Change Material",selectedMaterial)}}</tr>
-                        {{selectedMaterial}}
                     </div>
 
                     <div ng-show="customizeAction == 'Make Masterwork'">
@@ -65,6 +82,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button ng-show="customizeAction == 'Change Size'" ng-click="createCustomItem(selectedItem,'Change Size',selectedSize)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
                     <button ng-show="customizeAction == 'Change Material'" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
                     <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="createCustomItem(selectedItem,'Masterwork')" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
                     <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="createCustomItem(selectedItem,'Composite',strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
@@ -81,6 +99,7 @@
         <table class="table table-condensed table-striped table-bordered table-hover table-fixed">
             <tr>
                 <td>Name</td>
+                <td ng-show="selectedItem.attributes.size">Size</td>
                 <td>Type</td>
                 <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield' || selectedItem.type == 'Weapon'">Proficiency</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Subtype</td>
@@ -107,7 +126,8 @@
                 <td>Source</td>
             </tr>
             <tr>
-                <td>{{selectedItem.name}}</td>
+                <td>{{selectedItem.displayName}}</td>
+                <td ng-show="selectedItem.attributes.size">{{selectedItem.attributes.size}}</td>
                 <td>{{selectedItem.type}}</td>
                 <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield' || selectedItem.type == 'Weapon'">{{selectedItem.attributes["proficiency"]}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.subtype}}</td>
@@ -206,9 +226,9 @@
                 <table ng-init="activeTable=weapons;" class="table table-striped header-fixed table-bordered table-hover">
                     <thead style="display:table; width:100%; table-layout:fixed;">
                         <tr>
-                            <td ng-click="sortType= 'name';sortReverse = !sortReverse;">Name
-                                <span ng-show=" sortType=='name' && !sortReverse" class="fa fa-caret-up"></span>
-                                <span ng-show=" sortType=='name' && sortReverse" class="fa fa-caret-down"></span></td>
+                            <td ng-click="sortType= 'displayName';sortReverse = !sortReverse;">Name
+                                <span ng-show=" sortType=='displayName' && !sortReverse" class="fa fa-caret-up"></span>
+                                <span ng-show=" sortType=='displayName' && sortReverse" class="fa fa-caret-down"></span></td>
                             <td ng-click="sortType='price';sortReverse = !sortReverse; ">Price
                                 <span ng-show=" sortType=='price' && !sortReverse" class="fa fa-caret-up"></span>
                                 <span ng-show=" sortType=='price' && sortReverse" class="fa fa-caret-down"></span>
@@ -224,8 +244,8 @@
                         </tr>
                     </thead>
                     <tbody style="display:block; max-height:500px; overflow-y:scroll; ">
-                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) track by item.name| orderBy:sortType:sortReverse | filter:searchTerm">
-                            <td>{{item.name}}</td>
+                        <tr style="display:table; width:100%; table-layout:fixed; " class="clickable-row " ng-click="selectItem(item) " ng-repeat="item in getObjectAsArray(activeTable) track by item.displayName| orderBy:sortType:sortReverse | filter:searchTerm">
+                            <td>{{item.displayName}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
                             <td>{{item.type}}</td>
@@ -266,7 +286,7 @@
                             <td>Action</td>
                         </tr>
                         <tr ng-click="selectItem(item)" class="clickable-row" ng-repeat="item in inventory track by $index">
-                            <td>{{item.name}}</td>
+                            <td>{{item.displayName}}</td>
                             <td>{{item.price}}</td>
                             <td>{{item.weight}}</td>
                             <td>{{item.type}}</td>
@@ -290,11 +310,11 @@
                     </tr>
                     <tr ng-repeat="(slot,item) in equipedItems ">
                         <td>{{slot}}</td>
-                        <td ng-click="selectItem(item) ">{{item.name}}</td>
+                        <td ng-click="selectItem(item) ">{{item.displayName}}</td>
                         <td>{{item.type}}</td>
                         <td>{{item.price}}</td>
                         <td>{{item.weight}}</td>
-                        <td><input ng-disabled="!item.name " ng-click="unequipItemFromSlot(slot) " type="button" value="Unequip "></td>
+                        <td><input ng-disabled="!item.displayName " ng-click="unequipItemFromSlot(slot) " type="button" value="Unequip "></td>
                     </tr>
                 </table>
             </div>

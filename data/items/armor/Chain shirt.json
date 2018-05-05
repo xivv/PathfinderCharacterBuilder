@@ -1,5 +1,6 @@
 {
     "name": "Chain shirt",
+    "displayName": "Chain shirt",
     "description": "Covering the torso, this shirt is made up of thousands of interlocking metal rings.",
     "shortDescription": "Covering the torso, this shirt is made up of thousands of interlocking metal rings.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Light Armor",
         "armorBonus": 4,
         "maximumDexBonus": 4,

@@ -1,5 +1,6 @@
 {
     "name": "",
+    "displayName": "",
     "description": "",
     "shortDescription": "",
     "equipable": true,
@@ -11,7 +12,9 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "",
+        "subtype": "",
         "armorBonus": 0,
         "maximumDexBonus": 0,
         "armorCheckPenalty": 0,

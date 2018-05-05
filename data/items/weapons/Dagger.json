@@ -1,5 +1,6 @@
 {
     "name": "Dagger",
+    "displayName": "Dagger",
     "description": "A dagger has a blade that is about 1 foot in length.",
     "shortDescription": "A dagger has a blade that is about 1 foot in length.",
     "equipable": true,

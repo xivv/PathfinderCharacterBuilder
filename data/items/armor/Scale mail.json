@@ -1,5 +1,6 @@
 {
     "name": "Scale mail",
+    "displayName": "Scale mail",
     "description": "Scale mail is made up of dozens of small overlapping metal plates. The suit includes gauntlets.",
     "shortDescription": "Scale mail is made up of dozens of small overlapping metal plates. The suit includes gauntlets.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Medium Armor",
         "armorBonus": 5,
         "maximumDexBonus": 3,

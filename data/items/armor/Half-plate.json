@@ -1,5 +1,6 @@
 {
     "name": "Half-plate",
+    "displayName": "Half-plate",
     "description": "Combining elements of full plate and chainmail, half-plate includes gauntlets and a helm.",
     "shortDescription": "Combining elements of full plate and chainmail, half-plate includes gauntlets and a helm.",
     "equipable": true,
@@ -11,6 +12,7 @@
     "attributes": {
 
         "slot": "Armor",
+        "size": "Medium",
         "proficiency": "Heavy Armor",
         "armorBonus": 8,
         "maximumDexBonus": 0,
