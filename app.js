@@ -450,6 +450,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
     $scope.magicItems = MagicItems;
     $scope.shields = Shields;
     $scope.materials = Materials;
+    $scope.customItems = {};
     $scope.enhancementCosts = EnhancementCosts;
 
     $scope.lightLoad = 0;
@@ -460,6 +461,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
     $scope.sortReverse = false;
     $scope.searchTerm = "";
     $scope.sortType = "name";
+    $scope.sizeChart = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"];
 
     $scope.damageProgressionChart = [
         {
@@ -553,9 +555,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
     $scope.adjustWeaponDamageToSize = function (item, size) {
 
-        var sizeChart = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"];
-
-        var differenceToTargetSize = sizeChart.indexOf(size) - sizeChart.indexOf(item.attributes.size);
+        var differenceToTargetSize = $scope.sizeChart.indexOf(size) - $scope.sizeChart.indexOf(item.attributes.size);
         var isIncrementInSize = false;
         var modifier = 0;
 
@@ -571,7 +571,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
         for (var i = 0; i < Math.abs(differenceToTargetSize); i++) {
 
-            var actualSize = sizeChart[sizeChart.indexOf(item.attributes.size) + i];
+            var actualSize = $scope.sizeChart[$scope.sizeChart.indexOf(item.attributes.size) + i];
             var damageObject = item.attributes.damage;
             var changeAmount = 0;
 
@@ -942,7 +942,9 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
                 $scope.armor[customItem.displayName] = customItem;
             }
         }
-
+        if (!$scope.customItems[customItem.displayName]) {
+            $scope.customItems[customItem.displayName] = customItem;
+        }
     }
 
     $scope.craftMasterwork = function (item) {

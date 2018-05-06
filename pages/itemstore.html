@@ -20,21 +20,15 @@
                                 <option ng-show="qualifiesForMaterialChange(selectedItem)">Change Material</option>
                                 <option ng-show="qualifiesForMasterwork(selectedItem)">Make Masterwork</option>
                                 <option ng-show="qualifiesForMagical(selectedItem)">Make Magical</option>
-                                <option ng-show="qualifiesForComposite(selectedItem)">Make Composite</option>                              
-                                <option>Add Abilities</option>
+                                <option ng-show="qualifiesForComposite(selectedItem)">Make Composite</option>
+                                <option ng-show="qualifiesForMagical(selectedItem)">Add Abilities</option>
                             </select>
                         </div>
                     </div>
 
                     <div ng-show="customizeAction == 'Change Size'">
                         <select ng-model="selectedSize" ng-init="selectedSize='Medium'">
-                            <option>Tiny</option>
-                            <option>Small</option>
-                            <option>Medium</option>
-                            <option>Large</option>
-                            <option>Huge</option>
-                            <option>Gargantuan</option>
-                            <option>Colossal</option>
+                            <option ng-repeat="size in sizeChart">{{size}}</option>
                         </select>
                         <tr>New Item Cost:</tr>
                         <tr>{{getNewItemPrice(selectedItem,"Change Size",selectedSize)}}</tr>
@@ -112,7 +106,6 @@
                 <td ng-show="selectedItem.type == 'Armor' || selectedItem.type == 'Shield'">Arcana Spell Failure</td>
                 <td ng-show="selectedItem.type == 'Armor'">30ft.</td>
                 <td ng-show="selectedItem.type == 'Armor'">20ft.</td>
-
                 <td ng-show="selectedItem.type == 'Weapon'">Dmg</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Critical</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Range</td>
@@ -155,7 +148,7 @@
         {{selectedItem.description}}
         <br><br>
         <input ng-disabled="selectedItem.price > character.funds" type="button" value="Buy" ng-click="buySelectedItem()">
-        <input type="button" data-toggle="modal" data-target="#exampleModal" value="Customize" ng-click="">
+        <input type="button" data-toggle="modal" data-target="#exampleModal" value="Customize" ng-click="customizeAction=''">
         <br><br>
     </div>
 
@@ -218,6 +211,9 @@
                     </li>
                     <li class="nav-item">
                         <a ng-click="activeTable=magicItems;" class="nav-link" data-toggle="tab">Magic Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a ng-click="activeTable=customItems;" class="nav-link" data-toggle="tab">Custom Items</a>
                     </li>
                 </ul>
                 <table ng-init="activeTable=weapons;" class="table table-striped header-fixed table-bordered table-hover">
