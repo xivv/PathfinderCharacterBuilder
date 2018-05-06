@@ -461,6 +461,70 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
     $scope.searchTerm = "";
     $scope.sortType = "name";
 
+    $scope.damageProgressionChart = [
+        {
+            "die": 1,
+            "eyes": 1
+        }, {
+            "die": 1,
+            "eyes": 2
+        }, {
+            "die": 1,
+            "eyes": 3
+        }, {
+            "die": 1,
+            "eyes": 4
+        }, {
+            "die": 1,
+            "eyes": 6
+        }, {
+            "die": 1,
+            "eyes": 8
+        }, {
+            "die": 1,
+            "eyes": 10
+        }, {
+            "die": 2,
+            "eyes": 6
+        }, {
+            "die": 2,
+            "eyes": 8
+        }, {
+            "die": 3,
+            "eyes": 6
+        }, {
+            "die": 3,
+            "eyes": 8
+        }, {
+            "die": 4,
+            "eyes": 6
+        }, {
+            "die": 4,
+            "eyes": 8
+        }, {
+            "die": 6,
+            "eyes": 6
+        }, {
+            "die": 6,
+            "eyes": 8
+        }, {
+            "die": 8,
+            "eyes": 6
+        }, {
+            "die": 8,
+            "eyes": 8
+        }, {
+            "die": 12,
+            "eyes": 6
+        }, {
+            "die": 12,
+            "eyes": 8
+        }, {
+            "die": 16,
+            "eyes": 6
+        }
+    ];
+
     $scope.sizeModifierTable = {
         "weight": {
             "Tiny": 0.1,
@@ -487,6 +551,60 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         "value": "creation"
     };
 
+    $scope.adjustWeaponDamageToSize = function (item, size) {
+
+        var sizeChart = ["Tiny", "Small", "Medium", "Large", "Huge", "Gargantuan", "Colossal"];
+
+        var differenceToTargetSize = sizeChart.indexOf(size) - sizeChart.indexOf(item.attributes.size);
+        var isIncrementInSize = false;
+        var modifier = 0;
+
+        if (differenceToTargetSize > 0) {
+            isIncrementInSize = true;
+            modifier = 1;
+        } else if (differenceToTargetSize < 0) {
+            isIncrementInSize = false;
+            modifier = -1;
+        } else {
+            return;
+        }
+
+        for (var i = 0; i < Math.abs(differenceToTargetSize); i++) {
+
+            var actualSize = sizeChart[sizeChart.indexOf(item.attributes.size) + i];
+            var damageObject = item.attributes.damage;
+            var changeAmount = 0;
+
+            if (actualSize == "Small" || actualSize == "Medium") {
+                changeAmount = 1;
+            } else if (isIncrementInSize && (damageObject.die == 1 && damageObject.eyes <= 6)) {
+                changeAmount = 1;
+            } else if (!isIncrementInSize && (damageObject.die == 1 && damageObject.eyes <= 8)) {
+                changeAmount = 1;
+            } else {
+                changeAmount = 2;
+            }
+
+            var indexOfItemDamage = 0;
+
+            for (var a = 0; a < $scope.damageProgressionChart.length; a++) {
+
+                if ($scope.damageProgressionChart[a]["eyes"] == damageObject.eyes && $scope.damageProgressionChart[a]["die"] == damageObject.die) {
+                    indexOfItemDamage = a;
+                }
+
+            }
+
+            var newDamageObject = $scope.damageProgressionChart[indexOfItemDamage + (changeAmount * modifier)];
+
+            item.attributes.damage.die = newDamageObject.die;
+            item.attributes.damage.eyes = newDamageObject.eyes;
+
+
+        }
+
+        return item;
+    }
 
     $scope.createNewItemName = function (item) {
 
@@ -553,13 +671,20 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         return price + item.price;
     }
 
-    $scope.qualifiesForMaterialChange = function (item) {
+    $scope.qualifiesForMaterialChange = function (item, materialName) {
 
         if (!item) {
             return;
         }
 
         if (item.type != "Magic Item" && item.type != "Goods" && item.type != "Alchemical Creations") {
+
+            // TO-DO: This is just a workaround to specifiy if item can be made out of material
+            if (materialName && $scope.getMaterialChangeCosts(item, materialName) <= 0) {
+
+                return false;
+            }
+
             return true;
         } else {
             return false;
@@ -571,8 +696,9 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         if (!item) {
             return;
         }
-
-        if (item.type != "Magic Item" && item.type != "Goods" && item.type != "Alchemical Creations") {
+        if (item.attributes.size != "Medium") {
+            return false;
+        } else if (item.type != "Magic Item" && item.type != "Goods" && item.type != "Alchemical Creations") {
             return true;
         } else {
             return false;
@@ -614,6 +740,9 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         } else if (material.cost[item.attributes.proficiency]) {
 
             price += material.cost[item.attributes.proficiency];
+        } else if (material.cost[item.attributes.subtype]) {
+
+            price += material.cost[item.attributes.subtype];
         }
 
         if (material.changes.makesMasterwork && item.attributes.condition && !item.attributes.condition.isMasterwork) {
@@ -656,6 +785,11 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         var newItemPrice = $scope.getNewItemPrice(item, "Change Size", size);
         var newItemWeight = $scope.getSizeChangeWeight(item, size);
 
+        if (newItem.type == "Weapon") {
+
+            newItem = $scope.adjustWeaponDamageToSize(newItem, size);
+        }
+
         newItem.price = newItemPrice;
         newItem.weight = newItemWeight;
         newItem.attributes.size = size;
@@ -687,11 +821,13 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
             });
         }
 
-        if (material.changes.Armor) {
+        if (material.changes[newItem.type]) {
 
-            if (material.changes.Armor.speedLimitationChange) {
-                newItem.attributes.speed["30"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][30];
-                newItem.attributes.speed["20"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][20];
+            if (newItem.type == "Armor") {
+                if (material.changes.Armor.speedLimitationChange) {
+                    newItem.attributes.speed["30"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][30];
+                    newItem.attributes.speed["20"] += material.changes.Armor.speedLimitationChange[newItem.attributes.proficiency][20];
+                }
             }
         }
 
@@ -739,6 +875,19 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
         newItem.price = newItemPrice;
         newItem.attributes.condition.isMagical = true;
         newItem.attributes.condition.enhancementBonus = enhancementBonus;
+
+        if (newItem.type == "Weapon") {
+
+            // Maxium +5 on attack and damage
+            if (enhancementBonus > 5) {
+                newItem.attributes.damage.changes.damage = 5;
+                newItem.attributes.damage.changes.attackRoll = 5;
+            } else {
+                newItem.attributes.damage.changes.damage = enhancementBonus;
+                newItem.attributes.damage.changes.attackRoll = enhancementBonus;
+            }
+
+        }
 
         newItem.displayName = $scope.createNewItemName(newItem);
 

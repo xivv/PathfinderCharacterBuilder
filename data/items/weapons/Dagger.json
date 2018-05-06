@@ -13,13 +13,13 @@
         "slot": "Weapon",
         "size": "Medium",
         "damage": {
-            "small": {
-                "die": 1,
-                "eyes": 3
-            },
-            "medium": {
-                "die": 1,
-                "eyes": 4
+            "die": 1,
+            "eyes": 4,
+            "changes": {
+                "die": 0,
+                "eyes": 0,
+                "damage": 0,
+                "attackRoll": 0
             }
         },
         "criticalMultiplier": 2,

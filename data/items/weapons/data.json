@@ -1,3 +1,4 @@
 {
-    "weapons": ["Gauntlet", "Unarmed Strike", "Dagger", "Spear, totem", "Longbow", "Shortbow", "Arrow, common", "Caltrops"]
+    "weapons": ["Dagger", "Longbow", "Greatsword"],
+    "ignored": ["Gauntlet", "Unarmed Strike", "Spear, totem", "Shortbow", "Arrow, common", "Caltrops"]
 }

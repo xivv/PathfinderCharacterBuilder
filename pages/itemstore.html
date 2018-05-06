@@ -15,13 +15,12 @@
                 <div class="modal-body container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <select ng-model="customizeAction" ng-init="customizeAction='Change Material'">
-                                <option>Change Size</option>
-                                <option>Change Material</option>
-                                <option>Make Masterwork</option>
-                                <option>Make Magical</option>
-                                <option>Make Composite</option>
-                                
+                            <select ng-model="customizeAction">
+                                <option ng-show="qualifiesForSizeChange(selectedItem)">Change Size</option>
+                                <option ng-show="qualifiesForMaterialChange(selectedItem)">Change Material</option>
+                                <option ng-show="qualifiesForMasterwork(selectedItem)">Make Masterwork</option>
+                                <option ng-show="qualifiesForMagical(selectedItem)">Make Magical</option>
+                                <option ng-show="qualifiesForComposite(selectedItem)">Make Composite</option>                              
                                 <option>Add Abilities</option>
                             </select>
                         </div>
@@ -83,7 +82,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button ng-show="customizeAction == 'Change Size' && qualifiesForSizeChange(selectedItem)" ng-click="createCustomItem(selectedItem,'Change Size',selectedSize)" data-dismiss="modal" type="button" class="btn btn-primary">Change Size</button>
-                    <button ng-show="customizeAction == 'Change Material' && qualifiesForMaterialChange(selectedItem)" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
+                    <button ng-show="customizeAction == 'Change Material' && qualifiesForMaterialChange(selectedItem,selectedMaterial)" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
                     <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="createCustomItem(selectedItem,'Masterwork')" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
                     <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="createCustomItem(selectedItem,'Composite',strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
                     <button ng-show="customizeAction == 'Make Magical' && qualifiesForMagical(selectedItem)" ng-click="createCustomItem(selectedItem,'Magical',enhancementBonus)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Magical</button>
@@ -114,8 +113,7 @@
                 <td ng-show="selectedItem.type == 'Armor'">30ft.</td>
                 <td ng-show="selectedItem.type == 'Armor'">20ft.</td>
 
-                <td ng-show="selectedItem.type == 'Weapon'">Dmg(S)</td>
-                <td ng-show="selectedItem.type == 'Weapon'">Dmg(M)</td>
+                <td ng-show="selectedItem.type == 'Weapon'">Dmg</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Critical</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Range</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Types</td>
@@ -142,8 +140,7 @@
                 <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["30"]}}</td>
                 <td ng-show="selectedItem.type == 'Armor'">{{selectedItem.attributes.speed["20"]}}</td>
 
-                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["small"]["die"]}}d{{selectedItem.attributes.damage["small"]["eyes"]}}</td>
-                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["medium"]["die"]}}d{{selectedItem.attributes.damage["medium"]["eyes"]}}</td>
+                <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.damage["die"] + selectedItem.attributes.damage.changes["die"]}}d{{selectedItem.attributes.damage["eyes"]+selectedItem.attributes.damage.changes["eyes"]}}+{{selectedItem.attributes.damage.changes.damage}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">x{{selectedItem.attributes.criticalMultiplier}}/{{20-selectedItem.attributes.criticalRange}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">{{selectedItem.attributes.range}}</td>
                 <td ng-show="selectedItem.type == 'Weapon'">Types</td>
