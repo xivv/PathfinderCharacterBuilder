@@ -1,5 +1,6 @@
 {
     "name": "Inkpen",
+    "displayName": "Inkpen",
     "description": "This is a wooden stylus with a metal tip that retains a small amount of ink after you dip it in a vial of ink.",
     "shortDescription": "This is a wooden stylus with a metal tip that retains a small amount of ink after you dip it in a vial of ink.",
     "equipable": false,

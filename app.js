@@ -538,20 +538,32 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
             return;
         }
         if (change == "Change Material" && modifier) {
-
             price += $scope.getMaterialChangeCosts(item, modifier);
-        } else if (change == "Magical" && modifier) {
+        } else if (change == "Magical" && modifier && $scope.qualifiesForMagical(item)) {
             price += $scope.getMasterworkChangeCosts(item);
             price += $scope.getMagicalChangeCosts(item, modifier);
-        } else if (change == "Masterwork") {
+        } else if (change == "Masterwork" && $scope.qualifiesForMasterwork(item)) {
             price += $scope.getMasterworkChangeCosts(item);
-        } else if (change == "Composite" && modifier) {
+        } else if (change == "Composite" && modifier && $scope.qualifiesForComposite(item)) {
             price += $scope.getCompositeChangeCosts(item, modifier);
-        } else if (change == "Change Size" && modifier) {
+        } else if (change == "Change Size" && modifier && $scope.qualifiesForSizeChange(item)) {
             price = item.price * $scope.getSizeChangeCosts(item, modifier) - item.price;
         }
 
         return price + item.price;
+    }
+
+    $scope.qualifiesForMaterialChange = function (item) {
+
+        if (!item) {
+            return;
+        }
+
+        if (item.type != "Magic Item" && item.type != "Goods" && item.type != "Alchemical Creations") {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     $scope.qualifiesForSizeChange = function (item) {
@@ -604,7 +616,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
             price += material.cost[item.attributes.proficiency];
         }
 
-        if (material.changes.makesMasterwork && !item.attributes.condition.isMasterwork) {
+        if (material.changes.makesMasterwork && item.attributes.condition && !item.attributes.condition.isMasterwork) {
 
             price += $scope.getMasterworkChangeCosts(item);
         }
@@ -614,7 +626,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
     $scope.qualifiesForComposite = function (item) {
 
-        if (!item) {
+        if (!item || !item.attributes.condition) {
             return false;
         }
         return (item.attributes.condition.isComposite == false) && item.type == "Weapon" && item.attributes.subtype == "Ranged Weapons";
@@ -622,7 +634,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
     $scope.qualifiesForMasterwork = function (item) {
 
-        if (!item) {
+        if (!item || !item.attributes.condition) {
             return false;
         }
         return (item.attributes.condition.isMagical == false && item.attributes.condition.isMasterwork == false) && (item.type == "Weapon" || item.type == "Shield" ||
@@ -631,7 +643,7 @@ app.controller("itemStoreController", function ($scope, EnhancementCosts, Charac
 
     $scope.qualifiesForMagical = function (item, enhancementBonus) {
 
-        if (!item) {
+        if (!item || !item.attributes.condition) {
             return false;
         }
         return (item.attributes.condition.enhancementBonus < enhancementBonus || item.attributes.condition.enhancementBonus == 0) && (item.type == "Weapon" || item.type == "Shield" || item.type == "Armor");

@@ -1,15 +1,16 @@
 {
-    "name"  : "Alchemists Lab, Portable",
-    "description"   :   "This compact version of a full-sized alchemist’s lab provides a +1 circumstance bonus on Craft (alchemy) checks.",
-    "shortDescription"  :   "",
-    "equipable" :   false,
-    "consumable"    :   false,
-    "type" : "Alchemical Creations",
-    "weight"    :  20,
-    "price" :   75,
-    "source"    : "PZO1110",
-    "attributes" : {
-        
-        "Craft DC" : 0        
+    "name": "Alchemists Lab, Portable",
+    "displayName": "Alchemists Lab, Portable",
+    "description": "This compact version of a full-sized alchemist’s lab provides a +1 circumstance bonus on Craft (alchemy) checks.",
+    "shortDescription": "",
+    "equipable": false,
+    "consumable": false,
+    "type": "Alchemical Creations",
+    "weight": 20,
+    "price": 75,
+    "source": "PZO1110",
+    "attributes": {
+
+        "Craft DC": 0
     }
 }

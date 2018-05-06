@@ -1,5 +1,6 @@
 {
     "name": "Whistle, Signal",
+    "displayName": "Whistle, Signal",
     "description": "A simple whistle used to send short, shrill audible signals.",
     "shortDescription": "A simple whistle used to send short, shrill audible signals.",
     "equipable": false,

@@ -1,5 +1,6 @@
 {
     "name": "Conduit Rod",
+    "displayName": "Conduit Rod",
     "description": "This stout, dense rod is always constructed of highly conductive metal, shot through with web-like veins of white or yellow glass.While a creature holds a conduit rod, she gains electricity resistance 5 as a constant effect as well as a +1 bonus to her effective caster level when casting any spell with the electricity descriptor.Once per day as a free action, when the wielder of a conduit rod casts a spell with the electricity descriptor, she can teleport anywhere that spell’s effect, but is otherwise unaffected by the spell.",
     "shortDescription": "This stout, dense rod is always constructed of highly conductive metal, shot through with web-like veins of white or yellow glass.",
     "equipable": false,

@@ -82,8 +82,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button ng-show="customizeAction == 'Change Size'" ng-click="createCustomItem(selectedItem,'Change Size',selectedSize)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
-                    <button ng-show="customizeAction == 'Change Material'" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
+                    <button ng-show="customizeAction == 'Change Size' && qualifiesForSizeChange(selectedItem)" ng-click="createCustomItem(selectedItem,'Change Size',selectedSize)" data-dismiss="modal" type="button" class="btn btn-primary">Change Size</button>
+                    <button ng-show="customizeAction == 'Change Material' && qualifiesForMaterialChange(selectedItem)" ng-click="createCustomItem(selectedItem,'Change Material',selectedMaterial)" data-dismiss="modal" type="button" class="btn btn-primary">Change Material</button>
                     <button ng-show="customizeAction == 'Make Masterwork' && qualifiesForMasterwork(selectedItem)" ng-click="createCustomItem(selectedItem,'Masterwork')" data-dismiss="modal" type="button" class="btn btn-primary">Craft Masterwork</button>
                     <button ng-show="customizeAction == 'Make Composite' && qualifiesForComposite(selectedItem)" ng-click="createCustomItem(selectedItem,'Composite',strengthRating)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Composite</button>
                     <button ng-show="customizeAction == 'Make Magical' && qualifiesForMagical(selectedItem)" ng-click="createCustomItem(selectedItem,'Magical',enhancementBonus)" data-dismiss="modal" type="button" class="btn btn-primary">Craft Magical</button>

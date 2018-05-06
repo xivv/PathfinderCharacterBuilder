@@ -1,5 +1,6 @@
 {
     "name": "Ring of Protection",
+    "displayName": "Ring of Protection",
     "description": "This ring offers continual magical protection in the form of a deflection bonus of +1 to +5 to AC.",
     "shortDescription": "This ring offers continual magical protection in the form of a deflection bonus of +1 to +5 to AC.",
     "equipable": true,

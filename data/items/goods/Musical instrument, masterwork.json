@@ -1,5 +1,6 @@
 {
     "name": "Musical instrument, masterwork",
+    "displayName": "Musical instrument, masterwork",
     "description": "A masterwork instrument grants a +2 circumstance bonus on Perform checks involving its use.",
     "shortDescription": "A masterwork instrument grants a +2 circumstance bonus on Perform checks involving its use.",
     "equipable": false,

@@ -1,5 +1,6 @@
 {
     "name": "Parchment",
+    "displayName": "Parchment",
     "description": "This sheet of thin, treated animal skin is a durable writing surface and is suitable for making magic scrolls. It has hardness 0, 2 hit points, and a break DC of 5.",
     "shortDescription": "This sheet of thin, treated animal skin is a durable writing surface and is suitable for making magic scrolls. It has hardness 0, 2 hit points, and a break DC of 5.",
     "equipable": false,
