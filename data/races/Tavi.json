@@ -1,0 +1,28 @@
+{
+    "name": "Tavi",
+    "size": "Small",
+    "type": "humanoid",
+    "subtypes": ["tavi"],
+    "baseSpeed": "30",
+    "languages": {
+        "startingLanguages": ["Common", "Tavi"],
+        "bonusLanguages": ["Halfling", "Dwarven", "Elven", "Necryl", "Goblin", "Sylvan"]
+    },
+    "abilityModifier": {
+        "Strength": 0,
+        "Dexterity": 0,
+        "Constitution": 0,
+        "Intelligence": 0,
+        "Wisdom": 0,
+        "Charisma": 0
+    },
+    "ageModifier": {
+        "Young": 6,
+        "Adult": 14,
+        "Middle-Aged": 25,
+        "Old": 37,
+        "Venerable": 50
+    },
+    "standardRaceTraits": ["Flexible", "Eternal Hope", "Bite", "Sprinter", "Fleet-Footed", "Low-Light Vision"],
+    "alternativeRaceTraits": []
+}

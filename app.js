@@ -177,7 +177,17 @@ app.controller("characterRace", function ($scope, Character, Races, Abilities, A
     $scope.raceAbilites = {};
     $scope.abilityScores = AbilityScores.abilityScores;
     $scope.skillchecks = SkillChecks.skillchecks;
+    $scope.selectedRace;
 
+    $scope.selectRace = function (race) {
+
+        $scope.character.race = race;
+    }
+
+    $scope.getRaceImage = function (race) {
+
+        return "../assets/races/" + race.name + ".png";
+    }
 
     $scope.removeRaceBonuses = function (race) {
 
@@ -291,7 +301,7 @@ app.controller("characterRace", function ($scope, Character, Races, Abilities, A
     $scope.updateAbilityScoreRaceModifier = function () {
 
         Object.keys($scope.abilityScores).forEach(function (element) {
-            $scope.abilityScores[element]["raceMod"] = $scope.races[$scope.character.race]["abilityModifier"][element];
+            $scope.abilityScores[element]["raceMod"] = $scope.character.race["abilityModifier"][element];
         });
     };
 
@@ -300,7 +310,7 @@ app.controller("characterRace", function ($scope, Character, Races, Abilities, A
 
         $scope.raceAbilites = {};
 
-        Object.values($scope.races[race]["standardRaceTraits"]).forEach(function (element) {
+        Object.values(race["standardRaceTraits"]).forEach(function (element) {
 
             $scope.raceAbilites[element] = $scope.abilities[element];
         });
@@ -312,12 +322,12 @@ app.controller("characterRace", function ($scope, Character, Races, Abilities, A
 
         if ($scope.character.race && $scope.character.agelevel) {
 
-            $scope.character.age = $scope.races[$scope.character.race]["ageModifier"][$scope.character.agelevel];
+            $scope.character.age = $scope.character.race["ageModifier"][$scope.character.agelevel];
 
             // Insert age limits into all ages array
             Object.keys($scope.agelevel).forEach(function (element) {
 
-                $scope.agelevel[element]["age"] = $scope.races[$scope.character.race]["ageModifier"][element];
+                $scope.agelevel[element]["age"] = $scope.character.race["ageModifier"][element];
             });
         }
 
@@ -326,7 +336,6 @@ app.controller("characterRace", function ($scope, Character, Races, Abilities, A
             Object.keys($scope.abilityScores).forEach(function (element) {
 
                 $scope.abilityScores[element]["miscMod"] = $scope.agelevel[$scope.character.agelevel][element];
-                $scope.initCharacterAbilityScores();
             });
         }
 

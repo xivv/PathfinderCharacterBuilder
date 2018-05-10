@@ -1,48 +1,66 @@
-<html>
+<div class="container-fluid" ng-init="deity_filter.checked=false">
 
-<div ng-init="deity_filter.checked=false">
-    <h3>Character Basics</h3>
-    <table>
-        <tr>
-            <td>Name:</td>
-            <td><input ng-model="character.name" type="text"></td>
-        </tr>
-        <tr>
-            <td>Gender:</td>
-            <td>
-                <select ng-model="character.gender">
-                        <option>Other</option>
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Alignment:</td>
-            <td>
-                <select ng-model="character.alignment" ng-change="filterDeityListCharacterAlignment()">
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="character.name" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Gender</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="character.gender">
+                    <option>Other</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Alignment</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="character.alignment" ng-change="filterDeityListCharacterAlignment()">
                         <option>None</option>
                         <option ng-repeat="alignment in alignments">{{alignment}}</option>
                     </select>
-            </td>
-        </tr>
-        <tr ng-show="!deity_filter.checked">
-            <td>Deity:</td>
-            <td><select ng-model="character.deity">
+            </div>
+        </div>
+        <div ng-show="!deity_filter.checked" class="form-group row">
+            <div class="col-sm-2 col-form-label">Deity</div>
+            <div class="col-sm-6">
+                <select class="form-control" ng-model="character.deity">
                     <option>None</option>
-                    <option ng-repeat="deity in deitys">{{deity.name}}</option></select></td>
-        </tr>
-        <tr ng-show="deity_filter.checked">
-            <td>FDeity</td>
-            <td><select ng-model="character.deity" ng-change="filterDeityListCharacterAlignment(character.alignment)" ng-model="character.deity">
+                    <option ng-repeat="deity in deitys">{{deity.name}}</option></select>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" ng-checked="deity_filter.checked" ng-model="deity_filter.checked" ng-change="filterDeityListCharacterAlignment(character.alignment)">
+                    <label class="form-check-label">
+                        Filter Alignment
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="deity_filter.checked" class="form-group row">
+            <div class="col-sm-2 col-form-label">FDeity</div>
+            <div class="col-sm-6">
+                <select class="form-control" ng-model="character.deity" ng-change="filterDeityListCharacterAlignment(character.alignment)" ng-model="character.deity">
                     <option>None</option>
-                    <option  ng-repeat="deityx in filterdListOfDeity">{{deityx.name}}</option></select></td>
-        </tr>
-        <tr>
-            <td>Filter alignment:</td>
-            <td><input type="checkbox" ng-checked="deity_filter.checked" ng-model="deity_filter.checked" ng-change="filterDeityListCharacterAlignment(character.alignment)"></td>
-        </tr>
-    </table>
+                    <option  ng-repeat="deityx in filterdListOfDeity">{{deityx.name}}</option></select>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-check">
+                    <input class="form-check-input" id="gridCheck1" type="checkbox" ng-checked="deity_filter.checked" ng-model="deity_filter.checked" ng-change="filterDeityListCharacterAlignment(character.alignment)">
+                    <label for="gridCheck1" class="form-check-label">
+                        Filter Alignment
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+
     <br>
     <table ng-show="character.deity != 'None'">
         <tr>
@@ -82,7 +100,4 @@
             <td><a ng-href="{{deitys[character_deity].source}}">{{deitys[character.deity].source}}</a></td>
         </tr>
     </table>
-
 </div>
-
-</html>

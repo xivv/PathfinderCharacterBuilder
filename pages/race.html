@@ -1,29 +1,32 @@
-<div>
-    <h3>Race Selector</h3>
+<div class="container-fluid">
 
-    <table>
-        <tr>
-            <td>Race:</td>
-            <td>
-                <select ng-model="character.race">   
-                        <option ng-repeat="race in races">{{race.name}}</option>
-                   </select>
-            </td>
-        </tr>
-        <tr>
-            <td>Age:</td>
-            <td><input ng-model="character.age" type="text"></td>
-            <td><select ng-change="updateCharacterAgeFromLevel()" ng-model="character.agelevel"><option ng-repeat="(key,value) in agelevel">{{key}}</option></select></td>
-        </tr>
-    </table>
+    <div class="row">
+        <div ng-repeat="race in races" class="col-sm">
+            <img ng-click="selectRace(race)" style="border: solid 1px black" class="rounded img-fluid" ng-src="{{getRaceImage(race)}}"> <br> {{race.name}}
+        </div>
+    </div>
+    <form ng-show="character.race">
+        <div class="row">
+            <div class="col-sm-1">
+                Age:
+            </div>
+            <div class="col-sm-6">
+                <input class="form-control" ng-model="character.age" type="text">
+            </div>
+            <div class="col-sm-5">
+                <select class="form-control" ng-change="updateCharacterAgeFromLevel()" ng-model="character.agelevel"><option ng-repeat="(key,value) in agelevel">{{key}}</option></select>
 
-    <table ng-show="character.race">
-        <tr>
-            <td>Abilities:</td>
-        </tr>
-        <tr ng-repeat="ability in raceAbilites">
-            <td>{{ability.abilityName}}</td>
-            <td>{{ability.shortDescription}}</td>
-        </tr>
-    </table>
+            </div>
+        </div>
+    </form>
+
+    <div ng-show="character.race">
+        <div class="col-sm" ng-repeat="ability in raceAbilites">
+            <div ng-show="ability" class="card bg-light mb-1">
+                <div class="card-header">{{ability.abilityName}}</div>
+                <div class="card-body">{{ability.shortDescription}}</div>
+            </div>
+        </div>
+    </div>
+
 </div>
