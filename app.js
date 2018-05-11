@@ -165,6 +165,11 @@ app.controller("characterBase", function ($scope, Character, Deitys, Alignments)
 
     };
 
+    $scope.selectDeity = function (deityName) {
+
+        $scope.character.deity = $scope.deitys[deityName];
+    }
+
 });
 
 /*
