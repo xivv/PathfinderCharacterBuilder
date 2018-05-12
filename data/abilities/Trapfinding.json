@@ -1,9 +1,0 @@
-{
-    "abilityName" : "Trapfinding",
-    "shortDescription" : "A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.",
-    "bonus" : {
-        
-    },
-    "source" : "http://www.d20pfsrd.com/classes/core-classes/Rogue/#TOC-Trapfinding"
-    
-}

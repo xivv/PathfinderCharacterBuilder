@@ -1,34 +1,155 @@
 {
-    "name" : "Rogue",
-    "description" : "Life is an endless adventure for those who live by their wits. Ever just one step ahead of danger, rogues bank on their cunning, skill, and charm to bend fate to their favor. Never knowing what to expect, they prepare for everything, becoming masters of a wide variety of skills, training themselves to be adept manipulators, agile acrobats, shadowy stalkers, or masters of any of dozens of other professions or talents. Thieves and gamblers, fast talkers and diplomats, bandits and bounty hunters, and explorers and investigators all might be considered rogues, as well as countless other professions that rely upon wits, prowess, or luck. Although many rogues favor cities and the innumerable opportunities of civilization, some embrace lives on the road, journeying far, meeting exotic people, and facing fantastic danger in pursuit of equally fantastic riches. In the end, any who desire to shape their fates and live life on their own terms might come to be called rogues.",
-    "role" : "Rogues excel at moving about unseen and catching foes unaware, and tend to avoid head-to-head combat. Their varied skills and abilities allow them to be highly versatile, with great variations in expertise existing between different rogues. Most, however, excel in overcoming hindrances of all types, from unlocking doors and disarming traps to outwitting magical hazards and conning dull-witted opponents.",
-    "alignments" : ["Any"],
-    "hitDie" : 8,
-    "startingWealth" : "4d6x10",
-    "classSkills" : ["Acrobatics","Appraise","Bluff","Climb","Craft","Diplomacy","Disable Device","Disguise","Escape Artist","Intimidate","Knowledge(Dungeoneering)","Knowledge(Local)","Linguistics","Perception","Perform","Profession","Sense Motive","Sleight Of Hand","Stealth","Swim","Use Magic Device"],
-    "skillRanksPerLevel" : 8,
-    "progression" : {
-        
-        "1" : {"bab":0,"fortitudeSave":0,"reflexSave":2,"willSave":0,"special":["Sneak Attack","Trapfinding"]},
-        "2" : {"bab":1,"fortitudeSave":0,"reflexSave":3,"willSave":0,"special":["Evasion", "Rogue Talent"]},
-        "3" : {"bab":2,"fortitudeSave":1,"reflexSave":3,"willSave":1,"special":["Sneak Attack","Trap Sense"]},
-        "4" : {"bab":3,"fortitudeSave":1,"reflexSave":4,"willSave":1,"special":["Rogue Talent","Uncanny Dodge"]},
-        "5" : {"bab":3,"fortitudeSave":1,"reflexSave":4,"willSave":1,"special":["Sneak Attack"]},
-        "6" : {"bab":4,"fortitudeSave":2,"reflexSave":5,"willSave":2,"special":["Rogue Talent","Trap Sense"]},
-        "7" : {"bab":5,"fortitudeSave":2,"reflexSave":5,"willSave":2,"special":["Sneak Attack"]},
-        "8" : {"bab":6,"fortitudeSave":2,"reflexSave":6,"willSave":2,"special":["Improved Uncanny Dodge", "Rogue Talent"]},
-        "9" : {"bab":6,"fortitudeSave":3,"reflexSave":6,"willSave":3,"special":["Sneak Attack","Trap Sense"]},
-        "10" : {"bab":7,"fortitudeSave":3,"reflexSave":7,"willSave":3,"special":["Advanced Talents", "Rogue Talent"]},
-        "11" : {"bab":8,"fortitudeSave":3,"reflexSave":7,"willSave":3,"special":["Sneak Attack"]},
-        "12" : {"bab":9,"fortitudeSave":4,"reflexSave":8,"willSave":4,"special":["Rogue Talent","Trap Sense"]},
-        "13" : {"bab":9,"fortitudeSave":4,"reflexSave":8,"willSave":4,"special":["Sneak Attack"]},
-        "14" : {"bab":10,"fortitudeSave":4,"reflexSave":9,"willSave":4,"special":["Rogue Talent"]},
-        "15" : {"bab":11,"fortitudeSave":5,"reflexSave":9,"willSave":5,"special":["Sneak Attack","Trap Sense"]},
-        "16" : {"bab":12,"fortitudeSave":5,"reflexSave":10,"willSave":5,"special":["Rogue Talent"]},
-        "17" : {"bab":12,"fortitudeSave":5,"reflexSave":10,"willSave":5,"special":["Sneak Attack"]},
-        "18" : {"bab":13,"fortitudeSave":6,"reflexSave":11,"willSave":6,"special":["Rogue Talent","Trap Sense"]},
-        "19" : {"bab":14,"fortitudeSave":6,"reflexSave":11,"willSave":6,"special":["Sneak Attack"]},
-        "20" : {"bab":15,"fortitudeSave":6,"reflexSave":12,"willSave":6,"special":["Master Strike", "Rogue Talent"]}
-    }
-    
+    "name": "Rogue",
+    "description": "Life is an endless adventure for those who live by their wits. Ever just one step ahead of danger, rogues bank on their cunning, skill, and charm to bend fate to their favor. Never knowing what to expect, they prepare for everything, becoming masters of a wide variety of skills, training themselves to be adept manipulators, agile acrobats, shadowy stalkers, or masters of any of dozens of other professions or talents. Thieves and gamblers, fast talkers and diplomats, bandits and bounty hunters, and explorers and investigators all might be considered rogues, as well as countless other professions that rely upon wits, prowess, or luck. Although many rogues favor cities and the innumerable opportunities of civilization, some embrace lives on the road, journeying far, meeting exotic people, and facing fantastic danger in pursuit of equally fantastic riches. In the end, any who desire to shape their fates and live life on their own terms might come to be called rogues.",
+    "role": "Rogues excel at moving about unseen and catching foes unaware, and tend to avoid head-to-head combat. Their varied skills and abilities allow them to be highly versatile, with great variations in expertise existing between different rogues. Most, however, excel in overcoming hindrances of all types, from unlocking doors and disarming traps to outwitting magical hazards and conning dull-witted opponents.",
+    "alignments": ["Any"],
+    "hitDie": 8,
+    "startingWealth": "4d6x10",
+    "classSkills": ["Acrobatics", "Appraise", "Bluff", "Climb", "Craft", "Diplomacy", "Disable Device", "Disguise", "Escape Artist", "Intimidate", "Knowledge(Dungeoneering)", "Knowledge(Local)", "Linguistics", "Perception", "Perform", "Profession", "Sense Motive", "Sleight Of Hand", "Stealth", "Swim", "Use Magic Device"],
+    "skillRanksPerLevel": 8,
+    "progression": {
+
+        "1": {
+            "bab": 0,
+            "fortitudeSave": 0,
+            "reflexSave": 2,
+            "willSave": 0,
+            "classFeature": ["Sneak Attack", "Trapfinding"]
+        },
+        "2": {
+            "bab": 1,
+            "fortitudeSave": 0,
+            "reflexSave": 3,
+            "willSave": 0,
+            "classFeature": ["Evasion", "Rogue Talent"]
+        },
+        "3": {
+            "bab": 2,
+            "fortitudeSave": 1,
+            "reflexSave": 3,
+            "willSave": 1,
+            "classFeature": ["Sneak Attack", "Trap Sense"]
+        },
+        "4": {
+            "bab": 3,
+            "fortitudeSave": 1,
+            "reflexSave": 4,
+            "willSave": 1,
+            "classFeature": ["Rogue Talent", "Uncanny Dodge"]
+        },
+        "5": {
+            "bab": 3,
+            "fortitudeSave": 1,
+            "reflexSave": 4,
+            "willSave": 1,
+            "classFeature": ["Sneak Attack"]
+        },
+        "6": {
+            "bab": 4,
+            "fortitudeSave": 2,
+            "reflexSave": 5,
+            "willSave": 2,
+            "classFeature": ["Rogue Talent", "Trap Sense"]
+        },
+        "7": {
+            "bab": 5,
+            "fortitudeSave": 2,
+            "reflexSave": 5,
+            "willSave": 2,
+            "classFeature": ["Sneak Attack"]
+        },
+        "8": {
+            "bab": 6,
+            "fortitudeSave": 2,
+            "reflexSave": 6,
+            "willSave": 2,
+            "classFeature": ["Improved Uncanny Dodge", "Rogue Talent"]
+        },
+        "9": {
+            "bab": 6,
+            "fortitudeSave": 3,
+            "reflexSave": 6,
+            "willSave": 3,
+            "classFeature": ["Sneak Attack", "Trap Sense"]
+        },
+        "10": {
+            "bab": 7,
+            "fortitudeSave": 3,
+            "reflexSave": 7,
+            "willSave": 3,
+            "classFeature": ["Advanced Talents", "Rogue Talent"]
+        },
+        "11": {
+            "bab": 8,
+            "fortitudeSave": 3,
+            "reflexSave": 7,
+            "willSave": 3,
+            "classFeature": ["Sneak Attack"]
+        },
+        "12": {
+            "bab": 9,
+            "fortitudeSave": 4,
+            "reflexSave": 8,
+            "willSave": 4,
+            "classFeature": ["Rogue Talent", "Trap Sense"]
+        },
+        "13": {
+            "bab": 9,
+            "fortitudeSave": 4,
+            "reflexSave": 8,
+            "willSave": 4,
+            "classFeature": ["Sneak Attack"]
+        },
+        "14": {
+            "bab": 10,
+            "fortitudeSave": 4,
+            "reflexSave": 9,
+            "willSave": 4,
+            "classFeature": ["Rogue Talent"]
+        },
+        "15": {
+            "bab": 11,
+            "fortitudeSave": 5,
+            "reflexSave": 9,
+            "willSave": 5,
+            "classFeature": ["Sneak Attack", "Trap Sense"]
+        },
+        "16": {
+            "bab": 12,
+            "fortitudeSave": 5,
+            "reflexSave": 10,
+            "willSave": 5,
+            "classFeature": ["Rogue Talent"]
+        },
+        "17": {
+            "bab": 12,
+            "fortitudeSave": 5,
+            "reflexSave": 10,
+            "willSave": 5,
+            "classFeature": ["Sneak Attack"]
+        },
+        "18": {
+            "bab": 13,
+            "fortitudeSave": 6,
+            "reflexSave": 11,
+            "willSave": 6,
+            "classFeature": ["Rogue Talent", "Trap Sense"]
+        },
+        "19": {
+            "bab": 14,
+            "fortitudeSave": 6,
+            "reflexSave": 11,
+            "willSave": 6,
+            "classFeature": ["Sneak Attack"]
+        },
+        "20": {
+            "bab": 15,
+            "fortitudeSave": 6,
+            "reflexSave": 12,
+            "willSave": 6,
+            "classFeature": ["Master Strike", "Rogue Talent"]
+        }
+    },
+    "source": "PZO1110"
+
 }

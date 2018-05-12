@@ -1,34 +1,155 @@
 {
-    "name" : "Fighter",
-    "description" : "Some take up arms for glory, wealth, or revenge. Others do battle to prove themselves, to protect others, or because they know nothing else. Still others learn the ways of weaponcraft to hone their bodies in battle and prove their mettle in the forge of war. Lords of the battlefield, fighters are a disparate lot, training with many weapons or just one, perfecting the uses of armor, learning the fighting techniques of exotic masters, and studying the art of combat, all to shape themselves into living weapons. Far more than mere thugs, these skilled warriors reveal the true deadliness of their weapons, turning hunks of metal into arms capable of taming kingdoms, slaughtering monsters, and rousing the hearts of armies. Soldiers, knights, hunters, and artists of war, fighters are unparalleled champions, and woe to those who dare stand against them.",
-    "role" : "Fighters excel at combat—defeating their enemies, controlling the flow of battle, and surviving such sorties themselves. While their specific weapons and methods grant them a wide variety of tactics, few can match fighters for sheer battle prowess.",
-    "alignments" : ["Any"],
-    "hitDie" : 10,
-    "startingWealth" : "5d6x10",
-    "classSkills" : ["Climb","Craft","Handle Animal","Intimidate","Knowledge(Dungeoneering)","Knowledge(Engineering)","Profession","Ride","Survival","Swim"],
-    "skillRanksPerLevel" : 2,
-    "progression" : {
-        
-        "1" : {"bab":1,"fortitudeSave":2,"reflexSave":0,"willSave":0,"special":["Bonus Feat"]},
-        "2" : {"bab":2,"fortitudeSave":3,"reflexSave":0,"willSave":0,"special":["Bonus Feat", "Bravery"]},
-        "3" : {"bab":3,"fortitudeSave":3,"reflexSave":1,"willSave":1,"special":["Armor Training"]},
-        "4" : {"bab":4,"fortitudeSave":4,"reflexSave":1,"willSave":1,"special":["Bonus Feat"]},
-        "5" : {"bab":5,"fortitudeSave":4,"reflexSave":1,"willSave":1,"special":["Weapon Training"]},
-        "6" : {"bab":6,"fortitudeSave":5,"reflexSave":2,"willSave":2,"special":["Bonus Feat", "Bravery"]},
-        "7" : {"bab":7,"fortitudeSave":5,"reflexSave":2,"willSave":2,"special":["Armor Training"]},
-        "8" : {"bab":8,"fortitudeSave":6,"reflexSave":2,"willSave":2,"special":["Bonus Feat"]},
-        "9" : {"bab":9,"fortitudeSave":6,"reflexSave":3,"willSave":3,"special":["Weapon Training"]},
-        "10" : {"bab":10,"fortitudeSave":7,"reflexSave":3,"willSave":3,"special":["Bonus Feat", "Bravery"]},
-        "11" : {"bab":11,"fortitudeSave":7,"reflexSave":3,"willSave":3,"special":["Armor Training"]},
-        "12" : {"bab":12,"fortitudeSave":8,"reflexSave":4,"willSave":4,"special":["Bonus Feat"]},
-        "13" : {"bab":13,"fortitudeSave":8,"reflexSave":4,"willSave":4,"special":["Weapon Training"]},
-        "14" : {"bab":14,"fortitudeSave":9,"reflexSave":4,"willSave":4,"special":["Bonus Feat", "Bravery"]},
-        "15" : {"bab":15,"fortitudeSave":9,"reflexSave":5,"willSave":5,"special":["Armor Training"]},
-        "16" : {"bab":16,"fortitudeSave":10,"reflexSave":5,"willSave":5,"special":["Bonus Feat"]},
-        "17" : {"bab":17,"fortitudeSave":10,"reflexSave":5,"willSave":5,"special":["Weapon Training"]},
-        "18" : {"bab":18,"fortitudeSave":11,"reflexSave":6,"willSave":6,"special":["Bonus Feat", "Bravery"]},
-        "19" : {"bab":19,"fortitudeSave":11,"reflexSave":6,"willSave":6,"special":["Armor Mastery"]},
-        "20" : {"bab":20,"fortitudeSave":12,"reflexSave":6,"willSave":6,"special":["Bonus Feat","Weapon Mastery"]}
+    "name": "Fighter",
+    "description": "Some take up arms for glory, wealth, or revenge. Others do battle to prove themselves, to protect others, or because they know nothing else. Still others learn the ways of weaponcraft to hone their bodies in battle and prove their mettle in the forge of war. Lords of the battlefield, fighters are a disparate lot, training with many weapons or just one, perfecting the uses of armor, learning the fighting techniques of exotic masters, and studying the art of combat, all to shape themselves into living weapons. Far more than mere thugs, these skilled warriors reveal the true deadliness of their weapons, turning hunks of metal into arms capable of taming kingdoms, slaughtering monsters, and rousing the hearts of armies. Soldiers, knights, hunters, and artists of war, fighters are unparalleled champions, and woe to those who dare stand against them.",
+    "role": "Fighters excel at combat—defeating their enemies, controlling the flow of battle, and surviving such sorties themselves. While their specific weapons and methods grant them a wide variety of tactics, few can match fighters for sheer battle prowess.",
+    "alignments": ["Any"],
+    "hitDie": 10,
+    "startingWealth": "5d6x10",
+    "classSkills": ["Climb", "Craft", "Handle Animal", "Intimidate", "Knowledge(Dungeoneering)", "Knowledge(Engineering)", "Profession", "Ride", "Survival", "Swim"],
+    "skillRanksPerLevel": 2,
+    "progression": {
+
+        "1": {
+            "bab": 1,
+            "fortitudeSave": 2,
+            "reflexSave": 0,
+            "willSave": 0,
+            "classFeature": ["Bonus Feat"]
+        },
+        "2": {
+            "bab": 2,
+            "fortitudeSave": 3,
+            "reflexSave": 0,
+            "willSave": 0,
+            "classFeature": ["Bonus Feat", "Bravery"]
+        },
+        "3": {
+            "bab": 3,
+            "fortitudeSave": 3,
+            "reflexSave": 1,
+            "willSave": 1,
+            "classFeature": ["Armor Training"]
+        },
+        "4": {
+            "bab": 4,
+            "fortitudeSave": 4,
+            "reflexSave": 1,
+            "willSave": 1,
+            "classFeature": ["Bonus Feat"]
+        },
+        "5": {
+            "bab": 5,
+            "fortitudeSave": 4,
+            "reflexSave": 1,
+            "willSave": 1,
+            "classFeature": ["Weapon Training"]
+        },
+        "6": {
+            "bab": 6,
+            "fortitudeSave": 5,
+            "reflexSave": 2,
+            "willSave": 2,
+            "classFeature": ["Bonus Feat", "Bravery"]
+        },
+        "7": {
+            "bab": 7,
+            "fortitudeSave": 5,
+            "reflexSave": 2,
+            "willSave": 2,
+            "classFeature": ["Armor Training"]
+        },
+        "8": {
+            "bab": 8,
+            "fortitudeSave": 6,
+            "reflexSave": 2,
+            "willSave": 2,
+            "classFeature": ["Bonus Feat"]
+        },
+        "9": {
+            "bab": 9,
+            "fortitudeSave": 6,
+            "reflexSave": 3,
+            "willSave": 3,
+            "classFeature": ["Weapon Training"]
+        },
+        "10": {
+            "bab": 10,
+            "fortitudeSave": 7,
+            "reflexSave": 3,
+            "willSave": 3,
+            "classFeature": ["Bonus Feat", "Bravery"]
+        },
+        "11": {
+            "bab": 11,
+            "fortitudeSave": 7,
+            "reflexSave": 3,
+            "willSave": 3,
+            "classFeature": ["Armor Training"]
+        },
+        "12": {
+            "bab": 12,
+            "fortitudeSave": 8,
+            "reflexSave": 4,
+            "willSave": 4,
+            "classFeature": ["Bonus Feat"]
+        },
+        "13": {
+            "bab": 13,
+            "fortitudeSave": 8,
+            "reflexSave": 4,
+            "willSave": 4,
+            "classFeature": ["Weapon Training"]
+        },
+        "14": {
+            "bab": 14,
+            "fortitudeSave": 9,
+            "reflexSave": 4,
+            "willSave": 4,
+            "classFeature": ["Bonus Feat", "Bravery"]
+        },
+        "15": {
+            "bab": 15,
+            "fortitudeSave": 9,
+            "reflexSave": 5,
+            "willSave": 5,
+            "classFeature": ["Armor Training"]
+        },
+        "16": {
+            "bab": 16,
+            "fortitudeSave": 10,
+            "reflexSave": 5,
+            "willSave": 5,
+            "classFeature": ["Bonus Feat"]
+        },
+        "17": {
+            "bab": 17,
+            "fortitudeSave": 10,
+            "reflexSave": 5,
+            "willSave": 5,
+            "classFeature": ["Weapon Training"]
+        },
+        "18": {
+            "bab": 18,
+            "fortitudeSave": 11,
+            "reflexSave": 6,
+            "willSave": 6,
+            "classFeature": ["Bonus Feat", "Bravery"]
+        },
+        "19": {
+            "bab": 19,
+            "fortitudeSave": 11,
+            "reflexSave": 6,
+            "willSave": 6,
+            "classFeature": ["Armor Mastery"]
+        },
+        "20": {
+            "bab": 20,
+            "fortitudeSave": 12,
+            "reflexSave": 6,
+            "willSave": 6,
+            "classFeature": ["Bonus Feat", "Weapon Mastery"]
         }
-    
+    },
+    "source": "PZO1110"
+
 }

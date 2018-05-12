@@ -1,0 +1,23 @@
+{
+    "name": "",
+    "type": "ClassFeature",
+    "description": "",
+    "bonus": {
+        "skillCheck": {
+            "1": {
+                "check": "",
+                "bonus": {
+                    "value": 0,
+                    "type": "classFeatureBonus",
+                    "formular": {
+                        "attribute": "",
+                        "modifier": 0,
+                        "minimum": 0
+                    }
+                }
+            }
+        }
+
+    },
+    "source": "PZO1110"
+}

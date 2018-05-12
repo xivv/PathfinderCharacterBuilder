@@ -20,7 +20,8 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
 
             $scope.skillchecks[element]["ranks"] = 0;
             $scope.skillchecks[element]["totalBonus"] = 0;
-            $scope.character.skillRanksLeft = $scope.character.skillPointsTotal;
+            $scope.character.skillRanksLeft = $scope.character.skillRanksTotal;
+            $scope.updateAllSkillchecks();
         });
 
 
@@ -41,10 +42,11 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
             $scope.skillchecks[skillname]["abilityMod"] = $scope.abilityScores[$scope.skillchecks[skillname]["keyAbility"]]["abilityMod"];
 
 
+            $scope.skillchecks[skillname]["miscBonusTotal"] = $scope.skillchecks[skillname]["circumstanceBonus"] + $scope.skillchecks[skillname]["competenceBonus"] + $scope.skillchecks[skillname]["insightBonus"] + $scope.skillchecks[skillname]["luckBonus"] + $scope.skillchecks[skillname]["moraleBonus"] + $scope.skillchecks[skillname]["profanceBonus"] + $scope.skillchecks[skillname]["sacredBonus"] + $scope.skillchecks[skillname]["classFeatureBonus"];
 
             $scope.skillchecks[skillname]["totalBonus"] = $scope.skillchecks[skillname]["ranks"] +
                 $scope.skillchecks[skillname]["racialBonus"] +
-                $scope.skillchecks[skillname]["abilityMod"] + classSkillBonus + $scope.skillchecks[skillname]["circumstanceBonus"] + $scope.skillchecks[skillname]["competenceBonus"] + $scope.skillchecks[skillname]["insightBonus"] + $scope.skillchecks[skillname]["luckBonus"] + $scope.skillchecks[skillname]["moraleBonus"] + $scope.skillchecks[skillname]["profanceBonus"] + $scope.skillchecks[skillname]["sacredBonus"];
+                $scope.skillchecks[skillname]["abilityMod"] + classSkillBonus + $scope.skillchecks[skillname]["miscBonusTotal"];
 
         });
 
@@ -91,19 +93,190 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
 
         $scope.skillchecks[skillname]["abilityMod"] = $scope.abilityScores[$scope.skillchecks[skillname]["keyAbility"]]["abilityMod"];
 
-
+        $scope.skillchecks[skillname]["miscBonusTotal"] = $scope.skillchecks[skillname]["circumstanceBonus"] + $scope.skillchecks[skillname]["competenceBonus"] + $scope.skillchecks[skillname]["insightBonus"] + $scope.skillchecks[skillname]["luckBonus"] + $scope.skillchecks[skillname]["moraleBonus"] + $scope.skillchecks[skillname]["profanceBonus"] + $scope.skillchecks[skillname]["sacredBonus"] + $scope.skillchecks[skillname]["classFeatureBonus"];
 
         $scope.skillchecks[skillname]["totalBonus"] = $scope.skillchecks[skillname]["ranks"] +
             $scope.skillchecks[skillname]["racialBonus"] +
-            $scope.skillchecks[skillname]["abilityMod"] + classSkillBonus + $scope.skillchecks[skillname]["circumstanceBonus"] + $scope.skillchecks[skillname]["competenceBonus"] + $scope.skillchecks[skillname]["insightBonus"] + $scope.skillchecks[skillname]["luckBonus"] + $scope.skillchecks[skillname]["moraleBonus"] + $scope.skillchecks[skillname]["profanceBonus"] + $scope.skillchecks[skillname]["sacredBonus"];
+            $scope.skillchecks[skillname]["abilityMod"] + classSkillBonus + $scope.skillchecks[skillname]["miscBonusTotal"];
 
     };
 
     $scope.$watchCollection(function () {
-        return $scope.skillchecks;
+        return $scope.skillchecks["Disable Device"];
     }, function () {
         $scope.updateAllSkillchecks();
     });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Acrobatics"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Appraise;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Bluff;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Climb;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Craft;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Diplomacy;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Disguise;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Escape Artist"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Fly;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Handle Animal"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Heal;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Intimidate;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Arcana)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Dungeoneering)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Engineering)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Geography)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(History)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Local)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Nature)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Nobility)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Planes)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Knowledge(Religion)"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Linguistics;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Perception;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Perform;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Profession;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Ride;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Sense Motive"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Sleight Of Hand"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Spellcraft;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Stealth;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Survival;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks.Swim;
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+    $scope.$watchCollection(function () {
+        return $scope.skillchecks["Use Magic Device"];
+    }, function () {
+        $scope.updateAllSkillchecks();
+    });
+
     // Watches if any modifiers changes
     $scope.$watchCollection(function () {
         return AbilityScores.abilityScores["Strength"];
@@ -362,24 +535,85 @@ app.controller("spellController", function ($scope, Character, AbilityScores) {
 /*
  *  Manages the classes functions
  */
-app.controller("classController", function ($scope, Character, AbilityScores, Classes, SkillChecks) {
+app.controller("classController", function ($scope, Character, AbilityScores, Classes, SkillChecks, ClassFeatures) {
     $scope.character = Character.character;
     $scope.classes = Classes;
     $scope.skillchecks = SkillChecks.skillchecks;
     $scope.abilityScores = AbilityScores.abilityScores;
+    $scope.classFeatures = ClassFeatures;
     $scope.selectedClass;
+    $scope.selectedClassFeature;
 
-    $scope.$watchCollection(function () {
-        return $scope.abilityScores.Intelligence;
-    }, function (newValue, oldValue) {
-        $scope.character.skillRanksTotal = $scope.calculateSkillPointsTotal();
-    });
+    $scope.applyClassFeature = function (classItem, classFeature) {
 
-    $scope.$watch(function () {
-        return $scope.character.skillRanksTotal;
-    }, function (newValue, oldValue) {
-        $scope.character.skillRanksLeft += newValue - oldValue;
-    });
+        if (!angular.equals(classFeature.bonus, {})) {
+
+            if (classFeature.bonus.skillCheck) {
+
+                for (var i = 0; i < classFeature.bonus.skillCheck.length; i++) {
+
+                    var skillCheck = classFeature.bonus.skillCheck[i];
+                    $scope.skillchecks[skillCheck.check][skillCheck.bonus.type] += skillCheck.bonus.value;
+
+                    // If bonus is calculated by a formular
+                    if (skillCheck.bonus.formular) {
+
+                        // If bonus depends on the class level
+                        if (skillCheck.bonus.formular.attribute == "classLevel") {
+
+                            var totalBonus = skillCheck.bonus.formular.modifier * classItem.level;
+
+                            if (totalBonus < skillCheck.bonus.formular.minimum) {
+                                totalBonus = skillCheck.bonus.formular.minimum;
+                            }
+                            $scope.skillchecks[skillCheck.check][skillCheck.bonus.type] += totalBonus;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    $scope.removeClassFeature = function (classItem, classFeature) {
+
+        if (!angular.equals(classFeature.bonus, {})) {
+
+            if (classFeature.bonus.skillCheck) {
+
+                for (var i = 0; i < classFeature.bonus.skillCheck.length; i++) {
+
+                    var skillCheck = classFeature.bonus.skillCheck[i];
+                    $scope.skillchecks[skillCheck.check][skillCheck.bonus.type] += skillCheck.bonus.value;
+
+                    // If bonus is calculated by a formular
+                    if (skillCheck.bonus.formular) {
+
+                        // If bonus depends on the class level
+                        if (skillCheck.bonus.formular.attribute == "classLevel") {
+
+                            var totalBonus = skillCheck.bonus.formular.modifier * (classItem.level + 1);
+
+                            if (totalBonus < skillCheck.bonus.formular.minimum) {
+                                totalBonus = skillCheck.bonus.formular.minimum;
+                            }
+                            $scope.skillchecks[skillCheck.check][skillCheck.bonus.type] -= totalBonus;
+                        }
+
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    $scope.selectClassFeature = function (classFeatureName) {
+
+        $scope.selectedClassFeature = $scope.classFeatures[classFeatureName];
+    }
 
     $scope.calculateSkillPointsTotal = function () {
 
@@ -407,6 +641,16 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
             $scope.character.classes[classItem.name]["level"] -= 1;
         }
 
+        // Remove Class features
+        var level = $scope.character.classes[className]["level"] + 1;
+
+        for (var i = 0; i < $scope.character.classes[className]["progression"][level]["classFeature"].length; i++) {
+
+            var classFeature = $scope.character.classes[className]["progression"][level]["classFeature"][i];
+            classFeature = $scope.classFeatures[classFeature];
+            $scope.removeClassFeature($scope.character.classes[className], classFeature);
+        }
+
         if ($scope.character.classes[classItem.name]["level"] <= 0) {
 
             delete $scope.character.classes[classItem.name];
@@ -425,6 +669,10 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
     $scope.addLevel = function (className) {
 
 
+        if (!className) {
+            return;
+        }
+
         var classItem = $scope.classes[className];
 
         // If already has a level in this class
@@ -441,7 +689,21 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
 
             $scope.character.classes[className] = classItem;
             $scope.character.classes[className]["level"] = 1;
+
+
         }
+
+        var level = $scope.character.classes[className]["level"];
+
+        for (var i = 0; i < $scope.character.classes[className]["progression"][level]["classFeature"].length; i++) {
+
+            var classFeature = $scope.character.classes[className]["progression"][level]["classFeature"][i];
+            classFeature = $scope.classFeatures[classFeature];
+            $scope.applyClassFeature($scope.character.classes[className], classFeature);
+        }
+
+
+
 
         $scope.postLevelChange();
     }
@@ -505,6 +767,19 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
 
         });
     }
+
+    $scope.$watchCollection(function () {
+        return $scope.abilityScores.Intelligence;
+    }, function () {
+        $scope.character.skillRanksTotal = $scope.calculateSkillPointsTotal();
+    });
+
+    $scope.$watch(function () {
+        return $scope.character.skillRanksTotal;
+    }, function (newValue, oldValue) {
+        $scope.character.skillRanksLeft += newValue - oldValue;
+    });
+
 
 });
 
@@ -1527,7 +1802,7 @@ app.factory('Races', function ($http) {
 });
 
 /*
- *  This function returns the race data
+ *  This function returns the abilities data
  */
 app.factory('Abilities', function ($http) {
 
@@ -1546,6 +1821,35 @@ app.factory('Abilities', function ($http) {
 
                 var abilitiesData = response_.data;
                 obj[abilitiesData.abilityName] = abilitiesData;
+            });
+        }
+
+    });
+
+
+    return obj;
+});
+
+/*
+ *  This function returns the class features data
+ */
+app.factory('ClassFeatures', function ($http) {
+
+    var obj = {};
+
+    $http.get("./data/abilities/classfeatures/data.json").then(function (response) {
+
+        var myData = response.data;
+
+        for (var i = 0; i < myData["classfeatures"].length; i++) {
+
+            var dataString = "./data/abilities/classfeatures/" + myData["classfeatures"][i] + ".json";
+
+            $http.get(dataString).then(function (response_) {
+
+
+                var classfeaturesData = response_.data;
+                obj[classfeaturesData.name] = classfeaturesData;
             });
         }
 
@@ -2075,6 +2379,7 @@ app.factory('SkillChecks', function (Character) {
             "Acrobatics": {
                 name: "Acrobatics",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.acrobatics,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2088,11 +2393,14 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
+
             },
             "Appraise": {
                 name: "Appraise",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.appraise,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2106,11 +2414,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Bluff": {
                 name: "Bluff",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.bluff,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2124,11 +2434,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Climb": {
                 name: "Climb",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.climb,
                 keyAbility: "Strength",
                 abilityMod: 0,
@@ -2142,11 +2454,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Craft": {
                 name: "Craft",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: 0,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2160,11 +2474,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Diplomacy": {
                 name: "Diplomacy",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.diplomacy,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2178,11 +2494,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Disable Device": {
                 name: "Disable Device",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.disableDevice,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2196,11 +2514,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Disguise": {
                 name: "Disguise",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.disguise,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2214,11 +2534,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Escape Artist": {
                 name: "Escape Artist",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.escapeArtist,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2232,11 +2554,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Fly": {
                 name: "Fly",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.fly,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2250,11 +2574,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Handle Animal": {
                 name: "Handle Animal",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.handleAnimal,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2268,11 +2594,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Heal": {
                 name: "Heal",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.heal,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2286,11 +2614,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Intimidate": {
                 name: "Intimidate",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.intimidate,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2304,11 +2634,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Arcana)": {
                 name: "Knowledge(Arcana)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeArcana,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2322,11 +2654,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Dungeoneering)": {
                 name: "Knowledge(Dungeoneering)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeDungeoneering,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2340,11 +2674,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Engineering)": {
                 name: "Knowledge(Engineering)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeEngineering,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2358,11 +2694,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Geography)": {
                 name: "Knowledge(Geography)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeGeography,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2376,11 +2714,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(History)": {
                 name: "Knowledge(History)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeHistory,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2394,11 +2734,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Local)": {
                 name: "Knowledge(Local)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeLocal,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2412,11 +2754,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Nature)": {
                 name: "Knowledge(Nature)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeNature,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2430,11 +2774,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Nobility)": {
                 name: "Knowledge(Nobility)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeNobility,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2448,11 +2794,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Planes)": {
                 name: "Knowledge(Planes)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgePlanes,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2466,11 +2814,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Knowledge(Religion)": {
                 name: "Knowledge(Religion)",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.knowledgeReligion,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2484,11 +2834,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Linguistics": {
                 name: "Linguistics",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.linguistics,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2502,11 +2854,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Perception": {
                 name: "Perception",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.perception,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2520,11 +2874,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Perform": {
                 name: "Perform",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: 0,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2538,11 +2894,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Profession": {
                 name: "Profession",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: 0,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2556,11 +2914,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Ride": {
                 name: "Ride",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.ride,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2574,11 +2934,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Sense Motive": {
                 name: "Sense Motive",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.senseMotive,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2592,11 +2954,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Sleight Of Hand": {
                 name: "Sleight Of Hand",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.sleightOfHand,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2610,11 +2974,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Spellcraft": {
                 name: "Spellcraft",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.spellcraft,
                 keyAbility: "Intelligence",
                 abilityMod: 0,
@@ -2628,11 +2994,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Stealth": {
                 name: "Stealth",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.stealth,
                 keyAbility: "Dexterity",
                 abilityMod: 0,
@@ -2646,11 +3014,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Survival": {
                 name: "Survival",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.survival,
                 keyAbility: "Wisdom",
                 abilityMod: 0,
@@ -2664,11 +3034,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Swim": {
                 name: "Swim",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.swim,
                 keyAbility: "Strength",
                 abilityMod: 0,
@@ -2682,11 +3054,13 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             },
             "Use Magic Device": {
                 name: "Use Magic Device",
                 totalBonus: 0,
+                miscBonusTotal: 0,
                 ranks: Character.character.useMagicDevice,
                 keyAbility: "Charisma",
                 abilityMod: 0,
@@ -2700,7 +3074,8 @@ app.factory('SkillChecks', function (Character) {
                 luckBonus: 0,
                 moraleBonus: 0,
                 profanceBonus: 0,
-                sacredBonus: 0
+                sacredBonus: 0,
+                classFeatureBonus: 0
             }
         }
     };

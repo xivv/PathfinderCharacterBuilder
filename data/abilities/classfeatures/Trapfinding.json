@@ -1,0 +1,23 @@
+{
+    "name": "Trapfinding",
+    "type": "ClassFeature",
+    "description": "A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.",
+    "bonus": {
+        "skillCheck": [{
+            "check": "Disable Device",
+            "bonus": {
+                "value": 0,
+                "type": "classFeatureBonus",
+                "formular": {
+                    "attribute": "classLevel",
+                    "modifier": 0.5,
+                    "minimum": 1
+                }
+            }
+            }]
+
+
+    },
+    "source": "PZO1110"
+
+}

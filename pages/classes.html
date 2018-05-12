@@ -1,57 +1,87 @@
-<html>
-
-<table class="table-striped table-bordered">
-    <tr>
-        <td>Class</td>
-        <td>Level</td>
-        <td>MaxHP</td>
-        <td>Base Attack Bonus</td>
-        <td>Fortitude Save</td>
-        <td>Reflex Save</td>
-        <td>Will Save</td>
-        <td>Action</td>
-    </tr>
-    <tr ng-repeat="class in character.classes">
-        <td>{{class.name}}</td>
-        <td>{{class.level}}</td>
-        <td>{{calculateClassMaxHp(class)}}</td>
-        <td>{{getClassProgression('bab',class)}}</td>
-        <td>{{getClassProgression('fortitudeSave',class)}}</td>
-        <td>{{getClassProgression('reflexSave',class)}}</td>
-        <td>{{getClassProgression('willSave',class)}}</td>
-        <td><input type="button" ng-click="removeLevel(class.name)" value="-"></td>
-    </tr>
-    <tr>
-        <td>Total</td>
-        <td>{{getTotal('level')}}</td>
-        <td>{{calculateTotalClassMaxHp()}}</td>
-        <td>{{getTotalProgession("bab")}}</td>
-        <td>{{getTotalProgession("fortitudeSave")}}</td>
-        <td>{{getTotalProgession("reflexSave")}}</td>
-        <td>{{getTotalProgession("willSave")}}</td>
-    </tr>
-</table>
-<select ng-model="selectedClass_" ng-change="selectClass(selectedClass_)">
+<div class="container-fluid">
+    <div class="table-responsive table-sm col-sm-12">
+        <table class="col-sm-12">
+            <tr>
+                <td>Class</td>
+                <td>Level</td>
+                <td>MaxHP</td>
+                <td>Base Attack Bonus</td>
+                <td>Fortitude Save</td>
+                <td>Reflex Save</td>
+                <td>Will Save</td>
+                <td>Action</td>
+            </tr>
+            <tr ng-repeat="class in character.classes">
+                <td>{{class.name}}</td>
+                <td>{{class.level}}</td>
+                <td>{{calculateClassMaxHp(class)}}</td>
+                <td>{{getClassProgression('bab',class)}}</td>
+                <td>{{getClassProgression('fortitudeSave',class)}}</td>
+                <td>{{getClassProgression('reflexSave',class)}}</td>
+                <td>{{getClassProgression('willSave',class)}}</td>
+                <td><input type="button" ng-click="removeLevel(class.name)" value="-"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{getTotal('level')}}</td>
+                <td>{{calculateTotalClassMaxHp()}}</td>
+                <td>{{getTotalProgession("bab")}}</td>
+                <td>{{getTotalProgession("fortitudeSave")}}</td>
+                <td>{{getTotalProgession("reflexSave")}}</td>
+                <td>{{getTotalProgession("willSave")}}</td>
+            </tr>
+        </table>
+        <select ng-model="selectedClass_" ng-change="selectClass(selectedClass_)">
         <option ng-repeat="class in classes">{{class.name}}</option>
-    </select>
-<input type="button" ng-click="addLevel(selectedClass_)" value="+">
+ </select>
+        <input type="button" ng-click="addLevel(selectedClass_)" value="+">
 
-<table ng-show="selectedClass_ != null">
-    <tr>
-        <td>{{selectedClass.name}}</td>
-    </tr>
-    <tr>
-        <td>Description</td>
-        <td>{{selectedClass.description}}</td>
-    </tr>
-    <tr>
-        <td>Role</td>
-        <td>{{selectedClass.role}}</td>
-    </tr>
-    <tr>
-        <td>HitDie</td>
-        <td>{{selectedClass.hitDie}}</td>
-    </tr>
-</table>
 
-</html>
+        <div class="col-sm-12">
+            <div class="card " ng-show="selectedClass_">
+                <div class="card-header ">
+                    {{selectedClass.name}}
+                </div>
+                <div class="card-body ">
+                    <p class="card-text">
+                        {{character.deity.shortDescription}}</p>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            {{selectedClass.description}}
+                        </div>
+                    </div>
+                    <div ng-show="selectedClassFeature" class="card " ng-show="selectedClass_">
+                        <div class="card-header ">
+                            {{selectedClassFeature.name}}
+                        </div>
+                        <div class="card-body ">
+                            <p class="card-text ">
+                                {{selectedClassFeature.description}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive table-sm col-sm-12">
+                        <table class="col-sm-12">
+                            <tr>
+                                <td>Level</td>
+                                <td>BAB</td>
+                                <td>Fort Save</td>
+                                <td>Ref Save</td>
+                                <td>Will Save</td>
+                                <td>Special</td>
+                            </tr>
+                            <tr ng-repeat="level in selectedClass.progression">
+                                <td>{{$index+1}}</td>
+                                <td>{{level.bab}}</td>
+                                <td>{{level.fortitudeSave}}</td>
+                                <td>{{level.reflexSave}}</td>
+                                <td>{{level.willSave}}</td>
+                                <td><a href="" ng-click="selectClassFeature(classFeature)" ng-repeat="classFeature in level.classFeature">{{classFeature}},&nbsp;</a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
