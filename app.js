@@ -8,8 +8,11 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
     $scope.character = Character.character;
     $scope.abilityScores = AbilityScores.abilityScores;
     $scope.skillchecks = SkillChecks.skillchecks;
-    $scope.character_skillpoints_left = 20;
-    $scope.character_skillpoints_total = 20;
+
+    $scope.cutSkillKey = function (skill) {
+
+        return skill.keyAbility.substring(0, 3).toUpperCase();
+    }
 
     $scope.resetSkillchecks = function () {
 
@@ -17,7 +20,7 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
 
             $scope.skillchecks[element]["ranks"] = 0;
             $scope.skillchecks[element]["totalBonus"] = 0;
-            $scope.character_skillpoints_left = $scope.character_skillpoints_total;
+            $scope.character.skillRanksLeft = $scope.character.skillPointsTotal;
         });
 
 
@@ -61,9 +64,9 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
                 $scope.skillchecks[skillname]["ranks"] -= 1;
             } else {
                 // Does character have enough points?
-                if ($scope.character_skillpoints_left > 0) {
+                if ($scope.character.skillRanksLeft > 0) {
 
-                    $scope.character_skillpoints_left -= 1;
+                    $scope.character.skillRanksLeft -= 1;
                 } else {
                     $scope.skillchecks[skillname]["ranks"] -= 1;
                 }
@@ -76,7 +79,7 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
             }
             // Einen Punkt mehr verfügbar
             else {
-                $scope.character_skillpoints_left += 1;
+                $scope.character.skillRanksLeft += 1;
             }
 
         }
@@ -95,7 +98,6 @@ app.controller("characterSkillchecks", function ($scope, Character, AbilityScore
             $scope.skillchecks[skillname]["abilityMod"] + classSkillBonus + $scope.skillchecks[skillname]["circumstanceBonus"] + $scope.skillchecks[skillname]["competenceBonus"] + $scope.skillchecks[skillname]["insightBonus"] + $scope.skillchecks[skillname]["luckBonus"] + $scope.skillchecks[skillname]["moraleBonus"] + $scope.skillchecks[skillname]["profanceBonus"] + $scope.skillchecks[skillname]["sacredBonus"];
 
     };
-
 
     $scope.$watchCollection(function () {
         return $scope.skillchecks;
@@ -364,68 +366,123 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
     $scope.character = Character.character;
     $scope.classes = Classes;
     $scope.skillchecks = SkillChecks.skillchecks;
+    $scope.abilityScores = AbilityScores.abilityScores;
     $scope.selectedClass;
+
+    $scope.$watchCollection(function () {
+        return $scope.abilityScores.Intelligence;
+    }, function (newValue, oldValue) {
+        $scope.character.skillRanksTotal = $scope.calculateSkillPointsTotal();
+    });
+
+    $scope.$watch(function () {
+        return $scope.character.skillRanksTotal;
+    }, function (newValue, oldValue) {
+        $scope.character.skillRanksLeft += newValue - oldValue;
+    });
+
+    $scope.calculateSkillPointsTotal = function () {
+
+        var total = 0;
+
+        Object.values($scope.character.classes).forEach(function (element) {
+
+            total += element.level * $scope.abilityScores.Intelligence.abilityMod + element.level * element.skillRanksPerLevel;
+        });
+
+        return total;
+    }
 
     $scope.selectClass = function (element) {
         $scope.selectedClass = $scope.classes[element];
     }
 
-    $scope.removeLevel = function (element) {
+    $scope.removeLevel = function (className) {
 
-        // If has a level in this class
-        if ($scope.character.classes[element]) {
-
-            $scope.character.classes[element]["level"] -= 1;
-
-
-            if ($scope.character.classes[element]["level"] <= 0) {
-                delete $scope.character.classes[element];
-            } else {
-
-                var classLevel = $scope.character.classes[element]["level"];
-                $scope.character.classes[element]["maxHP"] -= $scope.classes[element]["hitDie"];
-                $scope.character.classes[element]["bab"] = $scope.classes[element]["progression"][classLevel]["bab"];
-                $scope.character.classes[element]["fortitudeSave"] = $scope.classes[element]["progression"][classLevel]["fortitudeSave"];
-                $scope.character.classes[element]["reflexSave"] = $scope.classes[element]["progression"][classLevel]["reflexSave"];
-                $scope.character.classes[element]["willSave"] = $scope.classes[element]["progression"][classLevel]["willSave"];
-            }
-        } else {
-
-            // Do nothing
-        }
-    }
-
-    $scope.addLevel = function (element) {
+        var classItem = $scope.classes[className];
 
         // If already has a level in this class
-        if ($scope.character.classes[element]) {
+        if ($scope.character.classes[classItem.name]) {
 
-            if ($scope.character.classes[element]["level"] < 20) {
-                $scope.character.classes[element]["level"] += 1;
-
-                var classLevel = $scope.character.classes[element]["level"];
-
-                $scope.character.classes[element]["maxHP"] += $scope.classes[element]["hitDie"];
-                $scope.character.classes[element]["bab"] = $scope.classes[element]["progression"][classLevel]["bab"];
-                $scope.character.classes[element]["fortitudeSave"] = $scope.classes[element]["progression"][classLevel]["fortitudeSave"];
-                $scope.character.classes[element]["reflexSave"] = $scope.classes[element]["progression"][classLevel]["reflexSave"];
-                $scope.character.classes[element]["willSave"] = $scope.classes[element]["progression"][classLevel]["willSave"];
-
-            }
-        } else {
-            $scope.character.classes[element] = {
-                "name": element,
-                "level": 1,
-                "maxHP": $scope.classes[element]["hitDie"],
-                "bab": $scope.classes[element]["progression"][1]["bab"],
-                "fortitudeSave": $scope.classes[element]["progression"][1]["fortitudeSave"],
-                "reflexSave": $scope.classes[element]["progression"][1]["reflexSave"],
-                "willSave": $scope.classes[element]["progression"][1]["willSave"]
-            };
-            $scope.applyClassSkills(element);
+            $scope.character.classes[classItem.name]["level"] -= 1;
         }
 
+        if ($scope.character.classes[classItem.name]["level"] <= 0) {
+
+            delete $scope.character.classes[classItem.name];
+        }
+
+        $scope.postLevelChange();
+
+    }
+
+    $scope.postLevelChange = function () {
+
+        $scope.character.skillRanksTotal = $scope.calculateSkillPointsTotal();
         $scope.character.level = $scope.getTotal("level");
+    }
+
+    $scope.addLevel = function (className) {
+
+
+        var classItem = $scope.classes[className];
+
+        // If already has a level in this class
+
+        if ($scope.character.classes[className]) {
+
+            if ($scope.character.classes[className]["level"] == 20) {
+
+                return;
+            }
+
+            $scope.character.classes[className]["level"] += 1;
+        } else {
+
+            $scope.character.classes[className] = classItem;
+            $scope.character.classes[className]["level"] = 1;
+        }
+
+        $scope.postLevelChange();
+    }
+
+    $scope.calculateClassMaxHp = function (classItem) {
+
+        return classItem["level"] * classItem["hitDie"];
+    }
+
+    $scope.calculateTotalClassMaxHp = function () {
+
+        var total = 0;
+
+        Object.values($scope.character.classes).forEach(function (element) {
+
+            total += element["level"] * element["hitDie"];
+        });
+
+        return total;
+    }
+
+    $scope.getClassProgression = function (stat, classItem) {
+
+        var total = 0;
+        var level = classItem.level;
+
+        total += classItem["progression"][level][stat];
+
+        return total;
+    }
+
+    $scope.getTotalProgession = function (stat) {
+
+        var total = 0;
+
+        Object.values($scope.character.classes).forEach(function (element) {
+
+            total += $scope.getClassProgression(stat, element);
+        });
+
+        return total;
     }
 
     $scope.getTotal = function (stat) {
@@ -1416,20 +1473,22 @@ app.factory('Character', function () {
             // Feats
             feats: [
 
-     ],
+            ],
 
             // Spells
             spells: [
 
-     ],
+            ],
             preparedSpells: [
 
-     ],
+            ],
 
             // DO NOT NEED TO SAVE
             immunities: [
 
-     ],
+            ],
+            skillRanksLeft: 0,
+            skillRanksTotal: 0
 
 
 

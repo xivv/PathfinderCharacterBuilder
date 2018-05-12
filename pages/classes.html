@@ -14,21 +14,21 @@
     <tr ng-repeat="class in character.classes">
         <td>{{class.name}}</td>
         <td>{{class.level}}</td>
-        <td>{{class.maxHP}}</td>
-        <td>{{class.bab}}</td>
-        <td>{{class.fortitudeSave}}</td>
-        <td>{{class.reflexSave}}</td>
-        <td>{{class.willSave}}</td>
+        <td>{{calculateClassMaxHp(class)}}</td>
+        <td>{{getClassProgression('bab',class)}}</td>
+        <td>{{getClassProgression('fortitudeSave',class)}}</td>
+        <td>{{getClassProgression('reflexSave',class)}}</td>
+        <td>{{getClassProgression('willSave',class)}}</td>
         <td><input type="button" ng-click="removeLevel(class.name)" value="-"></td>
     </tr>
     <tr>
         <td>Total</td>
-        <td>{{getTotal("level")}}</td>
-        <td>{{getTotal("maxHP")}}</td>
-        <td>{{getTotal("bab")}}</td>
-        <td>{{getTotal("fortitudeSave")}}</td>
-        <td>{{getTotal("reflexSave")}}</td>
-        <td>{{getTotal("willSave")}}</td>
+        <td>{{getTotal('level')}}</td>
+        <td>{{calculateTotalClassMaxHp()}}</td>
+        <td>{{getTotalProgession("bab")}}</td>
+        <td>{{getTotalProgession("fortitudeSave")}}</td>
+        <td>{{getTotalProgession("reflexSave")}}</td>
+        <td>{{getTotalProgession("willSave")}}</td>
     </tr>
 </table>
 <select ng-model="selectedClass_" ng-change="selectClass(selectedClass_)">

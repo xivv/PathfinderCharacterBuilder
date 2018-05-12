@@ -1,9 +1,10 @@
-<html >
-        <table>
+<div class="container-fluid">
+    <div class="table-responsive table-sm col-sm-12">
+        <table class="col-sm-12">
             <tr>
                 <td>Skillcheck</td>
                 <td>Total</td>
-                <td>-----------Ranks---------</td>
+                <td>Ranks</td>
                 <td>Ability</td>
                 <td>Mod</td>
                 <td>Racial</td>
@@ -11,30 +12,31 @@
                 <td>CS?</td>
                 <td>ACP?</td>
                 <td>Untrained?</td>
-              
+
             </tr>
             <tr ng-repeat="skill in skillchecks">
-                <td>{{skill.name}}:</td>
+                <td>{{skill.name}}</td>
                 <td>{{skill.totalBonus}}</td>
                 <td><input ng-change="updateSkillcheck(skill.name,'{{skill.ranks}}')" ng-model="skill.ranks" type="number"></td>
-                <td>{{skill.keyAbility}}</td>
+                <td>{{cutSkillKey(skill)}}</td>
                 <td>{{abilityScores[skill.keyAbility]["abilityMod"]}}</td>
                 <td>{{skill.racialBonus}}</td>
-                <td>0</td>
-                <td><input type="checkbox" ng-disabled="true" ng-checked="skill.classSkill"></td>    
+                <td>0{{skill.miscBonus}}</td>
+                <td><input type="checkbox" ng-disabled="true" ng-checked="skill.classSkill"></td>
                 <td><input type="checkbox" ng-disabled="true" ng-checked="skill.armorCheckPenalty"></td>
                 <td><input type="checkbox" ng-disabled="true" ng-checked="skill.untrained"></td>
             </tr>
             <tr>
                 <td>Points available</td>
-                <td>{{character_skillpoints_total}}</td>
-            </tr>     
-             <tr>
+                <td>{{character.skillRanksTotal}}</td>
+            </tr>
+            <tr>
                 <td>Points left</td>
-                <td>{{character_skillpoints_left}}</td>
-            </tr>    
+                <td>{{character.skillRanksLeft}}</td>
+            </tr>
             <tr>
                 <td><input type="button" value="Reset" ng-click="resetSkillchecks()"></td>
             </tr>
         </table>
-</html>
+    </div>
+</div>
