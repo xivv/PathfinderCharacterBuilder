@@ -1,0 +1,42 @@
+    {
+        "name": "Gauntlet, spiked",
+        "displayName": "Gauntlet, spiked",
+        "description": "No description. The cost and weight given are for a single gauntlet.",
+        "shortDescription": "No description. The cost and weight given are for a single gauntlet.",
+        "equipable": true,
+        "consumable": false,
+        "type": "Weapon",
+        "weight": 1,
+        "price": 5,
+        "source": "PZO1110",
+        "attributes": {
+            "slot": "Weapon",
+            "size": "Medium",
+            "damage": {
+                "die": 1,
+                "eyes": 4,
+                "changes": {
+                    "die": 0,
+                    "eyes": 0,
+                    "damage": 0,
+                    "attackRoll": 0
+                }
+            },
+            "criticalMultiplier": 2,
+            "criticalRange": 0,
+            "range": 0,
+            "types": ["P"],
+            "special": [],
+            "proficiency": "Simple Weapons",
+            "subtype": "Light Melee Weapons",
+            "benefit": "An attack with a spiked gauntlet is considered an armed attack. Your opponent cannot use a disarm action to disarm you of spiked gauntlets.",
+            "condition": {
+                "isMagical": false,
+                "enhancementBonus": 0,
+                "isComposite": false,
+                "strengthRating": 0,
+                "isMasterwork": false,
+                "material": null
+            }
+        }
+    }

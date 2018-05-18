@@ -1,12 +1,12 @@
 {
-    "name": "Arrow, common",
-    "displayName": "Arrow, common",
-    "description": "No description",
-    "shortDescription": "",
+    "name": "Bolt, crossbow",
+    "displayName": "Bolt, crossbow",
+    "description": "Bolts come in a case or quiver that holds 10 bolts (or 5 for a repeating crossbow).",
+    "shortDescription": "Bolts come in a case or quiver that holds 10 bolts (or 5 for a repeating crossbow).",
     "equipable": false,
     "consumable": true,
     "type": "Weapon",
-    "weight": 3,
+    "weight": 1,
     "price": 1,
     "source": "PZO1110",
     "attributes": {
@@ -22,12 +22,12 @@
                 "attackRoll": 0
             }
         },
-        "criticalMultiplier": 0,
+        "criticalMultiplier": 2,
         "criticalRange": 0,
         "range": 0,
-        "types": ["P"],
-        "special": [],
-        "proficiency": "Martial",
+        "types": [],
+        "special": ["A crossbow bolt used as a melee weapon is treated as a light improvised weapon (–4 penalty on attack rolls) and deals damage as a dagger of its size (crit ×2)"],
+        "proficiency": "Simple",
         "subtype": "Ammunition",
         "benefit": "",
         "condition": {

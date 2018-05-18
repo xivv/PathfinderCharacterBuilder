@@ -1,7 +1,21 @@
 {
-    "name": "Elven Magic",
+    "name": "Rogue Talent",
     "description": "As a rogue gains experience, she learns a number of talents that aid her and confound her foes. Starting at 2nd level, a rogue gains one rogue talent. She gains an additional rogue talent for every 2 levels of rogue attained after 2nd level. A rogue cannot select an individual talent more than once. Talents marked with an asterisk add effects to a rogue’s sneak attack. Only one of these talents can be applied to an individual attack and the decision must be made before the attack roll is made. A rogue cannot choose a ninja trick with the same name as a rogue talent.",
     "bonus": {
+        "feat": {
+            "1": {
+                "featPool": "rogueTalents",
+                "bonus": {
+                    "value": 1,
+                    "type": "classFeature",
+                    "formular": {
+                        "attribute": "classLevel",
+                        "modifier": 0.5,
+                        "minimum": 1
+                    }
+                }
+            }
+        }
 
     },
     "source": "PZO1110"

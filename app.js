@@ -544,6 +544,20 @@ app.controller("classController", function ($scope, Character, AbilityScores, Cl
     $scope.selectedClass;
     $scope.selectedClassFeature;
 
+    $scope.getAllClassFeatures = function () {
+
+        var allFeatures = [];
+
+        Object.keys($scope.character.classes).forEach(function (element) {
+
+            for (var i = 0; i < element.level; i++) {
+
+                for (var a = 0; a < element.progression[i]["classFeature"].length; a++) {
+                    allFeatures.push(element.progression[i]["classFeature"][a]);
+                }
+            }
+        });
+    }
     $scope.applyClassFeature = function (classItem, classFeature) {
 
         if (!angular.equals(classFeature.bonus, {})) {

@@ -1,20 +1,20 @@
 {
-    "name": "Arrow, common",
-    "displayName": "Arrow, common",
-    "description": "No description",
-    "shortDescription": "",
-    "equipable": false,
-    "consumable": true,
+    "name": "Morningstar",
+    "displayName": "Morningstar",
+    "description": "A morningstar is a spiked metal ball, affixed to the top of a long handle.",
+    "shortDescription": "A morningstar is a spiked metal ball, affixed to the top of a long handle.",
+    "equipable": true,
+    "consumable": false,
     "type": "Weapon",
-    "weight": 3,
-    "price": 1,
+    "weight": 6,
+    "price": 8,
     "source": "PZO1110",
     "attributes": {
         "slot": "Weapon",
         "size": "Medium",
         "damage": {
-            "die": 0,
-            "eyes": 0,
+            "die": 1,
+            "eyes": 8,
             "changes": {
                 "die": 0,
                 "eyes": 0,
@@ -22,13 +22,13 @@
                 "attackRoll": 0
             }
         },
-        "criticalMultiplier": 0,
+        "criticalMultiplier": 2,
         "criticalRange": 0,
         "range": 0,
-        "types": ["P"],
+        "types": ["B", "P"],
         "special": [],
-        "proficiency": "Martial",
-        "subtype": "Ammunition",
+        "proficiency": "Simple",
+        "subtype": "One-Handed Melee Weapons",
         "benefit": "",
         "condition": {
             "isMagical": false,

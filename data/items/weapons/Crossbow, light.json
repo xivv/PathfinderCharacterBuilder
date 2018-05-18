@@ -1,0 +1,42 @@
+{
+    "name": "Crossbow, light",
+    "displayName": "Crossbow, light",
+    "description": "You draw a light crossbow back by pulling a lever. Normally, operating a light crossbow requires two hands. However, you can shoot, but not load, a light crossbow with one hand at a –2 penalty on attack rolls. You can shoot a light crossbow with each hand, but you take a penalty on attack rolls as if attacking with two light weapons. This penalty is cumulative with the penalty for one-handed firing. Loading a light crossbow is a move action that provokes attacks of opportunity.",
+    "shortDescription": "",
+    "equipable": true,
+    "consumable": false,
+    "type": "Weapon",
+    "weight": 4,
+    "price": 35,
+    "source": "PZO1110",
+    "attributes": {
+        "slot": "Weapon",
+        "size": "Medium",
+        "damage": {
+            "die": 1,
+            "eyes": 8,
+            "changes": {
+                "die": 0,
+                "eyes": 0,
+                "damage": 0,
+                "attackRoll": 0
+            }
+        },
+        "criticalMultiplier": 2,
+        "criticalRange": 2,
+        "range": 80,
+        "types": ["P"],
+        "special": [],
+        "proficiency": "Simple",
+        "subtype": "Ranged Weapons",
+        "benefit": "",
+        "condition": {
+            "isMagical": false,
+            "enhancementBonus": 0,
+            "isComposite": false,
+            "strengthRating": 0,
+            "isMasterwork": false,
+            "material": null
+        }
+    }
+}

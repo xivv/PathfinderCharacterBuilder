@@ -1,13 +1,13 @@
 {
-    "name": "Arrow, common",
-    "displayName": "Arrow, common",
-    "description": "No description",
-    "shortDescription": "",
+    "name": "Bullet, sling",
+    "displayName": "Bullet, sling",
+    "description": " Bullets come in a leather pouch that holds 10 bullets.",
+    "shortDescription": " Bullets come in a leather pouch that holds 10 bullets.",
     "equipable": false,
     "consumable": true,
     "type": "Weapon",
-    "weight": 3,
-    "price": 1,
+    "weight": 5,
+    "price": 0.1,
     "source": "PZO1110",
     "attributes": {
         "slot": "Weapon",
@@ -22,12 +22,12 @@
                 "attackRoll": 0
             }
         },
-        "criticalMultiplier": 0,
+        "criticalMultiplier": 2,
         "criticalRange": 0,
         "range": 0,
-        "types": ["P"],
+        "types": [],
         "special": [],
-        "proficiency": "Martial",
+        "proficiency": "Simple",
         "subtype": "Ammunition",
         "benefit": "",
         "condition": {

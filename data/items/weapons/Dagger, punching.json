@@ -1,20 +1,20 @@
 {
-    "name": "Arrow, common",
-    "displayName": "Arrow, common",
-    "description": "No description",
-    "shortDescription": "",
-    "equipable": false,
-    "consumable": true,
+    "name": "Dagger, punching",
+    "displayName": "Dagger, punching",
+    "description": "A punching dagger’s blade is attached to a horizontal handle that projects out from the fist when held.",
+    "shortDescription": "A punching dagger’s blade is attached to a horizontal handle that projects out from the fist when held.",
+    "equipable": true,
+    "consumable": false,
     "type": "Weapon",
-    "weight": 3,
-    "price": 1,
+    "weight": 1,
+    "price": 2,
     "source": "PZO1110",
     "attributes": {
         "slot": "Weapon",
         "size": "Medium",
         "damage": {
-            "die": 0,
-            "eyes": 0,
+            "die": 1,
+            "eyes": 4,
             "changes": {
                 "die": 0,
                 "eyes": 0,
@@ -22,13 +22,13 @@
                 "attackRoll": 0
             }
         },
-        "criticalMultiplier": 0,
+        "criticalMultiplier": 3,
         "criticalRange": 0,
         "range": 0,
         "types": ["P"],
         "special": [],
-        "proficiency": "Martial",
-        "subtype": "Ammunition",
+        "proficiency": "Simple Weapons",
+        "subtype": "Light Melee Weapons",
         "benefit": "",
         "condition": {
             "isMagical": false,

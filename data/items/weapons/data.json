@@ -1,4 +1,4 @@
 {
-    "weapons": ["Dagger", "Longbow", "Greatsword"],
-    "ignored": ["Gauntlet", "Unarmed Strike", "Spear, totem", "Shortbow", "Arrow, common", "Caltrops"]
+    "weapons": ["Dagger", "Dagger, punching", "Gauntlet, spiked", "Mace, light", "Sickle", "Club", "Mace, heavy", "Morningstar", "Quarterstaff", "Longspear", "Spear", "Blowgun", "Crossbow, heavy", "Crossbow, light", "Longbow", "Greatsword", "Arrow, common", "Dart, blowgun", "Bolt, crossbow", "Bullet, sling"],
+    "ignored": ["Gauntlet", "Unarmed Strike", "Spear, totem", "Shortbow", "Caltrops"]
 }

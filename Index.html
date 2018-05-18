@@ -34,9 +34,9 @@
     <div ng-show="characterBaseShow" ng-controller="characterBase" ng-include="'pages/basics.html'"></div>
     <div ng-show="abilityScoresShow" ng-controller="abilityScores" ng-include="'pages/abilityScores.html'"></div>
     <div ng-show="characterRaceShow" ng-controller="characterRace" ng-include="'pages/race.html'"></div>
-    <div ng-show="!classesShow" ng-controller="classController" ng-include="'pages/classes.html'"></div>
+    <div ng-show="classesShow" ng-controller="classController" ng-include="'pages/classes.html'"></div>
     <div ng-show="skillChecksShow" ng-controller="characterSkillchecks" ng-include="'pages/skillchecks.html'"></div>
-    <div ng-show="itemStoreShow" ng-controller="itemStoreController" ng-include="'pages/itemstore.html'"></div>
+    <div ng-show="!itemStoreShow" ng-controller="itemStoreController" ng-include="'pages/itemstore.html'"></div>
     <div ng-show="spellsShow" ng-controller="spellController" ng-include="'pages/spells.html'"></div>
 </body>
 

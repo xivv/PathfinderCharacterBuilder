@@ -1,13 +1,13 @@
 {
-    "name": "Arrow, common",
-    "displayName": "Arrow, common",
-    "description": "No description",
-    "shortDescription": "",
+    "name": "Dart, blowgun",
+    "displayName": "Dart, blowgun",
+    "description": "These light darts have tiny grooves behind the tips.",
+    "shortDescription": "These light darts have tiny grooves behind the tips.",
     "equipable": false,
     "consumable": true,
     "type": "Weapon",
-    "weight": 3,
-    "price": 1,
+    "weight": 1,
+    "price": 0.5,
     "source": "PZO1110",
     "attributes": {
         "slot": "Weapon",
@@ -22,14 +22,14 @@
                 "attackRoll": 0
             }
         },
-        "criticalMultiplier": 0,
+        "criticalMultiplier": 2,
         "criticalRange": 0,
         "range": 0,
-        "types": ["P"],
+        "types": [],
         "special": [],
-        "proficiency": "Martial",
+        "proficiency": "Simple",
         "subtype": "Ammunition",
-        "benefit": "",
+        "benefit": "A character can apply poison to a blowgun dart without risk of poisoning himself.",
         "condition": {
             "isMagical": false,
             "enhancementBonus": 0,
